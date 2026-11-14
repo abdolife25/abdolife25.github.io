@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { slugify } from '../../lib/site';
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+  const labels = [...new Set(posts.flatMap((p) => p.data.labels))];
+  return labels.map((label) => ({
+    params: { tag: slugify(label) },
+    props: { label, posts: posts.filter((p) => p.data.labels.includes(label)) },
+  }));
+}
+const { label, posts } = Astro.props;
+---
+<Base title={`${label} travel guides`} description={`Budget travel guides tagged ${label}.`} path={`/tags/${slugify(label)}.html`}>
+  <div class="wrap" style="padding-bottom:24px">
+    <h1>{label}</h1>
+    <div class="grid">
+      {posts.map((p) => (
+        <div class="card">
+          {p.data.heroImage && <a class="cover" href={p.data.path} tabindex="-1" aria-hidden="true"><img src={p.data.heroImage} alt="" loading="lazy"></a>}
+          <div class="body"><h3><a href={p.data.path}>{p.data.title}</a></h3><p>{p.data.description}</p></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+import { SITE } from '../lib/site';
+interface Props { title: string; description?: string; path?: string; image?: string; type?: 'website' | 'article'; noindex?: boolean }
+const { title, description = SITE.tagline, path = Astro.url.pathname, image, type = 'website', noindex = false } = Astro.props;
+const full = title === SITE.name ? `${SITE.name} | ${SITE.tagline}` : `${title} | ${SITE.name}`;
+const canonical = new URL(path, SITE.url).href;
+const img = image ? (image.startsWith('http') ? image : new URL(image, SITE.url).href) : undefined;
+const here = Astro.url.pathname;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/tags/budget-travel.html', label: 'Budget travel' },
+  { href: '/destinations.html', label: 'Destinations' },
+  { href: '/tools/trip-budget-calculator.html', label: 'Trip budget calculator' },
+  { href: '/p/about.html', label: 'About' },
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{full}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  {noindex && <meta name="robots" content="noindex">}
+  <meta property="og:site_name" content={SITE.name}>
+  <meta property="og:type" content={type}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  {img && <meta property="og:image" content={img}>}
+  <meta name="twitter:card" content={img ? 'summary_large_image' : 'summary'}>
+  <link rel="alternate" type="application/rss+xml" title="Voyagelo" href="/feed.xml">
+  <link rel="icon" href="/favicon.ico">
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}></script>
+  <script is:inline define:vars={{ id: SITE.ga4 }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', id);
+  </script>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="/">Voyagelo</a>
+      <nav class="main" aria-label="Main">
+        {nav.map((n) => <a href={n.href} aria-current={here === n.href ? 'page' : undefined}>{n.label}</a>)}
+      </nav>
+    </div>
+  </header>
+  <main><slot /></main>
+  <footer class="site">
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <a href="/p/about.html">About</a>
+        <a href="/p/affiliate-disclosure.html">Affiliate disclosure</a>
+        <a href="/p/privacy-policy.html">Privacy policy</a>
+        <a href="/p/terms-conditions.html">Terms</a>
+        <a href="/p/start-blogging-now.html">Write for Voyagelo</a>
+        <a href="/feed.xml">RSS</a>
+      </nav>
+      <div>© {new Date().getFullYear()} Voyagelo. Some links earn us a commission at no extra cost to you.</div>
+    </div>
+  </footer>
+</body>
+</html>

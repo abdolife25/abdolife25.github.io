@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+const posts = (await getCollection('posts')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+const latest = posts.slice(0, 9);
+const tagCount = new Map<string, number>();
+posts.forEach((p) => p.data.labels.forEach((l) => tagCount.set(l, (tagCount.get(l) ?? 0) + 1)));
+const countries = [...tagCount.keys()].filter((t) => t !== 'Budget Travel').sort();
+import { slugify } from '../lib/site';
+---
+<Base title={SITE.name} description="Budget travel guides with real trip costs, cheap places to stay and booking tips for 20+ destinations, plus a free trip budget calculator.">
+  <section class="wrap hero">
+    <h1>Travel more for less: budget guides and trip costs</h1>
+    <p>Destination guides, cheap places to stay and a calculator that turns your own prices into a trip budget.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="/tools/trip-budget-calculator.html">Calculate a trip budget</a>
+      <a class="btn ghost" href="/destinations.html">Browse destinations</a>
+    </div>
+  </section>
+  <section class="wrap" aria-labelledby="latest">
+    <h2 id="latest">Latest guides</h2>
+    <div class="grid">
+      {latest.map((p) => (
+        <div class="card">
+          {p.data.heroImage && <a class="cover" href={p.data.path} tabindex="-1" aria-hidden="true"><img src={p.data.heroImage} alt="" loading="lazy"></a>}
+          <div class="body"><h3><a href={p.data.path}>{p.data.title}</a></h3><p>{p.data.description}</p></div>
+        </div>
+      ))}
+    </div>
+  </section>
+  <section class="wrap" aria-labelledby="where">
+    <h2 id="where">Browse by destination</h2>
+    <div class="chips">{countries.map((c) => <a class="chip" href={`/tags/${slugify(c)}.html`}>{c} ({tagCount.get(c)})</a>)}</div>
+  </section>
+</Base>

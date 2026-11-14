@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trip Budget Calculator | Voyagelo</title>
+<meta name="description" content="Plan a trip budget in a minute: flights, stays, food, transport and activities, with a safety buffer. Share the result with a link.">
+<style>
+:root{--bg:#fbfaf7;--ink:#1d2a2f;--mute:#5c6b70;--line:#dcd8cd;--card:#fff;--accent:#0f6b63;--accent-ink:#fff;--warm:#b4541a;--soft:#e8f1ef}
+@media (prefers-color-scheme:dark){:root{--bg:#12191b;--ink:#e8eeee;--mute:#9fb0b3;--line:#2b3a3e;--card:#1a2427;--accent:#4fb8ac;--accent-ink:#06201d;--warm:#e58a55;--soft:#1f3330}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 56px}
+h1{font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.15;margin:0 0 6px;letter-spacing:-.01em}
+.lede{color:var(--mute);margin:0 0 24px;max-width:60ch}
+.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
+fieldset{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:14px 16px 6px;margin:0 0 14px}
+legend{font-weight:650;padding:0 6px}
+.row{display:grid;grid-template-columns:1fr 130px;gap:10px;align-items:center;margin-bottom:10px}
+.row small{display:block;color:var(--mute);font-size:.8rem}
+label{font-size:.95rem}
+input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:8px 10px}
+input:focus,select:focus,button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.top{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:520px){.top{grid-template-columns:1fr}.row{grid-template-columns:1fr 110px}}
+.top label{display:block;font-size:.85rem;color:var(--mute);margin-bottom:4px}
+.out{position:sticky;top:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.total{font-size:2.3rem;font-weight:750;letter-spacing:-.02em;line-height:1.1}
+.sub{color:var(--mute);margin:2px 0 14px}
+.bar{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--soft);margin:6px 0 12px}
+.bar span{display:block;height:100%}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td{padding:6px 0;border-bottom:1px solid var(--line)}
+td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+button,.cta{font:inherit;font-weight:600;border-radius:8px;padding:10px 14px;border:1px solid var(--accent);cursor:pointer;text-decoration:none;display:inline-block}
+button.primary,.cta.primary{background:var(--accent);color:var(--accent-ink)}
+button.ghost,.cta.ghost{background:transparent;color:var(--accent)}
+.note{font-size:.82rem;color:var(--mute);margin-top:14px}
+.book{margin-top:18px;padding-top:14px;border-top:1px solid var(--line)}
+.book h2{font-size:1rem;margin:0 0 8px}
+.disc{font-size:.78rem;color:var(--mute);margin-top:8px}
+.email{margin-top:18px;background:var(--soft);border-radius:8px;padding:12px}
+.email p{margin:0 0 8px;font-size:.92rem}
+.warn{color:var(--warm);font-size:.85rem;min-height:1.2em}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Trip budget calculator</h1>
+  <p class="lede">Enter what you expect to spend. The calculator adds it up, adds a safety buffer, and shows what the trip costs per person and per day. No numbers are pre-filled from guesses: replace the starting values with prices you have looked up.</p>
+
+  <div class="grid">
+    <form id="f" onsubmit="return false" aria-label="Trip inputs">
+      <fieldset>
+        <legend>Trip</legend>
+        <div class="top">
+          <div><label for="dest">Destination</label><input id="dest" type="text" placeholder="e.g. Lisbon"></div>
+          <div><label for="days">Nights</label><input id="days" type="number" min="1" max="365" value="7"></div>
+          <div><label for="ppl">Travelers</label><input id="ppl" type="number" min="1" max="20" value="2"></div>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <label for="cur">Currency</label>
+          <select id="cur"><option>USD</option><option>EUR</option><option>CAD</option><option>GBP</option></select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>One-time costs</legend>
+        <div class="row"><label for="flight">Flights<small>Round trip, per traveler</small></label><input id="flight" type="number" min="0" step="any" value="0"></div>
+        <div class="row"><label for="insurance">Travel insurance<small>Per traveler</small></label><input id="insurance" type="number" min="0" step="any" value="0"></div>
+        <div class="row"><label for="esim">eSIM or data<small>Total for the trip</small></label><input id="esim" type="number" min="0" step="any" value="0"></div>
+        <div class="row"><label for="other1">Visas, fees, gear<small>Total for the trip</small></label><input id="other1" type="number" min="0" step="any" value="0"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Daily costs</legend>
+        <div class="row"><label for="stay">Lodging per night<small>Room or apartment, whole group</small></label><input id="stay" type="number" min="0" step="any" value="0"></div>
+        <div class="row"><label for="food">Food per day<small>Per traveler</small></label><input id="food" type="number" min="0" step="any" value="0"></div>
+        <div class="row"><label for="move">Local transport per day<small>Per traveler</small></label><input id="move" type="number" min="0" step="any" value="0"></div>
+        <div class="row"><label for="fun">Activities per day<small>Per traveler</small></label><input id="fun" type="number" min="0" step="any" value="0"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Safety buffer</legend>
+        <div class="row"><label for="buf">Extra on top of the total<small>Covers price changes and surprises</small></label><input id="buf" type="number" min="0" max="100" step="1" value="10"></div>
+      </fieldset>
+      <div class="warn" id="warn" role="status"></div>
+    </form>
+
+    <aside class="out" aria-live="polite">
+      <div class="sub" id="title">Your trip</div>
+      <div class="total" id="total">0</div>
+      <div class="sub" id="persub"></div>
+      <div class="bar" id="bar" role="img" aria-label="Cost split"></div>
+      <table id="tbl"></table>
+
+      <div class="btns">
+        <button class="primary" id="copy" type="button">Copy share link</button>
+        <button class="ghost" id="reset" type="button">Reset</button>
+      </div>
+
+      <div class="book">
+        <h2>Ready to price it for real?</h2>
+        <div class="btns" style="margin-top:0">
+          <!-- Replace each href with your approved affiliate deep link -->
+          <a class="cta primary" id="lnkStay" href="YOUR_HOTEL_AFFILIATE_LINK_HERE" target="_blank" rel="sponsored noopener">Compare stays</a>
+          <a class="cta ghost" id="lnkFly" href="YOUR_FLIGHT_AFFILIATE_LINK_HERE" target="_blank" rel="sponsored noopener">Check flights</a>
+          <a class="cta ghost" id="lnkEsim" href="YOUR_ESIM_AFFILIATE_LINK_HERE" target="_blank" rel="sponsored noopener">Get an eSIM</a>
+        </div>
+        <p class="disc">Voyagelo may earn a commission if you book through these links, at no extra cost to you.</p>
+      </div>
+
+      <div class="email">
+        <p>Get a weekly budget-travel deal email.</p>
+        <!-- Replace with your MailerLite (or other) embed code -->
+        <a class="cta primary" href="YOUR_EMAIL_SIGNUP_LINK_HERE" target="_blank" rel="noopener">Join the list</a>
+      </div>
+      <p class="note">Estimates only. Prices change; check current rates before you book.</p>
+    </aside>
+  </div>
+</main>
+
+<script>
+(function(){
+  var ids=["dest","days","ppl","cur","flight","insurance","esim","other1","stay","food","move","fun","buf"];
+  var defaults={days:7,ppl:2,cur:"USD",buf:10,dest:""};
+  var $=function(i){return document.getElementById(i)};
+  var colors=["#0f6b63","#b4541a","#6a5acd","#c79a1c","#3b7bbf","#8a8f93"];
+  function num(i){var v=parseFloat($(i).value);return isFinite(v)&&v>=0?v:0}
+  function fmt(n){
+    try{return new Intl.NumberFormat(undefined,{style:"currency",currency:$("cur").value,maximumFractionDigits:0}).format(n)}
+    catch(e){return Math.round(n)+" "+$("cur").value}
+  }
+  function calc(){
+    var nights=Math.max(1,Math.round(num("days"))), ppl=Math.max(1,Math.round(num("ppl")));
+    var parts=[
+      ["Flights",num("flight")*ppl],
+      ["Lodging",num("stay")*nights],
+      ["Food",num("food")*ppl*(nights+1)],
+      ["Local transport",num("move")*ppl*(nights+1)],
+      ["Activities",num("fun")*ppl*(nights+1)],
+      ["Insurance, eSIM, fees",num("insurance")*ppl+num("esim")+num("other1")]
+    ];
+    var sub=parts.reduce(function(a,p){return a+p[1]},0);
+    var bufAmt=sub*Math.min(100,num("buf"))/100;
+    var total=sub+bufAmt;
+    $("warn").textContent=sub===0?"Enter your expected costs to see a total.":"";
+    $("title").textContent=($("dest").value.trim()||"Your trip")+" · "+nights+" nights · "+ppl+" traveler"+(ppl>1?"s":"");
+    $("total").textContent=fmt(total);
+    $("persub").textContent=fmt(total/ppl)+" per person · "+fmt(total/(nights+1))+" per day (whole group)";
+    var rows=parts.concat([["Safety buffer",bufAmt]]);
+    $("bar").innerHTML=rows.map(function(r,i){
+      var w=total>0?(r[1]/total*100):0;
+      return '<span style="width:'+w+'%;background:'+colors[i%colors.length]+'" title="'+r[0]+'"></span>';
+    }).join("");
+    $("tbl").innerHTML=rows.map(function(r,i){
+      return '<tr><td><span class="dot" style="background:'+colors[i%colors.length]+'"></span>'+r[0]+'</td><td>'+fmt(r[1])+'</td></tr>';
+    }).join("");
+    var d=encodeURIComponent($("dest").value.trim());
+    // Deep-link placeholders stay as-is until you paste real affiliate URLs; destination is appended only to real links.
+    ["lnkStay","lnkFly","lnkEsim"].forEach(function(id){
+      var a=$(id), base=a.getAttribute("data-base")||a.getAttribute("href");
+      a.setAttribute("data-base",base);
+      if(/^https?:/.test(base)&&base.indexOf("{dest}")>-1)a.href=base.replace("{dest}",d);
+    });
+    save();
+  }
+  function state(){var s={};ids.forEach(function(i){s[i]=$(i).value});return s}
+  function save(){
+    var p=new URLSearchParams(state());
+    try{history.replaceState(null,"","?"+p.toString())}catch(e){}
+  }
+  function load(){
+    var p=new URLSearchParams(location.search);
+    ids.forEach(function(i){if(p.has(i))$(i).value=p.get(i)});
+  }
+  ids.forEach(function(i){$(i).addEventListener("input",calc);$(i).addEventListener("change",calc)});
+  $("copy").addEventListener("click",function(){
+    var b=$("copy");
+    function ok(){b.textContent="Link copied";setTimeout(function(){b.textContent="Copy share link"},1800)}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(location.href).then(ok,function(){prompt("Copy this link",location.href)})}
+    else{prompt("Copy this link",location.href)}
+  });
+  $("reset").addEventListener("click",function(){
+    ids.forEach(function(i){$(i).value=defaults.hasOwnProperty(i)?defaults[i]:0});calc();
+  });
+  load();calc();
+})();
+</script>
+</body>
+</html>

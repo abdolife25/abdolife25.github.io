@@ -1,0 +1,7 @@
+{
+  "name": "voyagelo",
+  "type": "module",
+  "private": true,
+  "scripts": { "dev": "astro dev", "build": "astro build && node scripts/make-redirects.mjs", "preview": "astro preview" },
+  "dependencies": { "astro": "^5.0.0", "@astrojs/sitemap": "^3.2.0", "@astrojs/rss": "^4.0.0" }
+}

@@ -1,0 +1,54 @@
+---
+import Base from './Base.astro';
+import { getCollection } from 'astro:content';
+import { SITE, slugify } from '../lib/site';
+interface Props { entry: any; kind: 'post' | 'page' }
+const { entry, kind } = Astro.props;
+const d = entry.data;
+const { Content } = await Astro.props.rendered;
+const fmt = (x: Date) => x.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+let related: any[] = [];
+if (kind === 'post') {
+  const all = await getCollection('posts');
+  related = all
+    .filter((p) => p.id !== entry.id && p.data.labels.some((l: string) => d.labels.includes(l)))
+    .sort((a, b) => +b.data.pubDate - +a.data.pubDate)
+    .slice(0, 3);
+}
+---
+<Base title={d.title} description={d.description} path={d.path} image={d.heroImage} type={kind === 'post' ? 'article' : 'website'}>
+  <article class="post narrow">
+    <h1>{d.title}</h1>
+    {kind === 'post' && (
+      <>
+        <div class="meta">
+          Published {fmt(d.pubDate)}{d.updatedDate && +d.updatedDate - +d.pubDate > 7 * 864e5 ? <> · Updated {fmt(d.updatedDate)}</> : null}
+        </div>
+        {d.labels.length > 0 && (
+          <div class="chips">{d.labels.map((l: string) => <a class="chip" href={`/tags/${slugify(l)}.html`}>{l}</a>)}</div>
+        )}
+        <p class="disclosure">This guide contains affiliate links. If you book through them, Voyagelo may earn a commission at no extra cost to you. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>
+      </>
+    )}
+    <Content />
+    {kind === 'post' && SITE.emailSignupUrl && (
+      <div class="signup"><strong>Get weekly budget-travel deals.</strong> <a class="btn primary" href={SITE.emailSignupUrl}>Join the list</a></div>
+    )}
+    {kind === 'post' && (
+      <div class="tool-band">
+        <h2>Work out what this trip will cost</h2>
+        <p>Enter your own flight, stay and daily costs and get a total with a safety buffer.</p>
+        <a class="btn primary" href="/tools/trip-budget-calculator.html">Open the budget calculator</a>
+      </div>
+    )}
+  </article>
+  {related.length > 0 && (
+    <section class="wrap" aria-labelledby="rel"><h2 id="rel">More guides</h2>
+      <div class="grid">
+        {related.map((r) => (
+          <div class="card"><div class="body"><h3><a href={r.data.path}>{r.data.title}</a></h3><p>{r.data.description}</p></div></div>
+        ))}
+      </div>
+    </section>
+  )}
+</Base>
