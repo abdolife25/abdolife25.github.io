@@ -12,6 +12,8 @@ const placeCount = (p: string) => cards.filter((c) => c.place === p).length;
 ---
 <Base title={SITE.name} description="Find a budget travel guide by country or trip type, then turn your own prices into a trip budget with free planning tools.">
   <div data-finder data-limit="9">
+    <div class="hero-band">
+    <img class="hero-img" src="/images/hero/home-1400.webp" srcset="/images/hero/home-800.webp 800w, /images/hero/home-1400.webp 1400w" sizes="100vw" width="1400" height="737" alt="" fetchpriority="high" decoding="async">
     <section class="wrap hero">
       <h1>Where can your <mark>budget</mark> take you?</h1>
       <p class="lede">Pick a region or a kind of trip and the guides below update as you choose. Then price the trip with the budget calculator.</p>
@@ -28,6 +30,7 @@ const placeCount = (p: string) => cards.filter((c) => c.place === p).length;
         </div>
       </div>
     </section>
+    </div>
     <section class="wrap" id="guides" aria-live="polite">
       <div class="finder-meta">
         <h2 data-count>{cards.length} guides</h2>

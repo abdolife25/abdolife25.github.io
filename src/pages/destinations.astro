@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import GuideCard from '../components/GuideCard.astro';
 import { REGIONS, cardData, slugify } from '../lib/site';
 const cards = (await getCollection('posts')).sort((a, b) => +b.data.pubDate - +a.data.pubDate).map(cardData);
+const banners: Record<string, string> = { Asia: 'asia', Europe: 'europe', Americas: 'americas', 'Middle East & Africa': 'mea' };
 const groups = [...Object.keys(REGIONS), 'Worldwide'].map((r) => ({ name: r, cards: cards.filter((c) => c.region === r) })).filter((g) => g.cards.length);
 ---
 <Base title="Budget travel destinations" description="Every Voyagelo guide grouped by region: costs, where to stay and the best time to go.">
@@ -14,7 +15,9 @@ const groups = [...Object.keys(REGIONS), 'Worldwide'].map((r) => ({ name: r, car
   </div>
   {groups.map((g) => (
     <section class="block" id={slugify(g.name)} style="padding-top:30px"><div class="wrap">
-      <div class="block-head"><h2>{g.name}</h2></div>
+      {banners[g.name] ? (
+        <div class="region-banner"><img src={`/images/hero/${banners[g.name]}-1200.webp`} width="1200" height="462" alt="" loading="lazy" decoding="async"><h2>{g.name}</h2><span>{g.cards.length} {g.cards.length === 1 ? 'guide' : 'guides'}</span></div>
+      ) : <div class="block-head"><h2>{g.name}</h2></div>}
       <div class="grid">{g.cards.map((c) => <GuideCard card={c} />)}</div>
     </div></section>
   ))}
