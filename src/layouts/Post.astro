@@ -19,6 +19,14 @@ if (kind === 'post') {
   related = [...same, ...near, ...all.filter((p) => !same.includes(p) && !near.includes(p))].slice(0, 3).map(cardData);
 }
 const isPost = kind === 'post';
+const shareUrl = encodeURIComponent(new URL(d.path, SITE.url).href), shareText = encodeURIComponent(d.title);
+const shareImg = d.heroImage ? encodeURIComponent(d.heroImage.startsWith('http') ? d.heroImage : new URL(d.heroImage, SITE.url).href) : '';
+const shares = [
+  { name: 'Facebook', url: `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}` },
+  { name: 'X', url: `https://x.com/intent/post?url=${shareUrl}&text=${shareText}` },
+  { name: 'Pinterest', url: `https://www.pinterest.com/pin/create/button/?url=${shareUrl}&description=${shareText}${shareImg ? `&media=${shareImg}` : ''}` },
+  { name: 'WhatsApp', url: `https://wa.me/?text=${shareText}%20${shareUrl}` },
+];
 ---
 <Base title={d.title} description={d.description} path={d.path} image={d.heroImage} type={isPost ? 'article' : 'website'}>
   {isPost && <div class="progress" data-progress></div>}
@@ -49,6 +57,16 @@ const isPost = kind === 'post';
         </details>
       )}
       <Content />
+      {isPost && (
+        <div class="share">
+          <strong>Share this guide</strong>
+          <div class="chips">
+            <button type="button" class="chip" data-share data-title={d.title} hidden>Share</button>
+            {shares.map((x) => <a class="chip" href={x.url} target="_blank" rel="noopener">{x.name}</a>)}
+            <button type="button" class="chip" data-copy-link>Copy link</button>
+          </div>
+        </div>
+      )}
       {isPost && (
         <div class="plan plan-inline">
           <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>

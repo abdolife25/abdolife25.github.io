@@ -169,6 +169,11 @@ function initPost() {
     byId.forEach((_, id) => { const h = document.getElementById(id); if (h) io.observe(h); });
     pageSignal().addEventListener('abort', () => io.disconnect());
   }
+  $$('[data-share]').forEach((b) => {
+    if (!navigator.share) return;
+    b.hidden = false;
+    b.addEventListener('click', () => { navigator.share({ title: b.dataset.title, url: location.href }).catch(() => {}); });
+  });
   $$('[data-copy-link]').forEach((b) => b.addEventListener('click', async () => {
     const label = b.textContent;
     try { await navigator.clipboard.writeText(location.href); b.textContent = 'Link copied'; }

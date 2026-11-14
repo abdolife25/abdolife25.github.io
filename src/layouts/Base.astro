@@ -38,6 +38,7 @@ const links = [
   <meta name="twitter:card" content={img ? 'summary_large_image' : 'summary'}>
   <link rel="alternate" type="application/rss+xml" title="Voyagelo" href="/feed.xml">
   <link rel="icon" href="/favicon.ico">
+  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, sameAs: SITE.social.map((x) => x.url) })}></script>
   <script is:inline>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
@@ -94,6 +95,9 @@ const links = [
         <div>
           <a class="brand" href="/"><i></i>Voyagelo</a>
           <p>Budget travel guides and tools that turn your own prices into a trip plan.</p>
+          <div class="social" aria-label="Voyagelo on social media">
+            {SITE.social.map((x) => <a class="chip" href={x.url} target="_blank" rel="me noopener">{x.name}</a>)}
+          </div>
         </div>
         <div>
           <h3>Explore</h3>

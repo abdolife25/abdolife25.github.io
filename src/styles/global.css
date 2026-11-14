@@ -208,3 +208,7 @@ dialog.search .searchfield{border:0;border-bottom:1px solid var(--line);border-r
 .page-head p{color:var(--mute);max-width:60ch;margin:10px 0 0}
 @media print{.site-head,.site-foot,.bar-wrap .btn,.pack .add{display:none!important}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.social{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.social .chip{font-size:.85rem;padding:4px 12px}
+.share{margin:34px 0 0;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:10px}
+.share strong{font-family:var(--display)}

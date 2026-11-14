@@ -8,6 +8,14 @@ export const SITE = {
   // Paste approved affiliate links here; buttons only appear when a link is set.
   // Use {dest} where the destination name should go, if the partner supports it.
   affiliate: { stays: '', flights: '', esim: '' },
+  // Official accounts (taken from the old Blogger theme). Remove a line to hide it.
+  social: [
+    { name: 'Instagram', url: 'https://www.instagram.com/voyagelo/' },
+    { name: 'Facebook', url: 'https://www.facebook.com/profile.php?id=61560893701835' },
+    { name: 'Pinterest', url: 'https://www.pinterest.com/Voyagelo/' },
+    { name: 'YouTube', url: 'https://www.youtube.com/@VoyageloTravel' },
+    { name: 'X', url: 'https://x.com/Voyagelo' },
+  ],
 };
 
 export const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
