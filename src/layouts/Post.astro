@@ -1,54 +1,89 @@
 ---
 import Base from './Base.astro';
+import GuideCard from '../components/GuideCard.astro';
 import { getCollection } from 'astro:content';
-import { SITE, slugify } from '../lib/site';
-interface Props { entry: any; kind: 'post' | 'page' }
-const { entry, kind } = Astro.props;
+import { SITE, slugify, placeOf, regionOf, readMins, cardData } from '../lib/site';
+interface Props { entry: any; kind: 'post' | 'page'; rendered: any }
+const { entry, kind, rendered } = Astro.props;
 const d = entry.data;
-const { Content } = await Astro.props.rendered;
+const { Content, headings } = rendered;
+const toc = (headings || []).filter((h: any) => h.depth === 2).slice(0, 24);
 const fmt = (x: Date) => x.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const place = placeOf(d.labels), region = regionOf(d.labels);
+const calcHref = `/tools/trip-budget-calculator.html${place ? `?dest=${encodeURIComponent(place)}` : ''}`;
 let related: any[] = [];
 if (kind === 'post') {
-  const all = await getCollection('posts');
-  related = all
-    .filter((p) => p.id !== entry.id && p.data.labels.some((l: string) => d.labels.includes(l)))
-    .sort((a, b) => +b.data.pubDate - +a.data.pubDate)
-    .slice(0, 3);
+  const all = (await getCollection('posts')).filter((p) => p.id !== entry.id).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
+  const same = all.filter((p) => place && placeOf(p.data.labels) === place);
+  const near = all.filter((p) => !same.includes(p) && regionOf(p.data.labels) === region);
+  related = [...same, ...near, ...all.filter((p) => !same.includes(p) && !near.includes(p))].slice(0, 3).map(cardData);
 }
+const isPost = kind === 'post';
 ---
-<Base title={d.title} description={d.description} path={d.path} image={d.heroImage} type={kind === 'post' ? 'article' : 'website'}>
-  <article class="post narrow">
+<Base title={d.title} description={d.description} path={d.path} image={d.heroImage} type={isPost ? 'article' : 'website'}>
+  {isPost && <div class="progress" data-progress></div>}
+  <div class="wrap post-head">
+    {isPost && (
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>/</span><a href="/destinations.html">Destinations</a>
+        {place && <><span>/</span><a href={`/tags/${slugify(place)}.html`}>{place}</a></>}
+      </nav>
+    )}
     <h1>{d.title}</h1>
-    {kind === 'post' && (
-      <>
-        <div class="meta">
-          Published {fmt(d.pubDate)}{d.updatedDate && +d.updatedDate - +d.pubDate > 7 * 864e5 ? <> · Updated {fmt(d.updatedDate)}</> : null}
+    {isPost && (
+      <div class="meta">
+        <span>{readMins(entry.body)} min read</span>
+        <span>Published {fmt(d.pubDate)}</span>
+        {d.updatedDate && +d.updatedDate - +d.pubDate > 7 * 864e5 && <span>Updated {fmt(d.updatedDate)}</span>}
+        <button type="button" class="linkbtn" data-copy-link>Copy link</button>
+      </div>
+    )}
+  </div>
+  <div class={isPost ? 'wrap post-grid' : 'wrap'} style={isPost ? undefined : 'max-width:760px'}>
+    <article class="prose" data-prose>
+      {isPost && <p class="disclosure">This guide contains affiliate links. If you book through them, Voyagelo may earn a commission at no extra cost to you. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>}
+      {isPost && toc.length > 2 && (
+        <details class="toc toc-mobile" data-toc>
+          <summary>On this page</summary>
+          <ol>{toc.map((h: any) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </details>
+      )}
+      <Content />
+      {isPost && (
+        <div class="plan plan-inline">
+          <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>
+          <p>Enter your own flight, stay and daily costs and get a total with a safety buffer.</p>
+          <div><a class="btn sun" href={calcHref}>Open the budget calculator</a></div>
         </div>
-        {d.labels.length > 0 && (
-          <div class="chips">{d.labels.map((l: string) => <a class="chip" href={`/tags/${slugify(l)}.html`}>{l}</a>)}</div>
+      )}
+    </article>
+    {isPost && (
+      <aside class="rail">
+        {toc.length > 2 && (
+          <nav class="toc" data-toc aria-label="On this page">
+            <strong>On this page</strong>
+            <ol>{toc.map((h: any) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
         )}
-        <p class="disclosure">This guide contains affiliate links. If you book through them, Voyagelo may earn a commission at no extra cost to you. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>
-      </>
+        <div class="plan">
+          <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>
+          <p>Turn your own prices into a total with a safety buffer.</p>
+          <a class="btn sun" href={calcHref}>Budget calculator</a>
+          <a class="btn" style="border-color:currentColor;color:inherit" href="/tools/packing-checklist.html">Packing checklist</a>
+        </div>
+      </aside>
     )}
-    <Content />
-    {kind === 'post' && SITE.emailSignupUrl && (
-      <div class="signup"><strong>Get weekly budget-travel deals.</strong> <a class="btn primary" href={SITE.emailSignupUrl}>Join the list</a></div>
-    )}
-    {kind === 'post' && (
-      <div class="tool-band">
-        <h2>Work out what this trip will cost</h2>
-        <p>Enter your own flight, stay and daily costs and get a total with a safety buffer.</p>
-        <a class="btn primary" href="/tools/trip-budget-calculator.html">Open the budget calculator</a>
-      </div>
-    )}
-  </article>
+  </div>
   {related.length > 0 && (
-    <section class="wrap" aria-labelledby="rel"><h2 id="rel">More guides</h2>
-      <div class="grid">
-        {related.map((r) => (
-          <div class="card"><div class="body"><h3><a href={r.data.path}>{r.data.title}</a></h3><p>{r.data.description}</p></div></div>
-        ))}
-      </div>
-    </section>
+    <section class="block"><div class="wrap">
+      <div class="block-head"><h2>Keep planning</h2></div>
+      <div class="grid">{related.map((c) => <GuideCard card={c} />)}</div>
+    </div></section>
+  )}
+  {isPost && SITE.emailSignupUrl && (
+    <section class="block"><div class="wrap"><div class="signup">
+      <h2>Get one budget-travel deal email a week</h2>
+      <a class="btn primary" href={SITE.emailSignupUrl}>Join the list</a>
+    </div></div></section>
   )}
 </Base>

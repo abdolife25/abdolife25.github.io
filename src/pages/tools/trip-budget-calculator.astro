@@ -1,0 +1,65 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../lib/site';
+const aff = [
+  { key: 'stays', label: 'Compare stays' }, { key: 'flights', label: 'Check flights' }, { key: 'esim', label: 'Get an eSIM' },
+].filter((a) => (SITE.affiliate as any)[a.key]);
+const money = [
+  ['flight', 'Flights', 'Round trip, per traveler'], ['insurance', 'Travel insurance', 'Per traveler'],
+  ['esim', 'eSIM or data', 'Total for the trip'], ['other1', 'Visas, fees, gear', 'Total for the trip'],
+];
+const daily = [
+  ['stay', 'Lodging per night', 'Room or apartment, whole group'], ['food', 'Food per day', 'Per traveler'],
+  ['move', 'Local transport per day', 'Per traveler'], ['fun', 'Activities per day', 'Per traveler'],
+];
+---
+<Base title="Trip budget calculator" description="Plan a trip budget in a minute: flights, stays, food, transport and activities, with a safety buffer. Share the result with a link.">
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools.html">Trip tools</a></nav>
+    <h1>Trip budget calculator</h1>
+    <p>Enter what you expect to spend. The total updates as you type. Every field starts at zero, so the numbers are yours, not guesses.</p>
+  </div>
+  <div class="wrap calc" data-calc>
+    <div class="calc-grid">
+      <form onsubmit="return false" aria-label="Trip inputs">
+        <fieldset><legend>Trip</legend>
+          <div class="top">
+            <div><label for="dest">Destination</label><input id="dest" type="text" placeholder="e.g. Lisbon"></div>
+            <div><label for="days">Nights</label><input id="days" type="number" min="1" max="365" value="7" inputmode="numeric"></div>
+            <div><label for="ppl">Travelers</label><input id="ppl" type="number" min="1" max="20" value="2" inputmode="numeric"></div>
+          </div>
+          <div class="row" style="margin-top:12px"><label for="cur">Currency</label>
+            <select id="cur"><option>USD</option><option>EUR</option><option>CAD</option><option>GBP</option></select></div>
+        </fieldset>
+        <fieldset><legend>One-time costs</legend>
+          {money.map(([id, l, s]) => <div class="row"><label for={id}>{l}<small>{s}</small></label><input id={id} type="number" min="0" step="any" value="0" inputmode="decimal"></div>)}
+        </fieldset>
+        <fieldset><legend>Daily costs</legend>
+          {daily.map(([id, l, s]) => <div class="row"><label for={id}>{l}<small>{s}</small></label><input id={id} type="number" min="0" step="any" value="0" inputmode="decimal"></div>)}
+        </fieldset>
+        <fieldset><legend>Safety buffer</legend>
+          <div class="row"><label for="buf">Extra on top, in percent<small>Covers price changes and surprises</small></label><input id="buf" type="number" min="0" max="100" step="1" value="10" inputmode="numeric"></div>
+        </fieldset>
+      </form>
+      <aside class="out" aria-live="polite">
+        <div class="sub" data-title>Your trip</div>
+        <div class="total" data-total>0</div>
+        <div class="sub" data-persub></div>
+        <div class="bar" data-bar role="img" aria-label="Cost split"></div>
+        <table data-table></table>
+        <p class="note" data-warn role="status"></p>
+        <div class="btns">
+          <button class="btn sun" type="button" data-copy>Copy share link</button>
+          <button class="btn" type="button" data-calc-reset>Reset</button>
+        </div>
+        {aff.length > 0 && (
+          <div class="btns">
+            {aff.map((a) => <a class="btn" data-aff={(SITE.affiliate as any)[a.key]} href={(SITE.affiliate as any)[a.key]} target="_blank" rel="sponsored noopener">{a.label}</a>)}
+          </div>
+        )}
+        {aff.length > 0 && <p class="note">Voyagelo may earn a commission if you book through these links, at no extra cost to you.</p>}
+        <p class="note">Estimates only. Prices change, so check current rates before you book.</p>
+      </aside>
+    </div>
+  </div>
+</Base>

@@ -3,7 +3,44 @@ export const SITE = {
   url: 'https://www.voyagelo.com',
   tagline: 'Budget travel guides, trip costs and booking tips',
   ga4: 'G-2NS892R3FH',
-  // Paste your MailerLite (or other) signup page URL here to show the signup box on posts.
+  // Paste your signup page URL here to show the email signup blocks.
   emailSignupUrl: '',
+  // Paste approved affiliate links here; buttons only appear when a link is set.
+  // Use {dest} where the destination name should go, if the partner supports it.
+  affiliate: { stays: '', flights: '', esim: '' },
 };
+
 export const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+export const REGIONS: Record<string, string[]> = {
+  Asia: ['India', 'Japan', 'Vietnam', 'Nepal', 'Indonesia', 'Cambodia', 'Thailand'],
+  Europe: ['Italy', 'Romania', 'Portugal', 'Spain', 'Greece', 'Croatia', 'UK', 'Norway'],
+  Americas: ['Mexico', 'Caribbean', 'Canada'],
+  'Middle East & Africa': ['Dubai', 'Egypt'],
+};
+
+export const placeOf = (labels: string[]) => labels.find((l) => l !== 'Budget Travel') ?? '';
+export function regionOf(labels: string[]) {
+  const place = placeOf(labels);
+  for (const [region, places] of Object.entries(REGIONS)) if (places.includes(place)) return region;
+  return 'Worldwide';
+}
+export function typeOf(title: string) {
+  if (/resort|villa|luxur/i.test(title)) return 'Splurge';
+  if (/\b\d+[- ]day\b|itinerary|week in/i.test(title)) return 'Itinerary';
+  if (/beach|shore/i.test(title)) return 'Beaches';
+  if (/cheapest|under \$|budget|cheap/i.test(title)) return 'Budget picks';
+  return 'Guide';
+}
+export const TYPES = ['Itinerary', 'Budget picks', 'Guide', 'Beaches', 'Splurge'];
+export const readMins = (body = '') => Math.max(1, Math.round(body.split(/\s+/).length / 220));
+// Small card image: local images get a pre-made thumbnail, remote ones are used as they are.
+export const thumb = (src = '') => (src.startsWith('/images/') ? src.replace('/images/', '/images/t/') : src);
+
+export function cardData(p: any) {
+  const d = p.data;
+  return {
+    title: d.title, href: d.path, description: d.description, image: d.heroImage || '',
+    place: placeOf(d.labels), region: regionOf(d.labels), type: typeOf(d.title), mins: readMins(p.body),
+  };
+}

@@ -1,27 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
-import { slugify } from '../../lib/site';
+import GuideCard from '../../components/GuideCard.astro';
+import { slugify, cardData } from '../../lib/site';
 export async function getStaticPaths() {
   const posts = (await getCollection('posts')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
   const labels = [...new Set(posts.flatMap((p) => p.data.labels))];
-  return labels.map((label) => ({
-    params: { tag: slugify(label) },
-    props: { label, posts: posts.filter((p) => p.data.labels.includes(label)) },
-  }));
+  return labels.map((label) => ({ params: { tag: slugify(label) }, props: { label, posts: posts.filter((p) => p.data.labels.includes(label)) } }));
 }
 const { label, posts } = Astro.props;
+const isPlace = label !== 'Budget Travel';
 ---
-<Base title={`${label} travel guides`} description={`Budget travel guides tagged ${label}.`} path={`/tags/${slugify(label)}.html`}>
-  <div class="wrap" style="padding-bottom:24px">
+<Base title={`${label} travel guides`} description={`Budget travel guides for ${label}: costs, itineraries and where to stay.`} path={`/tags/${slugify(label)}.html`}>
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/destinations.html">Destinations</a></nav>
     <h1>{label}</h1>
-    <div class="grid">
-      {posts.map((p) => (
-        <div class="card">
-          {p.data.heroImage && <a class="cover" href={p.data.path} tabindex="-1" aria-hidden="true"><img src={p.data.heroImage} alt="" loading="lazy"></a>}
-          <div class="body"><h3><a href={p.data.path}>{p.data.title}</a></h3><p>{p.data.description}</p></div>
-        </div>
-      ))}
-    </div>
+    <p>{posts.length} {posts.length === 1 ? 'guide' : 'guides'}.{isPlace && ' Ready to price the trip?'}</p>
+    {isPlace && <p><a class="btn primary" href={`/tools/trip-budget-calculator.html?dest=${encodeURIComponent(label)}`}>Budget a {label} trip</a></p>}
   </div>
+  <div class="wrap"><div class="grid">{posts.map((p, i) => <GuideCard card={cardData(p)} eager={i < 3} />)}</div></div>
 </Base>

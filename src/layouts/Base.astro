@@ -1,17 +1,22 @@
 ---
+import '@fontsource-variable/bricolage-grotesque';
 import '../styles/global.css';
-import { SITE } from '../lib/site';
+import { ClientRouter } from 'astro:transitions';
+import { getCollection } from 'astro:content';
+import { SITE, REGIONS, slugify, placeOf } from '../lib/site';
 interface Props { title: string; description?: string; path?: string; image?: string; type?: 'website' | 'article'; noindex?: boolean }
 const { title, description = SITE.tagline, path = Astro.url.pathname, image, type = 'website', noindex = false } = Astro.props;
 const full = title === SITE.name ? `${SITE.name} | ${SITE.tagline}` : `${title} | ${SITE.name}`;
 const canonical = new URL(path, SITE.url).href;
 const img = image ? (image.startsWith('http') ? image : new URL(image, SITE.url).href) : undefined;
 const here = Astro.url.pathname;
-const nav = [
-  { href: '/', label: 'Home' },
-  { href: '/tags/budget-travel.html', label: 'Budget travel' },
-  { href: '/destinations.html', label: 'Destinations' },
-  { href: '/tools/trip-budget-calculator.html', label: 'Trip budget calculator' },
+const posts = await getCollection('posts');
+const counts = new Map<string, number>();
+posts.forEach((p) => { const pl = placeOf(p.data.labels); if (pl) counts.set(pl, (counts.get(pl) ?? 0) + 1); });
+const regions = Object.entries(REGIONS).map(([name, places]) => ({ name, places: places.filter((p) => counts.has(p)) }));
+const links = [
+  { href: '/?type=Itinerary', label: 'Itineraries' },
+  { href: '/tools.html', label: 'Trip tools' },
   { href: '/p/about.html', label: 'About' },
 ];
 ---
@@ -33,6 +38,10 @@ const nav = [
   <meta name="twitter:card" content={img ? 'summary_large_image' : 'summary'}>
   <link rel="alternate" type="application/rss+xml" title="Voyagelo" href="/feed.xml">
   <link rel="icon" href="/favicon.ico">
+  <script is:inline>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <ClientRouter />
   <script async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}></script>
   <script is:inline define:vars={{ id: SITE.ga4 }}>
     window.dataLayer = window.dataLayer || [];
@@ -41,27 +50,88 @@ const nav = [
   </script>
 </head>
 <body>
-  <header class="site">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-head" data-head>
     <div class="wrap">
-      <a class="brand" href="/">Voyagelo</a>
-      <nav class="main" aria-label="Main">
-        {nav.map((n) => <a href={n.href} aria-current={here === n.href ? 'page' : undefined}>{n.label}</a>)}
+      <a class="brand" href="/"><i></i>Voyagelo</a>
+      <nav class="nav" aria-label="Main">
+        <details class="mega" data-mega>
+          <summary>Destinations</summary>
+          <div class="mega-panel">
+            <div class="wrap">
+              {regions.map((r) => (
+                <div>
+                  <h3>{r.name}</h3>
+                  <ul>{r.places.map((p) => <li><a href={`/tags/${slugify(p)}.html`}>{p}<span>{counts.get(p)}</span></a></li>)}</ul>
+                </div>
+              ))}
+              <div class="mega-all"><a href="/destinations.html">See all destinations</a></div>
+            </div>
+          </div>
+        </details>
+        {links.map((n) => <a href={n.href} aria-current={here === n.href ? 'page' : undefined}>{n.label}</a>)}
       </nav>
+      <div class="head-tools">
+        <button class="icon-btn" type="button" data-open-search aria-label="Search guides">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="lbl">Search</span><kbd>/</kbd>
+        </button>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" type="button" data-menu aria-label="Menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
     </div>
   </header>
-  <main><slot /></main>
-  <footer class="site">
+
+  <main id="main"><slot /></main>
+
+  <footer class="site-foot">
     <div class="wrap">
-      <nav aria-label="Footer">
-        <a href="/p/about.html">About</a>
-        <a href="/p/affiliate-disclosure.html">Affiliate disclosure</a>
-        <a href="/p/privacy-policy.html">Privacy policy</a>
-        <a href="/p/terms-conditions.html">Terms</a>
-        <a href="/p/start-blogging-now.html">Write for Voyagelo</a>
-        <a href="/feed.xml">RSS</a>
-      </nav>
+      <div class="cols">
+        <div>
+          <a class="brand" href="/"><i></i>Voyagelo</a>
+          <p>Budget travel guides and tools that turn your own prices into a trip plan.</p>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="/destinations.html">Destinations</a></li>
+            <li><a href="/?type=Itinerary">Itineraries</a></li>
+            <li><a href="/tags/budget-travel.html">Budget travel</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Trip tools</h3>
+          <ul>
+            <li><a href="/tools/trip-budget-calculator.html">Budget calculator</a></li>
+            <li><a href="/tools/packing-checklist.html">Packing checklist</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Voyagelo</h3>
+          <ul>
+            <li><a href="/p/about.html">About</a></li>
+            <li><a href="/p/affiliate-disclosure.html">Affiliate disclosure</a></li>
+            <li><a href="/p/privacy-policy.html">Privacy policy</a></li>
+            <li><a href="/p/terms-conditions.html">Terms</a></li>
+            <li><a href="/feed.xml" data-astro-reload>RSS</a></li>
+          </ul>
+        </div>
+      </div>
       <div>© {new Date().getFullYear()} Voyagelo. Some links earn us a commission at no extra cost to you.</div>
     </div>
   </footer>
+
+  <dialog class="search" data-search aria-label="Search guides">
+    <label class="searchfield">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" placeholder="Search a country, city or trip type" autocomplete="off" data-search-input aria-label="Search guides">
+    </label>
+    <ul class="results" data-search-results><li class="none">Type to search all guides.</li></ul>
+  </dialog>
+  <script>import '../scripts/app.js';</script>
 </body>
 </html>

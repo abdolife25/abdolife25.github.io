@@ -1,36 +1,81 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
-import { SITE } from '../lib/site';
+import GuideCard from '../components/GuideCard.astro';
+import { SITE, REGIONS, TYPES, cardData, slugify } from '../lib/site';
 const posts = (await getCollection('posts')).sort((a, b) => +b.data.pubDate - +a.data.pubDate);
-const latest = posts.slice(0, 9);
-const tagCount = new Map<string, number>();
-posts.forEach((p) => p.data.labels.forEach((l) => tagCount.set(l, (tagCount.get(l) ?? 0) + 1)));
-const countries = [...tagCount.keys()].filter((t) => t !== 'Budget Travel').sort();
-import { slugify } from '../lib/site';
+const cards = posts.map(cardData);
+const regionNames = [...Object.keys(REGIONS), 'Worldwide'].filter((r) => cards.some((c) => c.region === r));
+const types = TYPES.filter((t) => cards.some((c) => c.type === t));
+const n = (k: 'region' | 'type', v: string) => cards.filter((c) => c[k] === v).length;
+const placeCount = (p: string) => cards.filter((c) => c.place === p).length;
 ---
-<Base title={SITE.name} description="Budget travel guides with real trip costs, cheap places to stay and booking tips for 20+ destinations, plus a free trip budget calculator.">
-  <section class="wrap hero">
-    <h1>Travel more for less: budget guides and trip costs</h1>
-    <p>Destination guides, cheap places to stay and a calculator that turns your own prices into a trip budget.</p>
-    <div class="cta-row">
-      <a class="btn primary" href="/tools/trip-budget-calculator.html">Calculate a trip budget</a>
-      <a class="btn ghost" href="/destinations.html">Browse destinations</a>
+<Base title={SITE.name} description="Find a budget travel guide by country or trip type, then turn your own prices into a trip budget with free planning tools.">
+  <div data-finder data-limit="9">
+    <section class="wrap hero">
+      <h1>Where can your <mark>budget</mark> take you?</h1>
+      <p class="lede">Pick a region or a kind of trip and the guides below update as you choose. Then price the trip with the budget calculator.</p>
+      <div class="finder-box">
+        <label class="searchfield">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" data-q placeholder="Try Japan, beaches or 7-day" aria-label="Search guides" autocomplete="off">
+        </label>
+        <div class="filter-row"><span>Region</span>
+          <div class="chips">{regionNames.map((r) => <button type="button" class="chip" data-filter="region" data-value={r} aria-pressed="false">{r} <small>{n('region', r)}</small></button>)}</div>
+        </div>
+        <div class="filter-row"><span>Trip type</span>
+          <div class="chips">{types.map((t) => <button type="button" class="chip" data-filter="type" data-value={t} aria-pressed="false">{t} <small>{n('type', t)}</small></button>)}</div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap" id="guides" aria-live="polite">
+      <div class="finder-meta">
+        <h2 data-count>{cards.length} guides</h2>
+        <button type="button" class="linkbtn" data-reset hidden>Clear filters</button>
+      </div>
+      <div class="grid">
+        {cards.map((c, i) => <GuideCard card={c} filterable index={i} eager={i < 3} />)}
+      </div>
+      <div class="empty" data-empty hidden>
+        <p>No guides match that yet.</p>
+        <button type="button" class="btn" data-reset>Clear filters</button>
+      </div>
+      <div class="more-row" data-more-row><button type="button" class="btn" data-more>Show all {cards.length} guides</button></div>
+    </section>
+  </div>
+
+  <section class="block"><div class="wrap">
+    <div class="block-head"><div><h2>Plan it before you book it</h2><p>Free tools that work with your own numbers.</p></div></div>
+    <div class="tools">
+      <div class="tool">
+        <h3>Trip budget calculator</h3>
+        <p>Add flights, stays and daily costs. See the total, the cost per person and a safety buffer, then share it with a link.</p>
+        <a class="btn sun" href="/tools/trip-budget-calculator.html">Calculate a trip budget</a>
+      </div>
+      <div class="tool">
+        <h3>Packing checklist</h3>
+        <p>Tick items off as you pack and add your own. Your list is saved on this device.</p>
+        <a class="btn sun" href="/tools/packing-checklist.html">Open the checklist</a>
+      </div>
     </div>
-  </section>
-  <section class="wrap" aria-labelledby="latest">
-    <h2 id="latest">Latest guides</h2>
-    <div class="grid">
-      {latest.map((p) => (
-        <div class="card">
-          {p.data.heroImage && <a class="cover" href={p.data.path} tabindex="-1" aria-hidden="true"><img src={p.data.heroImage} alt="" loading="lazy"></a>}
-          <div class="body"><h3><a href={p.data.path}>{p.data.title}</a></h3><p>{p.data.description}</p></div>
+  </div></section>
+
+  <section class="block"><div class="wrap">
+    <div class="block-head"><div><h2>Browse by region</h2></div><a href="/destinations.html">See all destinations</a></div>
+    <div class="regions">
+      {Object.entries(REGIONS).map(([name, places]) => (
+        <div class="region">
+          <h3>{name}</h3>
+          <div class="chips">{places.filter((p) => placeCount(p)).map((p) => <a class="chip" href={`/tags/${slugify(p)}.html`}>{p} <small>{placeCount(p)}</small></a>)}</div>
         </div>
       ))}
     </div>
-  </section>
-  <section class="wrap" aria-labelledby="where">
-    <h2 id="where">Browse by destination</h2>
-    <div class="chips">{countries.map((c) => <a class="chip" href={`/tags/${slugify(c)}.html`}>{c} ({tagCount.get(c)})</a>)}</div>
-  </section>
+  </div></section>
+
+  {SITE.emailSignupUrl && (
+    <section class="block"><div class="wrap"><div class="signup">
+      <h2>Get one budget-travel deal email a week</h2>
+      <a class="btn primary" href={SITE.emailSignupUrl}>Join the list</a>
+    </div></div></section>
+  )}
 </Base>

@@ -1,0 +1,19 @@
+---
+import { thumb } from '../lib/site';
+interface Props { card: any; eager?: boolean; filterable?: boolean; index?: number }
+const { card: c, eager = false, filterable = false, index = 0 } = Astro.props;
+const attrs = filterable
+  ? { 'data-card': '', 'data-i': String(index), 'data-region': c.region, 'data-type': c.type, 'data-text': `${c.title} ${c.place} ${c.region} ${c.type}`.toLowerCase() }
+  : {};
+---
+<article class="ticket" {...attrs}>
+  <div class="cover">
+    {c.image && <img src={thumb(c.image)} alt="" width="640" height="400" loading={eager ? 'eager' : 'lazy'} decoding="async" onerror="this.remove()" fetchpriority={eager ? 'high' : undefined} />}
+  </div>
+  <span class="type">{c.type}</span>
+  <div class="body">
+    <h3><a href={c.href}>{c.title}</a></h3>
+    <p>{c.description}</p>
+  </div>
+  <div class="stub"><b>{c.place || 'Worldwide'}</b><span>{c.mins} min read</span></div>
+</article>

@@ -1,0 +1,35 @@
+---
+import Base from '../../layouts/Base.astro';
+const lists: [string, string[]][] = [
+  ['Documents and money', ['Passport', 'Visa or entry permit', 'Travel insurance details', 'Bank cards', 'Some local cash', 'Copies of documents', 'Booking confirmations']],
+  ['Tech', ['Phone and charger', 'Power bank', 'Plug adapter', 'Headphones', 'eSIM or local SIM set up', 'Offline maps downloaded']],
+  ['Clothes', ['Underwear and socks', 'T-shirts', 'Trousers or shorts', 'Warm layer', 'Rain jacket', 'Walking shoes', 'Sandals or flip-flops', 'Sleepwear', 'Swimwear']],
+  ['Health and toiletries', ['Regular medication', 'Basic first-aid kit', 'Toothbrush and toothpaste', 'Sunscreen', 'Insect repellent', 'Hand sanitiser', 'Quick-dry towel']],
+  ['Bag and extras', ['Day pack', 'Reusable water bottle', 'Padlock', 'Earplugs and eye mask', 'Laundry bag', 'Pen']],
+];
+const id = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+---
+<Base title="Travel packing checklist" description="A free travel packing checklist you can tick off, add to and print. Your progress is saved on your device.">
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools.html">Trip tools</a></nav>
+    <h1>Packing checklist</h1>
+    <p>Tick items as you pack. Your list is saved in this browser only, so it will be here when you come back on this device.</p>
+  </div>
+  <div class="wrap pack" data-pack>
+    <div class="bar-wrap">
+      <progress value="0" max="1" aria-label="Packing progress"></progress>
+      <strong data-pack-count>0 packed</strong>
+      <button class="btn" type="button" data-print>Print</button>
+      <button class="btn" type="button" data-pack-reset>Start over</button>
+    </div>
+    {lists.map(([name, items]) => (
+      <fieldset><legend>{name}</legend>
+        <ul class="items">{items.map((it) => <li><label><input type="checkbox" value={id(it)}><span>{it}</span></label></li>)}</ul>
+      </fieldset>
+    ))}
+    <fieldset><legend>Your own items</legend>
+      <form class="add" data-add><input type="text" maxlength="60" placeholder="Add an item" aria-label="Add an item"><button class="btn primary" type="submit">Add</button></form>
+      <ul class="items" data-custom-list></ul>
+    </fieldset>
+  </div>
+</Base>

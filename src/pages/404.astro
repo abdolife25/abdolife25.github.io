@@ -2,8 +2,9 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base title="Page not found" description="This page does not exist." noindex>
-  <div class="narrow" style="padding:48px 16px">
+  <div class="wrap page-head">
     <h1>Page not found</h1>
-    <p>That address does not exist, or the post moved. Try the <a href="/">homepage</a> or browse <a href="/destinations.html">all destinations</a>.</p>
+    <p>That address does not exist, or the post moved. Search the guides or browse every destination.</p>
+    <p style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn primary" type="button" data-open-search>Search guides</button><a class="btn" href="/destinations.html">All destinations</a></p>
   </div>
 </Base>
