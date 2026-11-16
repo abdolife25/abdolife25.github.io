@@ -1,6 +1,7 @@
 ---
 import Base from './Base.astro';
 import GuideCard from '../components/GuideCard.astro';
+import AffiliateBox from '../components/AffiliateBox.astro';
 import { getCollection } from 'astro:content';
 import { SITE, slugify, placeOf, regionOf, readMins, cardData } from '../lib/site';
 interface Props { entry: any; kind: 'post' | 'page'; rendered: any }
@@ -19,6 +20,7 @@ if (kind === 'post') {
   related = [...same, ...near, ...all.filter((p) => !same.includes(p) && !near.includes(p))].slice(0, 3).map(cardData);
 }
 const isPost = kind === 'post';
+const tag = slugify(String(entry.id)).slice(0, 50);
 const shareUrl = encodeURIComponent(new URL(d.path, SITE.url).href), shareText = encodeURIComponent(d.title);
 const shareImg = d.heroImage ? encodeURIComponent(d.heroImage.startsWith('http') ? d.heroImage : new URL(d.heroImage, SITE.url).href) : '';
 const shares = [
@@ -57,6 +59,7 @@ const shares = [
         </details>
       )}
       <Content />
+      {isPost && <AffiliateBox place={place} region={region} tag={tag} />}
       {isPost && (
         <div class="share">
           <strong>Share this guide</strong>

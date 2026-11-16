@@ -224,8 +224,6 @@ function initCalc() {
       dot.className = 'dot'; dot.style.background = colors[i % colors.length];
       a.append(dot, r[0]); b.textContent = fmt(r[1]);
     });
-    const d = encodeURIComponent(el('dest').value.trim());
-    $$('[data-aff]', root).forEach((a) => { a.href = a.dataset.aff.replace('{dest}', d); });
     const s = {}; ids.forEach((i) => { s[i] = el(i).value; });
     keepState(location.pathname + '?' + new URLSearchParams(s));
   };

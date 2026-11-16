@@ -226,3 +226,18 @@ dialog.search .searchfield{border:0;border-bottom:1px solid var(--line);border-r
 .social .chip{font-size:.85rem;padding:4px 12px}
 .share{margin:34px 0 0;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:10px}
 .share strong{font-family:var(--display)}
+
+/* Booking box on guides */
+.book{margin:34px 0 0;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.book h3{font-family:var(--display);font-size:1.25rem;margin:0 0 4px}
+.book-sub{margin:0 0 14px;color:var(--mute);font-size:.95rem}
+.book-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.book-list li{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border-radius:12px;background:var(--mist)}
+.book-list li div{display:grid;gap:2px;min-width:0}
+.book-list strong{font-size:1rem}
+.book-list span{color:var(--mute);font-size:.88rem}
+.book-list .btn{flex:none;white-space:nowrap}
+.book-note{margin:12px 0 0;font-size:.84rem;color:var(--mute)}
+@media (max-width:560px){.book-list li{flex-direction:column;align-items:stretch}.book-list .btn{text-align:center}}
+.book .book-list{padding:0;margin:0;list-style:none}
+.book .book-list li{margin:0}

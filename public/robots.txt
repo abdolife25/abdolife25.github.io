@@ -3,6 +3,7 @@ Disallow:
 
 User-agent: *
 Disallow: /search
+Disallow: /go/
 Allow: /
 
 Sitemap: https://www.voyagelo.com/sitemap-index.xml

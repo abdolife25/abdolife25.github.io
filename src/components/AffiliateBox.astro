@@ -1,0 +1,24 @@
+---
+import { offersFor, goHref } from '../lib/affiliates';
+interface Props { place: string; region: string; tag: string }
+const { place, region, tag } = Astro.props;
+const offers = offersFor(place, region);
+const showClaim = region === 'Europe';
+---
+<aside class="book" aria-labelledby="book-h">
+  <h3 id="book-h">{place ? `Book smart for ${place}` : 'Book smart'}</h3>
+  <p class="book-sub">Our picks for a budget trip. Prices change, so compare before you pay.</p>
+  <ul class="book-list">
+    {offers.map((o) => (
+      <li>
+        <div>
+          <strong>{o.headline}</strong>
+          <span>{o.blurb}</span>
+        </div>
+        <a class="btn" href={goHref(o.id, tag)} target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">{o.cta}</a>
+      </li>
+    ))}
+  </ul>
+  {showClaim && <p class="book-note">Flight delayed or cancelled on an EU or UK route? <a href={goHref('compensair', tag)} target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Check whether you may be owed compensation</a>.</p>}
+  <p class="book-note">These are affiliate links: Voyagelo may earn a commission if you book, at no extra cost to you. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>
+</aside>

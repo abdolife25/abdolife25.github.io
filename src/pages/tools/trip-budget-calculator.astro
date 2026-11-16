@@ -1,9 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { SITE } from '../../lib/site';
+import { goHref } from '../../lib/affiliates';
 const aff = [
-  { key: 'stays', label: 'Compare stays' }, { key: 'flights', label: 'Check flights' }, { key: 'esim', label: 'Get an eSIM' },
-].filter((a) => (SITE.affiliate as any)[a.key]);
+  { id: 'hostelworld', label: 'Compare hostels' }, { id: 'ovago', label: 'Check flights' }, { id: 'yesim', label: 'Get an eSIM' },
+  { id: 'getrentacar', label: 'Compare car rental' }, { id: 'travelex', label: 'Compare insurance' },
+];
 const money = [
   ['flight', 'Flights', 'Round trip, per traveler'], ['insurance', 'Travel insurance', 'Per traveler'],
   ['esim', 'eSIM or data', 'Total for the trip'], ['other1', 'Visas, fees, gear', 'Total for the trip'],
@@ -54,10 +56,10 @@ const daily = [
         </div>
         {aff.length > 0 && (
           <div class="btns">
-            {aff.map((a) => <a class="btn" data-aff={(SITE.affiliate as any)[a.key]} href={(SITE.affiliate as any)[a.key]} target="_blank" rel="sponsored noopener">{a.label}</a>)}
+            {aff.map((a) => <a class="btn" href={goHref(a.id, 'calculator')} target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">{a.label}</a>)}
           </div>
         )}
-        {aff.length > 0 && <p class="note">Voyagelo may earn a commission if you book through these links, at no extra cost to you.</p>}
+        {aff.length > 0 && <p class="note">These are affiliate links: Voyagelo may earn a commission if you book through them, at no extra cost to you.</p>}
         <p class="note">Estimates only. Prices change, so check current rates before you book.</p>
       </aside>
     </div>

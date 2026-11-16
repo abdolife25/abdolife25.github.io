@@ -9,6 +9,6 @@ export default defineConfig({
   trailingSlash: 'never',
   // Pages are fetched in the background when a visitor points at a link, so clicks feel instant.
   prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/go/') })],
   markdown: { rehypePlugins: [rehypeLinks] },
 });

@@ -5,9 +5,6 @@ export const SITE = {
   ga4: 'G-2NS892R3FH',
   // Paste your signup page URL here to show the email signup blocks.
   emailSignupUrl: '',
-  // Paste approved affiliate links here; buttons only appear when a link is set.
-  // Use {dest} where the destination name should go, if the partner supports it.
-  affiliate: { stays: '', flights: '', esim: '' },
   // Official accounts (taken from the old Blogger theme). Remove a line to hide it.
   social: [
     { name: 'Instagram', url: 'https://www.instagram.com/voyagelo/' },

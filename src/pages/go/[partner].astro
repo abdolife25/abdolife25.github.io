@@ -1,0 +1,31 @@
+---
+import { PARTNERS } from '../../lib/affiliates';
+export function getStaticPaths() {
+  return Object.values(PARTNERS).map((p) => ({ params: { partner: p.id }, props: { p } }));
+}
+const { p } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Taking you to {p.name}</title>
+    <noscript><meta http-equiv="refresh" content={`0;url=${p.url}`} /></noscript>
+    <style>body{font:16px/1.5 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;color:#10233f;background:#f6f8fa}a{color:#0a6f6a;font-weight:600}main{padding:24px;text-align:center}</style>
+  </head>
+  <body>
+    <main>
+      <p>Taking you to {p.name}…</p>
+      <p><a id="go" href={p.url} rel="sponsored noopener">Continue to {p.name}</a></p>
+    </main>
+    <script is:inline define:vars={{ base: p.url, cj: p.cj }}>
+      var s = (new URLSearchParams(location.search).get('s') || '').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 60);
+      var u = base;
+      if (cj && s) u += (u.indexOf('?') > -1 ? '&' : '?') + 'sid=' + s;
+      document.getElementById('go').href = u;
+      location.replace(u);
+    </script>
+  </body>
+</html>
