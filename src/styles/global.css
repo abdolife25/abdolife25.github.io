@@ -29,7 +29,7 @@ h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-.02em;margi
 .site-head{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .site-head .wrap{display:flex;align-items:center;gap:12px;min-height:62px}
 .brand{font:800 1.45rem/1 var(--display);letter-spacing:-.03em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
-.brand i{width:12px;height:12px;border-radius:50%;background:var(--sun);display:block}
+.brand img{height:24px;width:auto;display:block}
 .nav{display:flex;align-items:center;gap:2px;margin-left:auto}
 .nav a,.nav summary,.icon-btn{color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:9px;font-weight:550;font-size:.96rem;cursor:pointer;background:none;border:0;list-style:none}
 .nav summary::-webkit-details-marker{display:none}
