@@ -1,6 +1,6 @@
 ---
-title: "Japan on a Budget: What a Trip Really Costs (2027)"
-description: "What Japan really costs per day and for 7 days: hostels, food, trains and the new JR Pass prices, with a Tokyo-Kyoto-Osaka route and real yen prices."
+title: "Japan Trip Cost 2027: 7 Days From $460 (Real Yen Prices)"
+description: "What a Japan trip really costs: 7 days from about $460 plus daily budgets, hostel and food prices, bullet train fares and the new JR Pass prices."
 pubDate: "2026-11-17T12:00:00Z"
 updatedDate: "2026-11-17T12:00:00Z"
 labels: ["Budget Travel", "Japan", "Asia"]
@@ -12,6 +12,8 @@ heroImage: "https://blogger.googleusercontent.com/img/a/AVvXsEh7XUO_rZJog8oJ2cTL
 **Japan costs roughly $65–90 a day on a tight budget and $120–170 a day at mid-range, flights not included.** With the yen weak (about ¥159 to the US dollar in November 2026), Japan is cheaper for visitors than it has been in years, and hostels, convenience-store meals and cheap noodle shops keep daily costs lower than most people expect.
 
 *Prices checked 17 November 2026 against current travel-cost guides and official fare pages. Dollar figures use ¥159 = US$1; if the yen moves, convert the yen price, which is the number that stays put.*
+
+<div class="inline-cta"><div><strong>Cheapest beds in Japan are dorm beds.</strong><span>Compare hostels and low-cost private rooms, with reviews from other travelers.</span></div><a class="btn sun" href="/go/hostelworld.html?s=japan-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Compare Japan hostels</a></div>
 
 ## Is Japan expensive?
 
@@ -27,7 +29,7 @@ Not the way its reputation suggests. Flights and the first few days of planning 
 | Sights | ¥800–1,400 ($5–9) | ¥1,400–2,100 ($9–13) |
 | **Per day** | **about $65–90 including trains** | **about $120–170 including trains** |
 
-Business hotels in Tokyo and Osaka can run ¥8,000–20,000 depending on the week, so book early for cherry blossom season (late March–April) and autumn leaves (November). These are estimates compiled from several travel-cost guides, which disagree by a few dollars either way, so treat the ranges as planning numbers, not quotes.
+Business hotels in Tokyo and Osaka can run ¥8,000–20,000 depending on the week, so book early for cherry blossom season (late March to early April) and November leaves. These are estimates compiled from several travel-cost guides, which disagree by a few dollars either way, so treat the ranges as planning numbers, not quotes.
 
 ## What 7 days costs: Tokyo, Kyoto and Osaka
 
@@ -38,25 +40,27 @@ This is the classic first-trip route: three nights in Tokyo, two in Kyoto, two i
 | Beds | ¥27,000–36,000 | ¥60,000–84,000 |
 | Food | ¥21,000–31,500 | ¥42,000–63,000 |
 | Local transport | ¥4,000–7,000 | ¥7,000–10,000 |
-| Tokyo → Kyoto → Osaka trains | ¥14,500 | ¥14,500 |
+| Tokyo → Kyoto → Osaka trains | about ¥15,000 | about ¥15,000 |
 | Sights and temples | ¥6,000–10,000 | ¥10,000–15,000 |
-| **Total** | **¥72,500–99,000 (about $455–620)** | **¥133,500–186,500 (about $840–1,170)** |
+| **Total** | **¥73,000–99,500 (about $460–625)** | **¥134,000–187,000 (about $845–1,175)** |
 
-The Tokyo–Kyoto bullet train is ¥13,850 one way (about $87), and Kyoto to Osaka is a short, cheap local or rapid train ride. Your biggest savings are the bed and the food: dorms and convenience stores or ramen and conveyor-belt sushi shops hold daily spending down without feeling like sacrifice.
+The Tokyo–Kyoto bullet train is about ¥13,500 for an unreserved seat and ¥14,500 reserved (roughly $85–91), and Kyoto to Osaka is a short, cheap rapid-train ride of a few hundred yen. Your biggest savings are the bed and the food: dorms and convenience stores or ramen and conveyor-belt sushi shops hold daily spending down without feeling like sacrifice.
+
+<div class="inline-cta"><div><strong>Land with data, skip the airport SIM queue.</strong><span>Install a Japan eSIM before you fly.</span></div><a class="btn sun" href="/go/yesim.html?s=japan-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Get a Japan eSIM</a></div>
 
 ### The route, day by day
 
 - **Days 1–3, Tokyo.** Asakusa and Senso-ji (free to walk around), Shibuya Crossing, the Imperial Palace East Garden (free), Akihabara, and the free observation deck of the Tokyo Metropolitan Government Building. Stay near Asakusa or Ueno for cheap beds and easy trains.
-- **Days 4–5, Kyoto.** Fushimi Inari (free), Kiyomizu-dera, Gion in the evening, and Arashiyama's bamboo grove. Temple entries are usually ¥400–600 each.
+- **Days 4–5, Kyoto.** Fushimi Inari (free), Kiyomizu-dera, Gion in the evening, and Arashiyama's bamboo grove. Paid temple entries are typically around ¥500 each.
 - **Days 6–7, Osaka and Nara.** Dotonbori street food, Osaka Castle, and a day trip to Nara's deer park and Todai-ji (about 45 minutes by train).
 
 ## Do you need the JR Pass?
 
-Probably not for this route. From 1 October 2026 the JR Pass costs ¥53,000 for 7 days in Ordinary class, ¥84,000 for 14 days and ¥105,000 for 21 days (the 7-day Green Car pass is ¥74,000). Tokyo to Kyoto plus Kyoto to Osaka costs about ¥14,500 in tickets, so the pass only pays off if you take several long shinkansen rides in one week, for example Tokyo to Hiroshima and back. Compare your own planned trips before you buy; for a Tokyo–Kyoto–Osaka trip, single tickets and an IC card (Suica or ICOCA) cost far less.
+Probably not for this route. From 1 October 2026 the JR Pass costs ¥53,000 for 7 days in Ordinary class, ¥84,000 for 14 days and ¥105,000 for 21 days (the 7-day Green Car pass is ¥74,000). Tokyo to Kyoto plus Kyoto to Osaka costs about ¥15,000 in tickets, so the pass only pays off if you take several long shinkansen rides in one week, for example Tokyo to Hiroshima and back. Compare your own planned trips before you buy; for a Tokyo–Kyoto–Osaka trip, single tickets and an IC card (Suica or ICOCA) cost far less.
 
 ## Cheapest time to go
 
-January to early March and the first half of June are the quietest and cheapest windows. Cherry blossom season and mid-November leaves bring the highest hotel prices, and Golden Week (late April to early May) is the busiest week of the year.
+Mid-January to early March is the cheapest stretch, after New Year and before cherry blossom. Late May to June (the rainy season in Tokyo runs roughly 7 June to 19 July) and September to mid-October are good value too, though typhoons are possible in autumn. The most expensive times are cherry blossom season (late March to early April), Golden Week (29 April and 3–5 May in 2027), November leaf season in Kyoto and the New Year holidays.
 
 ## Planning Japan from your country
 
@@ -64,7 +68,7 @@ Most of your budget is the flight, so check fares from your own airport before a
 
 ## Frequently asked questions
 
-**How much money do I need for 7 days in Japan?** About $455–620 for a tight budget and $840–1,170 at mid-range, excluding flights, based on the route above.
+**How much money do I need for 7 days in Japan?** About $460–625 for a tight budget and $845–1,175 at mid-range, excluding flights, based on the route above.
 
 **Is Japan cheaper now than before?** For visitors paying in dollars, euros or pounds, yes: the yen is weak, so the same yen price costs fewer dollars than a few years ago. Prices inside Japan have risen slightly, so your savings come mostly from the exchange rate.
 
