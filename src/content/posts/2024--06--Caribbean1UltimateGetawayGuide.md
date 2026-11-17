@@ -3,7 +3,7 @@ title: "Top Resorts in the Caribbean: Your Ultimate Getaway Guide"
 description: "The Caribbean is a paradise known for its stunning beaches, vibrant culture, and luxurious resorts. Whether you’re looking for a romantic escape, a family…"
 pubDate: "2024-06-02T06:17:00Z"
 updatedDate: "2024-06-02T06:52:56.548Z"
-labels: ["Caribbean"]
+labels: ["Caribbean", "Splurge"]
 path: "/2024/06/Caribbean1UltimateGetawayGuide.html"
 heroImage: "https://blogger.googleusercontent.com/img/a/AVvXsEi9_SmKzBIrkUIW7JEhNXo2EtcMvoCpu16q7G-vdFiGY6A9HFoyfDOcgU5CGWG2GtvErXbkRakuSfDuHsOfntxNl9szWsCSlRjx61v0ta4ChHapKF4kQNds397A_KMV0EL390_spGsfZOGTFjquJJEYnDx0pzs3JT4x7cIQ5sFvmE0NWrjHIm4Scafd=w621-h423"
 ---
