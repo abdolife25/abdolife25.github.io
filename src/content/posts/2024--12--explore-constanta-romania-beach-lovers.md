@@ -39,21 +39,18 @@ Constanța, Romania’s oldest city, sits on the shores of the Black Sea and is 
    - **Features**: Centrally located, free Wi-Fi, modern amenities.
    - **Cost**: $35–$50 per night.
    - **Why Stay Here?** Proximity to Old Town and beaches makes it ideal for sightseeing.
-   - [Book now](rb.gy/5elcy1).
 2. **Hotel New Derby**
 
    ![1. Budget-Friendly Hotels in Constanța](https://blogger.googleusercontent.com/img/a/AVvXsEg9-3EhlS2wfnILEQzi1pEQZ5t5Z075rHBLmHPlfS7Ypxx_jdUDMcHuyedXd8uNV4vQB9gKTDDJz6xHk1HwNGSD30H_vYXDwp__XfMDI_Yr0sjqyiGtmJTGtl9RPavJev4t9Lglg7JmMG-5hSm0NAflbaHaoZjGGqKz-RWFJnP1E_jZuHYEehemqxsx=w460-h259)
    - **Features**: Spacious rooms, great for families.
    - **Cost**: $45–$55 per night.
    - **Why Stay Here?** Located near Dolphinarium and Aqua Magic water park.
-   - [Reserve your room here](rb.gy/5elcy1).
 3. **Hotel Voila**
 
    ![1. Budget-Friendly Hotels in Constanța](https://blogger.googleusercontent.com/img/a/AVvXsEgnJ-3utNhuoRR2iAg066mHNfdRmWVQMKZgbaYlzFPviEVjpLJ9qSGD2ByZanlQtsZBROKo8nORAGLAsYCDDsomjS0CfmPk6U66va12hLzd-XJ5DUaJHR3wQ7l7q9bqhE9j3jvEm8Vd9jHfU3B9A7iTpx6REb0T7IXJ2VbQak6yTdEmZjYrBnel_x6f=w464-h298)
    - **Features**: Cozy, family-run hotel with breakfast included.
    - **Cost**: $40–$55 per night.
    - **Why Stay Here?** Close to Modern Beach and Old Town.
-   - [Find more details here](rb.gy/5elcy1).
 
 ---
 
@@ -71,7 +68,6 @@ Constanța, Romania’s oldest city, sits on the shores of the Black Sea and is 
 - **Highlights**: A quieter, more relaxing alternative to Mamaia, with nearby cafes and restaurants.
 - **Cost**: Free entry; affordable dining options nearby.
 - **Why Visit?** Close to Constanța’s Old Town, making it great for a post-sightseeing break.
-- [Discover more](rb.gy/5elcy1).
 
 ### 3. Vama Veche3. Vama Veche
 

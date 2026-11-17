@@ -19,7 +19,6 @@ Planning your budget is the first step to an affordable trip. Here’s a breakdo
 - **Flights**: $100 - $250 (depending on departure city and season).
   [Find deals on flights](https://www.jdoqocy.com/click-101157578-15820962).
 - **Accommodation**: $150 - $300 (budget hotels and guesthouses).
-  [Book your hotel](rb.gy/5elcy1).
 - **Food**: $100 - $150 (eating at local spots and affordable restaurants).
 - **Transportation**: $50 - $100 (public transport and car rentals).
   [Best car rentals](https://www.carrentals.com).
@@ -227,4 +226,4 @@ Check the latest deals for flights to Romania [here](https://www.jdoqocy.com/cli
 
 Romania is an amazing destination for budget travelers, offering affordable options for accommodation, food, and activities while providing a rich cultural experience. Whether you’re exploring the beaches of the Black Sea, hiking in the Carpathian Mountains, or enjoyingRomania is a budget-friendly gem offering rich cultural experiences and stunning landscapes. In this guide, you’ll find affordable options for **all-inclusive resorts** along the Black Sea coast, **beaches** that range from lively to secluded, and tips on the **best time to visit Romania** to save money. Enjoy stays at **cheap hotels** with unique charm, while taking advantage of budget-friendly **flights**. Whether exploring medieval castles, coastal towns, or mountain ranges, Romania’s cost-effective options ensure an unforgettable experience.
 
-For flight deals, visit [here](https://www.jdoqocy.com/click-101157578-15820962). Book hotels [here](rb.gy/5elcy1).
+For flight deals, visit [here](https://www.jdoqocy.com/click-101157578-15820962).

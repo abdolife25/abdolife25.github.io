@@ -106,13 +106,9 @@ Plan your Tromsø adventure at [Tromsø Travel Info](#).
 
 1. **Scandic Hotels** (Nationwide): Scandic Hotels offer budget-friendly stays across Norway. Located in central areas, these hotels provide great value with breakfast included.
 
-   Learn more about Scandic Hotels and book [here](rb.gy/5elcy1).
 2. **Thon Hotels** (Oslo, Bergen, Trondheim): Thon Hotels are known for their affordable rooms, central locations, and excellent service. It's an ideal option for budget-conscious travelers.
 
-   Book your stay at Thon Hotels [here](rb.gy/5elcy1).
 3. **Citybox Oslo**: A budget hotel in the heart of Oslo, Citybox offers minimalist, modern rooms at competitive prices, perfect for travelers looking to save without sacrificing comfort.
-
-   Reserve your room at Citybox Oslo [here](rb.gy/5elcy1).
 
 ---
 
@@ -135,12 +131,9 @@ While Norway is more famous for its fjords and mountains, it also offers some hi
 
    Benefits: Central location, free Wi-Fi, modern rooms. **Cost**: $70 - $100 per night.
 
-   Book your stay at Citybox Bergen [here](rb.gy/5elcy1).
 2. **Cochs Pensjonat** (Oslo): Located near the Royal Palace, Cochs Pensjonat offers clean, affordable rooms in a prime location, perfect for exploring Oslo.
 
    Benefits: Close to attractions, kitchenette available. **Cost**: $60 - $90 per night.
-
-   Reserve your room at Cochs Pensjonat [here](rb.gy/5elcy1).
 
 ---
 
@@ -197,4 +190,3 @@ Norway is committed to sustainability, and travelers are encouraged to follow ec
 Norway may have a reputation for being expensive, but with proper planning, it’s possible to explore its beauty on a budget. From cheap flights to affordable hotels and free outdoor activities, this guide provides everything you need for a budget-friendly trip.
 
 For the best flight deals, visit [Flights Norway](https://www.jdoqocy.com/click-101157578-15820962).
-For affordable hotel options, visit [Norway Hotel Deals](rb.gy/5elcy1).
