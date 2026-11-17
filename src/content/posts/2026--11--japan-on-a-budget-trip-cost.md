@@ -6,15 +6,15 @@ updatedDate: "2026-11-17T12:00:00Z"
 labels: ["Budget Travel", "Japan", "Asia"]
 path: "/japan-trip-cost.html"
 oldPath: "/2024/11/budget-friendly-7-day-japan-itinerary.html"
-heroImage: "https://images.unsplash.com/photo-1780498178879-4064b19e6517?auto=format&fit=crop&w=1200&q=75"
+heroImage: "/images/japan/japan-mount-fuji-chureito-pagoda.jpg"
 ---
 
 **Japan costs roughly $65–90 a day on a tight budget and $120–170 a day at mid-range, flights not included.** With the yen weak (about ¥159 to the US dollar in November 2026), Japan is cheaper for visitors than it has been in years, and hostels, convenience-store meals and cheap noodle shops keep daily costs lower than most people expect.
 
 *Prices checked 17 November 2026 against current travel-cost guides and official fare pages. All prices are in US dollars, converted at ¥159 = US$1; the yen moves daily, so expect small shifts.*
 
-![Mount Fuji at sunrise with orange clouds, Japan](https://images.unsplash.com/photo-1780498178879-4064b19e6517?auto=format&fit=crop&w=1200&q=75)
-*Photo: [Jayesh Patel](https://unsplash.com/@jayescapes) on [Unsplash](https://unsplash.com)*
+![Mount Fuji rising behind the red Chureito Pagoda, Japan](/images/japan/japan-mount-fuji-chureito-pagoda.jpg)
+*Photo: [railgunbreaker](https://www.pexels.com/@railgunbreaker/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>Cheapest beds in Japan are dorm beds.</strong><span>Compare hostels and low-cost private rooms, with reviews from other travelers.</span></div><a class="btn sun" href="/go/hostelworld.html?s=japan-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Compare Japan hostels</a></div>
 
@@ -57,22 +57,22 @@ The Tokyo–Kyoto bullet train is about $85 for an unreserved seat and $91 reser
 
 Asakusa and Senso-ji (free to walk around), Shibuya Crossing, the Imperial Palace East Garden (free), Akihabara, and the free observation deck of the Tokyo Metropolitan Government Building. Stay near Asakusa or Ueno for cheap beds and easy trains.
 
-![Crowds crossing the Shibuya scramble intersection in Tokyo](https://images.unsplash.com/photo-1547448526-5e9d57fa28f7?auto=format&fit=crop&w=1200&q=75)
-*Photo: [Timo Volz](https://unsplash.com/@magict1911) on [Unsplash](https://unsplash.com)*
+![Crowds crossing the Shibuya scramble intersection in Tokyo](/images/japan/tokyo-shibuya-crossing.jpg)
+*Photo: [Stephan](https://www.pexels.com/photo/37590958/) on [Pexels](https://www.pexels.com)*
 
 #### Days 4–5: Kyoto
 
 Fushimi Inari (free), Kiyomizu-dera, Gion in the evening, and Arashiyama's bamboo grove. Paid temple entries are typically around $3 each.
 
-![A traditional Japanese shopfront seen through leaves](https://images.unsplash.com/photo-1743511789084-dd239c460b5e?auto=format&fit=crop&w=1200&q=75)
-*Photo: [Joris Beugels](https://unsplash.com/@jorisbeugels) on [Unsplash](https://unsplash.com)*
+![The orange torii gate path at Fushimi Inari Shrine, Kyoto](/images/japan/kyoto-fushimi-inari-torii-gates.jpg)
+*Photo: [Arnaud](https://www.pexels.com/photo/40884563/) on [Pexels](https://www.pexels.com)*
 
 #### Days 6–7: Osaka and Nara
 
 Dotonbori street food, Osaka Castle, and a day trip to Nara's deer park and Todai-ji (about 45 minutes by train).
 
-![A river running through Osaka beside tall buildings at dusk](https://images.unsplash.com/photo-1734427842844-29f08e51763a?auto=format&fit=crop&w=1200&q=75)
-*Photo: [Laura Barry](https://unsplash.com/@laurabarry) on [Unsplash](https://unsplash.com)*
+![Dotonbori canal in Osaka lit up at night](/images/japan/osaka-dotonbori-canal-night.jpg)
+*Photo: [shtefutsa](https://www.pexels.com/photo/38944349/) on [Pexels](https://www.pexels.com)*
 
 ## Do you need the JR Pass?
 
