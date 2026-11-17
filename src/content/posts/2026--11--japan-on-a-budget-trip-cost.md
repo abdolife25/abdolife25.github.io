@@ -56,7 +56,9 @@ The Tokyo–Kyoto bullet train is about $85 for an unreserved seat and $91 reser
 
 ## Do you need the JR Pass?
 
-Probably not for this route. From 1 October 2026 the JR Pass costs about $333 for 7 days in Ordinary class, $528 for 14 days and $660 for 21 days (the 7-day Green Car pass is about $465). Tokyo to Kyoto plus Kyoto to Osaka costs about $95 in tickets, so the pass only pays off if you take several long shinkansen rides in one week, for example Tokyo to Hiroshima and back. Compare your own planned trips before you buy; for a Tokyo–Kyoto–Osaka trip, single tickets and an IC card (Suica or ICOCA) cost far less.
+The Japan Rail Pass (JR Pass) is a prepaid ticket sold to foreign visitors that gives unlimited rides on most JR trains for 7, 14 or 21 days, including most shinkansen (bullet trains) but not the fastest Nozomi and Mizuho services, which need an extra payment. You buy it before you travel (stations inside Japan stopped selling it in 2023), collect it with your passport at a major JR station, then ride through the ticket gates instead of paying for each ticket. Riding Nozomi on Tokyo–Kyoto would add about $31 (¥4,960) on top. It is great for long, fast trips across the country but can cost more than the tickets you would actually use.
+
+**Do you need it?** Probably not for this route. From 1 October 2026 the JR Pass costs about $333 for 7 days in Ordinary class, $528 for 14 days and $660 for 21 days (the 7-day Green Car pass is about $465). Tokyo to Kyoto plus Kyoto to Osaka costs about $95 in tickets, so the pass only pays off if you take several long shinkansen rides in one week, for example Tokyo to Hiroshima and back. Compare your own planned trips before you buy; for a Tokyo–Kyoto–Osaka trip, single tickets and an IC card (Suica or ICOCA) cost far less.
 
 ## Cheapest time to go
 
