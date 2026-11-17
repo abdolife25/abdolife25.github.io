@@ -130,7 +130,7 @@ Spain has a well-developed transportation network, making it easy to explore the
 - **Embrace the Siesta**: Many shops and businesses close in the afternoon for a siesta. Use this time to relax and enjoy a leisurely meal.
 - **Learn Basic Spanish**: Knowing a few basic phrases in Spanish can enhance your travel experience and help you connect with locals.
 
-For more travels around Europe, check out our [Ultimate Travel Guide](https://www.travello.site/2025/01/7-day-italy-adventure-on-budget-top.html), [Best Time to Visit Italy](https://www.travello.site/2024/06/BestTimetoVisitItaly.html), and [Top Beach Destinations in Italy](https://www.travello.site/2024/06/top-beach-destinations-in-italy-your.html). And if you're looking for the best resorts in the Caribbean, visit our [Caribbean Ultimate Getaway Guide](/2024/06/Caribbean1UltimateGetawayGuide.html).
+For more travels around Europe, check out our [Ultimate Travel Guide](/italy-trip-cost.html), [Best Time to Visit Italy](/italy-trip-cost.html), and [Top Beach Destinations in Italy](/2024/06/top-beach-destinations-in-italy-your.html). And if you're looking for the best resorts in the Caribbean, visit our [Caribbean Ultimate Getaway Guide](/2024/06/Caribbean1UltimateGetawayGuide.html).
 
 Book your stay now for an unforgettable all-inclusive vacation in Spain.
 
