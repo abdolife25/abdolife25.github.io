@@ -9,12 +9,14 @@ export async function getStaticPaths() {
   return labels.map((label) => ({ params: { tag: slugify(label) }, props: { label, posts: posts.filter((p) => p.data.labels.includes(label)) } }));
 }
 const { label, posts } = Astro.props;
-const isPlace = label !== 'Budget Travel';
+const isSplurge = label === 'Splurge';
+const isPlace = label !== 'Budget Travel' && !isSplurge;
 ---
-<Base title={`${label} travel guides`} description={`Budget travel guides for ${label}: costs, itineraries and where to stay.`} path={`/tags/${slugify(label)}.html`}>
+<Base title={isSplurge ? 'Splurge picks: resorts and luxury stays' : `${label} travel guides`} description={isSplurge ? 'Got a bonus to spend? All-inclusive resorts, luxury villas and splurge-worthy stays, kept separate from our budget guides.' : `Budget travel guides for ${label}: costs, itineraries and where to stay.`} path={`/tags/${slugify(label)}.html`}>
   <div class="wrap page-head">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/destinations.html">Destinations</a></nav>
-    <h1>{label}</h1>
+    <h1>{isSplurge ? 'Splurge picks' : label}</h1>
+    {isSplurge && <p>Got a bonus to spend? These resorts and luxury stays are kept apart from our budget guides.</p>}
     <p>{posts.length} {posts.length === 1 ? 'guide' : 'guides'}.{isPlace && ' Ready to price the trip?'}</p>
     {isPlace && <p><a class="btn primary" href={`/tools/trip-budget-calculator.html?dest=${encodeURIComponent(label)}`}>Budget a {label} trip</a></p>}
   </div>

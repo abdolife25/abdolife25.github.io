@@ -73,6 +73,8 @@ Low season is roughly November to February, when flights and hotels are cheapest
 
 For most visitors the flight is the biggest single cost, so check fares from your own airport before anything else. Our [trip budget calculator](/tools/trip-budget-calculator.html) helps you add up the rest. If beaches are also on your list, see our [guide to Italy's best beaches](/2024/06/top-beach-destinations-in-italy-your.html), and browse more [Europe guides](/tags/europe.html).
 
+**Got a bonus to spend?** See our [Italy all-inclusive resort picks](/2024/06/top-10-all-inclusive-resorts-in-italy.html) or browse all [splurge picks](/tags/splurge.html). They are separate from this budget guide.
+
 <div class="inline-cta"><div><strong>The flight is your biggest cost. Check it first.</strong><span>Search fares for your dates and compare before you pay.</span></div><a class="btn sun" href="/go/ovago.html?s=italy-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Check Italy flights</a></div>
 
 ## Frequently asked questions
