@@ -3,6 +3,7 @@ import Base from './Base.astro';
 import GuideCard from '../components/GuideCard.astro';
 import AffiliateBox from '../components/AffiliateBox.astro';
 import { getCollection } from 'astro:content';
+import { offersFor, goHref } from '../lib/affiliates';
 import { SITE, slugify, placeOf, regionOf, readMins, cardData } from '../lib/site';
 interface Props { entry: any; kind: 'post' | 'page'; rendered: any }
 const { entry, kind, rendered } = Astro.props;
@@ -85,6 +86,15 @@ const shares = [
             <strong>On this page</strong>
             <ol>{toc.map((h: any) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
           </nav>
+        )}
+        {place && (
+          <div class="rail-book">
+            <h3>Book {place}</h3>
+            {offersFor(place, region).slice(0, 3).map((o: any) => (
+              <a class="btn sun" href={goHref(o.id, tag + '-side')} target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">{o.cta}</a>
+            ))}
+            <p>Affiliate links. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>
+          </div>
         )}
         <div class="plan">
           <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>
