@@ -124,7 +124,7 @@ Mexico is vibrant, colorful, and full of life. From ancient ruins to stunning be
 - **Pro Tip**: Stick to bottled water to avoid any tummy troubles, and be cautious in less touristy areas.
 - **Weekly Budget**: $560–$980
 
-**7. [Portugal](/2024/10/budget-travel-in-portugal-your-ultimate.html)**
+**7. [Portugal](/portugal-trip-cost.html)**
 
 ![Top 10 Cheapest Destinations: Affordable, Unforgettable, and Worth It!](https://blogger.googleusercontent.com/img/a/AVvXsEiW27Ih3449-6YnYcL_Fx80wqqh73yO_gU62oSQtGKtNLNfNAszVcemst3hIhgGA9qxF5fX8stRm2jLpkcL5uBPwkS_4nsF93Rrd8n3Mf7XsQztuhhZCGG-6SKpPyHCApaWZRn8bGMc-jh-L7G3F0T4ijf96roLMzOWQEC7VJOkHPkpIRFtqUbzoBYk7c_U=w574-h382)
 
