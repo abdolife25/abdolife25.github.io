@@ -11,7 +11,7 @@ for (const f of await readdir(dir)) {
   if (!/\.(webp|jpe?g|png)$/i.test(f)) continue;
   const dest = path.join(out, f);
   if (await access(dest).then(() => true, () => false)) continue;
-  try { await sharp(path.join(dir, f)).resize({ width: 640, withoutEnlargement: true }).webp({ quality: 72 }).toFile(dest); n++; }
+  try { await sharp(path.join(dir, f)).resize({ width: 640, height: 400, fit: "cover", position: "attention", withoutEnlargement: true }).webp({ quality: 72 }).toFile(dest); n++; }
   catch (e) { console.warn('thumb failed', f, String(e.message || e)); }
 }
 console.log(`thumbnails made: ${n}`);
