@@ -5,7 +5,7 @@ pubDate: "2026-11-17T20:00:00Z"
 updatedDate: "2026-11-17T20:00:00Z"
 labels: ["Budget Travel", "Dubai", "Middle East"]
 path: "/dubai-trip-cost.html"
-heroImage: "https://blogger.googleusercontent.com/img/a/AVvXsEgTyGrceQe65GM3dw9J42ijLb-4KZ-Wz43vsfGCg7OaNWmNiDOQa_ISDKNdtOHjr2S8xFlCLrcCKhiYzy3KeOC8nNAQm2Hhwu9oewESWp5unNvLQbeL2ObfY3iApfGBrXWfHOVJ295mwCvNyI0GzgrCYhztZwWHDg_6MouN5Kr8kk3jhm300euibyyM=w619-h399"
+heroImage: "/images/dubai-burj-khalifa-sunset.jpg"
 ---
 
 **Dubai costs roughly $48–85 a day on a tight budget and $140–245 a day at mid-range, flights not included.** The trick is the same everywhere in the city: sleep in a hostel or budget hotel in Deira or Bur Dubai, eat where locals eat, ride the metro, and book the two or three attractions you actually want.
@@ -50,15 +50,27 @@ A tight budget here means dorm beds and cafeteria food. If you want a private ro
 
 Start in Deira and Bur Dubai, the cheapest parts of the city. Walk through the Al Fahidi Historic District (free), cross Dubai Creek on an *abra* for 1 AED, and browse the Gold and Spice Souks. Eat dinner at a Karama or Satwa cafeteria.
 
+![A traditional abra boat crossing Dubai Creek in front of old wind-tower houses](/images/dubai-creek-abra-old-town.jpg)
+*Photo: [walidphotoz](https://www.pexels.com/photo/33779636/) on [Pexels](https://www.pexels.com)*
+
 #### Days 3–4: Downtown and the big views
 
 The Burj Khalifa observation deck (At the Top) costs from about 169 AED off-peak (about $46) and 240+ AED (about $65+) for sunset slots, so book a daytime slot. Dubai Mall is free to enter, the Dubai Fountain show is free to watch from the promenade after 6 pm, and the Dubai Frame is about $14. The Museum of the Future is 169 AED (about $46).
+
+![The Burj Khalifa rising above the Dubai skyline at sunset](/images/dubai-burj-khalifa-sunset.jpg)
+*Photo: [rasul70](https://www.pexels.com/photo/36260020/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>Skip the ticket queues.</strong><span>Book Burj Khalifa, Dubai Frame and other attractions in advance.</span></div><a class="btn sun" href="/go/tiqets.html?s=dubai-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Browse Dubai tickets</a></div>
 
 #### Days 5–6: Beach, marina and desert
 
 Public beaches such as Kite Beach and JBR are free, and the Marina and JBR promenades cost nothing to walk. A shared evening desert safari starts from about 150 AED (about $41), which is the biggest single treat on a tight budget.
+
+![Dubai Marina towers reflected in the marina water](/images/dubai-marina-skyline.jpg)
+*Photo: [jdgromov](https://www.pexels.com/photo/28350363/) on [Pexels](https://www.pexels.com)*
+
+![Desert safari jeeps parked on a dune outside Dubai](/images/dubai-desert-safari-jeeps.jpg)
+*Photo: [Jenis Christopher](https://www.pexels.com/photo/12565188/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: Last-minute shopping and departure
 
