@@ -5,7 +5,7 @@ pubDate: "2026-11-18T12:00:00Z"
 updatedDate: "2026-11-18T12:00:00Z"
 labels: ["Budget Travel", "Croatia", "Europe"]
 path: "/croatia-trip-cost.html"
-heroImage: "https://blogger.googleusercontent.com/img/a/AVvXsEg1BcsuzgXtXkdQdn2QCRj8AWypMW0g6l9dpkQvkzh4aWHTHt13RK0sgh3fENXbROdBa-UQFKqulHYE_lRHCEFIM1MsUaVKGOwXLue7zj3iZjfrznvS068q0HiJcwBanchcPQGgeagA2nbqHI5-7Y6sYa8dU-qTWYR-z7AjsAbl1qE4BIVX9xRxfGQU=w623-h233"
+heroImage: "/images/croatia-dubrovnik-old-town-aerial.jpg"
 ---
 
 **Croatia costs roughly $65–110 a day on a tight budget and $160–255 a day at mid-range, flights not included.** The country is cheapest inland and in the shoulder months, and most expensive on the islands and in Dubrovnik in July and August. The trick is to sleep in Zagreb and Split, ride the buses, eat bakery and konoba food, and book park tickets outside summer.
@@ -50,13 +50,28 @@ The low end assumes travel between November and March, or at least outside July 
 
 Start in Zagreb, the cheapest big city in the country: dorm beds from about €20 and a day ticket for trams and buses of just under €4. Spend a day walking the Upper Town (free), then take a bus to Plitvice Lakes National Park, a chain of waterfalls and turquoise lakes. Adult tickets cost €10 from November to March, €23.50 in April, May and October, and €40 from June to September, so this is the sight where the season matters most. Book ahead in summer because entry is timed.
 
+![Waterfalls and turquoise lakes at Plitvice Lakes National Park](/images/croatia-plitvice-waterfalls.jpg)
+*Photo: [aevrun](https://www.pexels.com/photo/38040350/) on [Pexels](https://www.pexels.com)*
+
 #### Days 3–5: Split and Krka
 
 Split is the budget base of the coast. Walk Diocletian's Palace, the Roman-era old town, for free, then pay for the extras you want: the palace cellars are about €7 and the cathedral bell tower about €6. Use a day for Krka National Park, which costs €7 from November to March, €20 in April, May and October, and €40 from June to September. A guided Krka day tour from Split is about €50–70 plus the park ticket, so going by bus on your own is cheaper. A foot-passenger ferry from Split to Hvar Town costs €8.50 on the fast Krilo boat, but Hvar beds are expensive in summer, so make it a day trip.
 
+![The ornate cathedral bell tower in Diocletian's Palace, Split](/images/croatia-split-cathedral-bell-tower.jpg)
+*Photo: [Carlo Junemann](https://www.pexels.com/photo/18697502/) on [Pexels](https://www.pexels.com)*
+
+![Red roofs and the harbour of Hvar Town seen from the fortress](/images/croatia-hvar-harbour-view.jpg)
+*Photo: [Butch Aleksich](https://www.pexels.com/photo/34199846/) on [Pexels](https://www.pexels.com)*
+
 #### Days 6–7: Dubrovnik
 
 The bus from Split to Dubrovnik takes about 3 hours 45 minutes, and FlixBus fares start from about €6 if you book early. The old town's city walls are the big expense: €40 from March to October and €15 from November to February, and the ticket also covers Fort Lovrijenac. Walk the walls in the morning, then eat outside the old town, where prices are lower than inside the walls (a beer can cost up to €8 there).
+
+![Aerial view of Dubrovnik's old town, city walls and harbour](/images/croatia-dubrovnik-old-town-aerial.jpg)
+*Photo: [Diego F. Parra](https://www.pexels.com/photo/15552995/) on [Pexels](https://www.pexels.com)*
+
+![Aerial view of Rovinj old town on the Istrian coast at sunset](/images/croatia-rovinj-aerial.jpg)
+*Photo: [Mikhail Nilov](https://www.pexels.com/photo/8430512/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>The flight is your biggest cost. Check it first.</strong><span>Search fares for your dates and compare before you pay.</span></div><a class="btn sun" href="/go/ovago.html?s=croatia-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Check Croatia flights</a></div>
 
