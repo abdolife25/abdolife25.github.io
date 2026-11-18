@@ -5,7 +5,7 @@ pubDate: "2026-11-18T12:00:00Z"
 updatedDate: "2026-11-18T12:00:00Z"
 labels: ["Budget Travel", "Portugal", "Europe"]
 path: "/portugal-trip-cost.html"
-heroImage: "/images/best_places_to_visit_in_portugal-featured-image.webp"
+heroImage: "/images/portugal-pena-palace-sintra.jpg"
 ---
 
 **Portugal costs roughly $50–100 a day on a tight budget and $115–220 a day at mid-range, flights not included.** It is cheapest in Porto and the off-season, and most expensive in Lisbon and the Algarve in July and August. The trick is to sleep in dorms, eat the daily lunch special, book trains ahead and pick two or three paid sights instead of ten.
@@ -52,13 +52,30 @@ The low end assumes dorm beds, booked-ahead trains and travel between November a
 
 Fly into Porto, the cheapest of the big three. Dorm beds start from about €14, a single metro ticket is about €1.40 and a 24-hour Andante transport pass is about €7.50. The airport metro line costs about €2.30. Walk the Ribeira riverfront and cross the Dom Luís I bridge for free, then pay for what you want: Livraria Lello bookshop is about €10 (deducted if you buy a book), the Clérigos Tower about €10 and a classic Sandeman port cellar tour about €23. A full-day Douro Valley trip is about €85 in total if you go with a tour.
 
+![The Dom Luís I iron bridge arching over the Douro River in Porto](/images/portugal-porto-dom-luis-bridge.jpg)
+*Photo: [beachbumology](https://www.pexels.com/photo/20433856/) on [Pexels](https://www.pexels.com)*
+
 #### Days 3–4: Lisbon and Sintra
 
 Take the train from Porto to Lisbon (about 3 hours on the Alfa Pendular). Booked ahead, fares start around €21 for early departures and €34 for mid-morning ones, while the full fare is about €56–71, so book early. In Lisbon, a single metro ride is about €1.90 and a 24-hour Carris and Metro pass is about €7.25. Belém is the big-ticket area: Jerónimos Monastery is €18 and Belém Tower €15 since January 2025, so most budget travelers pick one. Spend the next day in Sintra: the Pena Palace costs €20 with the park or €12 for the park only, and the palace entry is timed, with no late entry and no refund if you miss your slot, so book on the official Parques de Sintra site and arrive early.
 
+![Terracotta rooftops of Alfama in Lisbon looking out over the Tagus river](/images/portugal-lisbon-alfama-rooftops.jpg)
+*Photo: [njeromin](https://www.pexels.com/photo/36112750/) on [Pexels](https://www.pexels.com)*
+
+
+![Belém Tower on the Tagus riverbank in Lisbon with a container ship passing](/images/portugal-belem-tower.jpg)
+*Photo: [Giannis Brakopoulos](https://www.pexels.com/photo/37740736/) on [Pexels](https://www.pexels.com)*
+
+
+![The red and yellow Pena Palace on its hilltop above Sintra](/images/portugal-pena-palace-sintra.jpg)
+*Photo: [Matej Simko](https://www.pexels.com/photo/27832058/) on [Pexels](https://www.pexels.com)*
+
 #### Days 5–6: Lagos and the Algarve
 
 Take an Intercidades train from Lisbon to Faro (about 3 hours 40 minutes), then a regional train to Lagos (about 1 hour 45 minutes). Booked ahead, the Lisbon–Faro leg was about €25–30, with a full fare of about €49, and the Faro–Lagos train is about €7.70. Lagos is a budget Algarve base: dorms around €15–25, a beer about €2 and a local bus ride €1.20–1.60. It is a long day, so plan it as your transfer day. Spend the next day on the beaches and cliff paths, which are free, and compare boat trips to the caves before booking.
+
+![Golden sandstone sea stacks and cliffs rising from turquoise water near Lagos in the Algarve](/images/portugal-lagos-ponta-da-piedade.jpg)
+*Photo: [clickerhappy](https://www.pexels.com/photo/3807/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: home from Faro
 
