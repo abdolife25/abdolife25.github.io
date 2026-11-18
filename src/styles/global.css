@@ -250,3 +250,17 @@ dialog.search .searchfield{border:0;border-bottom:1px solid var(--line);border-r
 .rail-book h3{font-family:var(--display);font-size:1.1rem;margin:0}
 .rail-book .btn{width:100%}
 .rail-book p{margin:0;font-size:.78rem;color:var(--mute)}
+/* Article tables: readable cost tables */
+.prose table{width:100%;border-collapse:separate;border-spacing:0;margin:22px 0 26px;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.97rem;line-height:1.45;background:var(--card)}
+.prose th,.prose td{padding:12px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.prose thead th{background:var(--ink);color:var(--bg);font-weight:700;font-size:.9rem;letter-spacing:.02em;border-bottom:0}
+.prose thead th:empty{background:var(--ink)}
+.prose tbody td:first-child{font-weight:650;color:var(--ink);white-space:nowrap;width:1%}
+.prose tbody tr:nth-child(even) td{background:var(--mist)}
+.prose tbody tr:last-child td{background:color-mix(in srgb,var(--sun) 30%,var(--card));border-bottom:0;font-weight:700;color:var(--ink)}
+.prose tbody tr:last-child td:first-child{font-weight:800}
+@media (max-width:640px){
+  .prose table{font-size:.88rem}
+  .prose th,.prose td{padding:10px 10px}
+  .prose tbody td:first-child{white-space:normal;width:auto}
+}
