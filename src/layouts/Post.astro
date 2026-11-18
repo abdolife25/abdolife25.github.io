@@ -81,6 +81,12 @@ const shares = [
     </article>
     {isPost && (
       <aside class="rail">
+        <div class="plan">
+          <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>
+          <p>Turn your own prices into a total with a safety buffer.</p>
+          <a class="btn sun" href={calcHref}>Budget calculator</a>
+          <a class="btn" style="border-color:currentColor;color:inherit" href="/tools/packing-checklist.html">Packing checklist</a>
+        </div>
         {toc.length > 2 && (
           <nav class="toc" data-toc aria-label="On this page">
             <strong>On this page</strong>
@@ -96,12 +102,6 @@ const shares = [
             <p>Affiliate links. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>
           </div>
         )}
-        <div class="plan">
-          <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>
-          <p>Turn your own prices into a total with a safety buffer.</p>
-          <a class="btn sun" href={calcHref}>Budget calculator</a>
-          <a class="btn" style="border-color:currentColor;color:inherit" href="/tools/packing-checklist.html">Packing checklist</a>
-        </div>
       </aside>
     )}
   </div>
