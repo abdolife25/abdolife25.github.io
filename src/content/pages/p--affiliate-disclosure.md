@@ -1,6 +1,6 @@
 ---
 title: "Affiliate disclosure"
-description: "How Voyagelo earns money: some links on this site are affiliate links, and what that means for you."
+description: "How Voyagelo earns money: some links on this site are affiliate links, what that means for you, and why they never change the prices you pay."
 pubDate: "2026-11-10T00:00:00Z"
 labels: []
 path: "/p/affiliate-disclosure.html"
