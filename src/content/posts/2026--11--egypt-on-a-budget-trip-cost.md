@@ -5,7 +5,7 @@ pubDate: "2026-11-18T12:00:00Z"
 updatedDate: "2026-11-18T12:00:00Z"
 labels: ["Budget Travel", "Egypt", "Middle East"]
 path: "/egypt-trip-cost.html"
-heroImage: "https://blogger.googleusercontent.com/img/a/AVvXsEjcbp2iYBw_s4FcVLIwfiRkLoRjSxFIxzomxxVXetexCVesiphJyNXs8Vd5AolCf_ZeVf6R_EoQZ9ROPnaqh0ffjadJnBEMsPzDzVrrHjQ9UBqGv_dGjcacSMo2E16Ij7P-ZjwUAGJ8WhYvkzT_ekKlUghCd3DjXOPCLNWgCgj1PDaMd-zGtSg2835C=w596-h596"
+heroImage: "/images/egypt-giza-pyramids-sphinx.jpg"
 ---
 
 **Egypt costs roughly $40–85 a day on a tight budget and $95–180 a day at mid-range, flights and long-distance trains not included.** Food, beds and local transport are cheap. The big costs are foreigner ticket prices at the major sights and the overnight train to Luxor. The trick is to base yourself in a budget hotel, eat where locals eat, and choose which paid sights are worth it, because the Grand Egyptian Museum alone is now about $34.
@@ -70,6 +70,12 @@ The Grand Egyptian Museum raised its foreigner adult ticket to EGP 1,830 on 1 No
 
 Land in Cairo and spend the first day in Islamic Cairo: Khan el-Khalili bazaar is free to walk, and the Citadel is about $10. On day 2 take an Uber to the Giza Plateau (about $5 from downtown) and buy the $13 plateau ticket, with the Great Pyramid interior as an optional $28 extra. Go early in the day to avoid the heat and the crowds.
 
+![A cobbled alley in Khan el-Khalili bazaar in Cairo lined with brass lanterns and ceramics](/images/egypt-khan-el-khalili-cairo.jpg)
+*Photo: [Dounia Hussein](https://www.pexels.com/photo/31589053/) on [Pexels](https://www.pexels.com)*
+
+![The Sphinx and the pyramids of Giza glowing at sunset](/images/egypt-giza-pyramids-sphinx.jpg)
+*Photo: [Sefa Demirtas](https://www.pexels.com/photo/38290619/) on [Pexels](https://www.pexels.com)*
+
 #### Day 3: Grand Egyptian Museum, then the night train
 
 Spend the morning at the Grand Egyptian Museum, which is the priciest single ticket on this trip at about $34, and add the older Egyptian Museum in Tahrir for about $10 if you have time. In the evening, take the sleeper from Cairo to Luxor. Sleepers leave from a different station (Cairo Upper Egypt) than the day trains, so allow a taxi or Uber, and arrive 30 minutes early. Sleeper bookings open four to five months ahead, so book early for November to February.
@@ -78,9 +84,18 @@ Spend the morning at the Grand Egyptian Museum, which is the priciest single tic
 
 Arrive in Luxor in the morning. Spend the east bank day at Karnak (about $11) and Luxor Temple (about $9), and the west bank day at the Valley of the Kings (about $14 for three tombs) and Hatshepsut's temple (about $8). Tutankhamun's tomb is an extra EGP 700 (about $13). A guesthouse on the west bank runs about $18 a night, and a Nile-view dinner is about $18.
 
+![Giant carved sandstone columns in the Great Hypostyle Hall at Karnak Temple in Luxor](/images/egypt-karnak-temple-columns.jpg)
+*Photo: [Meum Mare](https://www.pexels.com/photo/16971317/) on [Pexels](https://www.pexels.com)*
+
+![The terraced Temple of Hatshepsut set against golden cliffs on the Luxor west bank](/images/egypt-hatshepsut-temple-luxor.jpg)
+*Photo: [Mert Celik](https://www.pexels.com/photo/33854606/) on [Pexels](https://www.pexels.com)*
+
 #### Days 6–7: Nile day, then back to Cairo
 
 Use day 6 for a free felucca ride or a Nile ferry crossing and a slow walk, then take the sleeper back to Cairo that night and arrive on the morning of day 7 for your flight home. Foreigners cannot buy day-train tickets on the Egyptian Railways site at local prices, so for a day train buy the foreigner fare at the station's foreigner reservation office or through an agency.
+
+![A felucca with a red sail crossing the Nile at sunset near Luxor](/images/egypt-nile-felucca-luxor.jpg)
+*Photo: [AXP Photography](https://www.pexels.com/photo/16386724/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>The flight is your biggest cost. Check it first.</strong><span>Search fares for your dates and compare before you pay.</span></div><a class="btn sun" href="/go/ovago.html?s=egypt-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Check Egypt flights</a></div>
 
