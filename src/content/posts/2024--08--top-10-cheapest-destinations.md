@@ -67,7 +67,7 @@ Cambodia is a gem, offering the mystical Angkor Wat, friendly locals, and a supe
 - **Pro Tip**: Bargaining is a way of life here. Do it with a smile, and you’ll get the best deals!
 - **Weekly Budget**: $280–$490
 
-**4. [India](/2024/09/your-ultimate-travel-guide-to-india.html)**
+**4. [India](/india-trip-cost.html)**
 
 ![Top 10 Cheapest Destinations: Affordable, Unforgettable, and Worth It!](https://blogger.googleusercontent.com/img/a/AVvXsEigw-VEQCPCRzi88_W5ss5U3AKgJpErXncd1S2N6oBggksDHfrgxxZ9YjH-4HBo6ZqgTT-ulUigCPqncYsFSUDpT5rjAZRq8KykOB6HdJDb0Wqsmof-vlF7AO-FlZMYJT6PXnjW3Z3QMFhGDIiMyIhLitz-He3IidOwIwX_7VZIt2hfyNyCJ0D35vEL7NCb=w573-h381)
 
