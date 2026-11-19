@@ -5,7 +5,7 @@ pubDate: "2026-11-19T12:00:00Z"
 updatedDate: "2026-11-19T12:00:00Z"
 labels: ["Budget Travel", "India", "Asia"]
 path: "/india-trip-cost.html"
-heroImage: "/images/india.webp"
+heroImage: "/images/india-taj-mahal-agra.jpg"
 ---
 
 **India costs roughly $25–55 a day on a tight budget and $70–130 a day at mid-range, flights and visa not included.** Food, local transport and trains are very cheap. The biggest costs are your flight, your bed and the foreigner prices at the big monuments, where the Taj Mahal alone is about $14. The trick is to eat where locals eat, take the train instead of a private car, and pick which paid sights are worth it.
@@ -70,13 +70,31 @@ The Taj Mahal is ₹1,100 for entry plus ₹200 for the main mausoleum chamber, 
 
 Land in Delhi and ride the Airport Express metro into the city, which costs well under $1. Spend the first day at Humayun's Tomb (about $6) and the Red Fort (about $10), and add Qutub Minar (about $6) on day 2 if you have time. Eat chole bhature and thali for lunch and save your money for the sights.
 
+![Humayun's Tomb in Delhi, a red sandstone and white marble mausoleum framed by palm trees](/images/india-humayuns-tomb-delhi.jpg)
+*Photo: [Tarun Malik](https://www.pexels.com/photo/8385841/) on [Pexels](https://www.pexels.com)*
+
+![Red sandstone towers of the Red Fort in Delhi with birds circling at sunset](/images/india-red-fort-delhi.jpg)
+*Photo: [Abdus Samad Mahkri](https://www.pexels.com/photo/34201914/) on [Pexels](https://www.pexels.com)*
+
 #### Days 3–4: Agra and the Taj Mahal
 
 Take the Gatimaan Express from Delhi to Agra, a trip of about 1 hour 40 minutes. A recent listing shows the AC chair car at ₹765 ($8) and the executive class at ₹1,495 ($16). The train appears not to run on Fridays, so confirm the running days before you book. Visit Agra Fort (about $7) the first afternoon and go to the Taj Mahal at opening time the next day (about $14), when it is cooler and quieter.
 
+![The Taj Mahal seen across green gardens and tree-lined lawns in Agra](/images/india-taj-mahal-agra.jpg)
+*Photo: [rsapmech](https://www.pexels.com/photo/11521892/) on [Pexels](https://www.pexels.com)*
+
 #### Days 5–6: Jaipur
 
 Take a train from Agra to Jaipur. Prices run about $5–21 depending on the train and class, and the fastest trains take about 3 hours 40 minutes. In Jaipur, spend one day at Amer Fort (about $5) and Hawa Mahal (about $2), and the next at the City Palace (about $7) and Jantar Mantar (about $2). The markets and street food are free to browse and cheap to eat from.
+
+![The painted Ganesh Pol gateway at Amer Fort near Jaipur](/images/india-amer-fort-ganesh-pol.jpg)
+*Photo: [yatrikyash](https://www.pexels.com/photo/34575514/) on [Pexels](https://www.pexels.com)*
+
+![The pink sandstone honeycomb facade of Hawa Mahal in Jaipur](/images/india-hawa-mahal-jaipur.jpg)
+*Photo: [The Candid House](https://www.pexels.com/photo/39605920/) on [Pexels](https://www.pexels.com)*
+
+![A covered market arcade in Jaipur hung with colorful skirts, bags and fabrics](/images/india-jaipur-market-arcade.jpg)
+*Photo: [Ravi Mittal](https://www.pexels.com/photo/10589517/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: back to Delhi
 
