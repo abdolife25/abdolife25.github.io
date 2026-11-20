@@ -4,7 +4,7 @@ export const SITE = {
   author: 'Voyagelo Content Team',
   tagline: 'Budget travel guides, trip costs and booking tips',
   description: 'Voyagelo publishes budget travel guides with real trip costs in US dollars, checked against current prices, plus booking tips for travellers who want to spend less.',
-  ga4: 'G-2NS892R3FH',
+  gtm: 'GTM-N8P3FRD9', // Google tag for the Voyagelo Website GA4 property
   // Paste your signup page URL here to show the email signup blocks.
   emailSignupUrl: '',
   // Official accounts (taken from the old Blogger theme). Remove a line to hide it.

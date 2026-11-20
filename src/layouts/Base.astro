@@ -47,11 +47,12 @@ const links = [
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
   <ClientRouter />
-  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}></script>
-  <script is:inline set:html={`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${SITE.ga4}');`}></script>
+  <script is:inline async src={`https://www.googletagmanager.com/gtm.js?id=${SITE.gtm}`}></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
