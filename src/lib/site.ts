@@ -1,6 +1,7 @@
 export const SITE = {
   name: 'Voyagelo',
   url: 'https://www.voyagelo.com',
+  author: 'Voyagelo Budget Desk',
   tagline: 'Budget travel guides, trip costs and booking tips',
   description: 'Voyagelo publishes budget travel guides with real trip costs in US dollars, checked against current prices, plus booking tips for travellers who want to spend less.',
   ga4: 'G-2NS892R3FH',

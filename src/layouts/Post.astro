@@ -32,7 +32,7 @@ const absImg = d.heroImage ? (d.heroImage.startsWith('http') ? d.heroImage : new
 const orgRef = { '@type': 'Organization', name: SITE.name, url: SITE.url, logo: { '@type': 'ImageObject', url: new URL('/images/brand/icon-512.png', SITE.url).href } };
 const crumbList = [['Home', SITE.url + '/'], ['Destinations', new URL('/destinations.html', SITE.url).href], ...(place ? [[place, new URL(`/tags/${slugify(place)}.html`, SITE.url).href]] : []), [d.title, pageUrl]];
 const ld: any[] = isPost ? [
-  { '@context': 'https://schema.org', '@type': 'Article', headline: d.title, description: d.description, mainEntityOfPage: pageUrl, url: pageUrl, datePublished: d.pubDate.toISOString(), dateModified: (d.updatedDate ?? d.pubDate).toISOString(), ...(absImg ? { image: [absImg] } : {}), author: orgRef, publisher: orgRef },
+  { '@context': 'https://schema.org', '@type': 'Article', headline: d.title, description: d.description, mainEntityOfPage: pageUrl, url: pageUrl, datePublished: d.pubDate.toISOString(), dateModified: (d.updatedDate ?? d.pubDate).toISOString(), ...(absImg ? { image: [absImg] } : {}), author: { '@type': 'Organization', name: SITE.author, url: new URL('/p/about.html', SITE.url).href }, publisher: orgRef },
   { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbList.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) },
   ...(faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
 ] : [];
@@ -60,7 +60,7 @@ const shares = [
     {isPost && (
       <div class="meta">
         <span>{readMins(entry.body)} min read</span>
-        <span>By {SITE.name}</span>
+        <span>By <a href="/p/about.html">{SITE.author}</a></span>
         <span>Published {fmt(d.pubDate)}</span>
         <span>Last updated {fmt(d.updatedDate ?? d.pubDate)}</span>
         {checked && <span>Prices checked {checked}</span>}
