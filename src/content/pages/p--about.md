@@ -10,7 +10,7 @@ heroImage: ""
 
 **Voyagelo is a budget travel site that shows what a trip really costs.** Every guide gives prices in US dollars for beds, food, transport and sights, so you can plan a trip and a budget before you book anything.
 
-Guides are published under the byline **Voyagelo Budget Desk**, the name for Voyagelo's own price research and writing.
+Guides are published under the byline **Voyagelo Content Team**, the name for Voyagelo's own price research and writing.
 
 ## What we publish
 
