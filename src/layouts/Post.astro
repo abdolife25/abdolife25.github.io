@@ -21,6 +21,21 @@ if (kind === 'post') {
   related = [...same, ...near, ...all.filter((p) => !same.includes(p) && !near.includes(p))].slice(0, 3).map(cardData);
 }
 const isPost = kind === 'post';
+// Structured data for search and AI answers. Built from the post itself, nothing is typed twice.
+const plain = (t: string) => t.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
+const body = String(entry.body || '');
+const checked = body.match(/Prices checked (\d{1,2} [A-Z][a-z]+ \d{4})/)?.[1] ?? '';
+const faqSection = body.split(/^## Frequently asked questions\s*$/m)[1]?.split(/^## /m)[0] ?? '';
+const faqs = [...faqSection.matchAll(/^\*\*(.+?\?)\*\*\s+(.+)$/gm)].map((m) => ({ q: plain(m[1]), a: plain(m[2]) }));
+const pageUrl = new URL(d.path, SITE.url).href;
+const absImg = d.heroImage ? (d.heroImage.startsWith('http') ? d.heroImage : new URL(d.heroImage, SITE.url).href) : undefined;
+const orgRef = { '@type': 'Organization', name: SITE.name, url: SITE.url, logo: { '@type': 'ImageObject', url: new URL('/images/brand/icon-512.png', SITE.url).href } };
+const crumbList = [['Home', SITE.url + '/'], ['Destinations', new URL('/destinations.html', SITE.url).href], ...(place ? [[place, new URL(`/tags/${slugify(place)}.html`, SITE.url).href]] : []), [d.title, pageUrl]];
+const ld: any[] = isPost ? [
+  { '@context': 'https://schema.org', '@type': 'Article', headline: d.title, description: d.description, mainEntityOfPage: pageUrl, url: pageUrl, datePublished: d.pubDate.toISOString(), dateModified: (d.updatedDate ?? d.pubDate).toISOString(), ...(absImg ? { image: [absImg] } : {}), author: orgRef, publisher: orgRef },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbList.map(([name, item], i) => ({ '@type': 'ListItem', position: i + 1, name, item })) },
+  ...(faqs.length ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
+] : [];
 const tag = slugify(String(entry.id)).slice(0, 50);
 const shareUrl = encodeURIComponent(new URL(d.path, SITE.url).href), shareText = encodeURIComponent(d.title);
 const shareImg = d.heroImage ? encodeURIComponent(d.heroImage.startsWith('http') ? d.heroImage : new URL(d.heroImage, SITE.url).href) : '';
@@ -32,6 +47,7 @@ const shares = [
 ];
 ---
 <Base title={d.title} description={d.description} path={d.path} image={d.heroImage} type={isPost ? 'article' : 'website'}>
+  {ld.map((j) => <script type="application/ld+json" slot="head" set:html={JSON.stringify(j)}></script>)}
   {isPost && <div class="progress" data-progress></div>}
   <div class="wrap post-head">
     {isPost && (
@@ -44,8 +60,10 @@ const shares = [
     {isPost && (
       <div class="meta">
         <span>{readMins(entry.body)} min read</span>
+        <span>By {SITE.name}</span>
         <span>Published {fmt(d.pubDate)}</span>
-        {d.updatedDate && +d.updatedDate - +d.pubDate > 7 * 864e5 && <span>Updated {fmt(d.updatedDate)}</span>}
+        <span>Last updated {fmt(d.updatedDate ?? d.pubDate)}</span>
+        {checked && <span>Prices checked {checked}</span>}
         <button type="button" class="linkbtn" data-copy-link>Copy link</button>
       </div>
     )}

@@ -41,7 +41,8 @@ const links = [
   <link rel="icon" type="image/png" sizes="32x32" href="/images/brand/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/images/brand/icon-192.png">
   <link rel="apple-touch-icon" href="/images/brand/apple-touch-icon.png">
-  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: new URL('/images/brand/icon-512.png', SITE.url).href, sameAs: SITE.social.map((x) => x.url) })}></script>
+  <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: new URL('/images/brand/icon-512.png', SITE.url).href, description: SITE.description, sameAs: SITE.social.map((x) => x.url) })}></script>
+  <slot name="head" />
   <script is:inline>
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
