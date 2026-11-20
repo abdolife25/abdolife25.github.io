@@ -105,7 +105,7 @@ Bali is the stuff of dreams—think lush rice terraces, serene temples, and beac
 - **Pro Tip**: Dress modestly at temples. It’s respectful and shows you care about the local culture.
 - **Weekly Budget**: $350–$630
 
-**6. [Mexico](/2024/10/your-ultimate-travel-guide-to-mexico.html)**
+**6. [Mexico](/mexico-trip-cost.html)**
 
 ![Top 10 Cheapest Destinations: Affordable, Unforgettable, and Worth It!](https://blogger.googleusercontent.com/img/a/AVvXsEhu-CwtWU5W8ZLMYv9VegSyRtFUED2gbk86pxeKBOFYMIihoueAT98EbGK6Ig1V6wO-UWmp9L977EwVW_nL7-vL3KVyvaQNi2S5e4ZsixaMIZJtkhufod-HHrHmZGt4Yif8O37FcNGKxRa46xeezgFRfeW2Ixagux64-MA8cVRCeUl8ePiG5lQBEEWWsJXU=w568-h378)
 
