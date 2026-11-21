@@ -1,5 +1,6 @@
 ---
 title: "7-Day Romania Travel for Under $500: Your Ultimate Budget Guide"
+seoTitle: "7-Day Romania Travel for Under $500: Budget Guide"
 description: "Romania is an ideal destination for budget travelers seeking a rich mix of history, culture, and nature. Whether you're exploring ancient castles…"
 pubDate: "2024-10-15T21:01:00Z"
 updatedDate: "2024-10-18T17:26:35.660Z"

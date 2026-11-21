@@ -1,5 +1,6 @@
 ---
 title: "Egypt Trip Cost 2027: 7 Days for Only $490 (Flights Excluded)"
+seoTitle: "Egypt Trip Cost 2027: 7 Days for Only $490"
 description: "What an Egypt trip really costs: 7 days from about $490 (flights excluded), with Cairo and Luxor prices, pyramid and museum tickets, sleeper train and food."
 pubDate: "2026-11-18T12:00:00Z"
 updatedDate: "2026-11-18T12:00:00Z"

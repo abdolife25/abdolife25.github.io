@@ -1,5 +1,6 @@
 ---
 title: "Canary Islands Trip Cost 2027: 7 Days From About $385 (Flights Excluded)"
+seoTitle: "Canary Islands Trip Cost 2027: 7 Days From $385"
 description: "What the Canary Islands really cost: 7 days in Tenerife from about $385 (flights excluded), with hostel and hotel prices, bus passes, car hire, Teide cable car, Siam Park and Loro Parque tickets."
 pubDate: "2026-11-21T12:00:00Z"
 updatedDate: "2026-11-21T12:00:00Z"

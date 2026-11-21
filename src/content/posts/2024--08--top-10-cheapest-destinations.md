@@ -1,5 +1,6 @@
 ---
 title: "Top 10 Cheapest Destinations: Affordable, Unforgettable, and Worth It!"
+seoTitle: "Top 10 Cheapest Destinations: Affordable and Worth It"
 description: "Traveling doesn't have to empty your wallet. Some of the best places on Earth are also the most affordable. I’ve rounded up the top 10 budget friendly…"
 pubDate: "2024-08-26T15:59:00Z"
 updatedDate: "2024-10-18T19:25:53.153Z"

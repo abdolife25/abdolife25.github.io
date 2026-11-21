@@ -1,5 +1,6 @@
 ---
 title: "Your Ultimate Travel Guide to Thailand: Best Time to Visit, Top Attractions, and Budget-Friendly Tips"
+seoTitle: "Thailand Travel Guide: Best Time and Budget Tips"
 description: "Thailand is a destination that entices travelers with its vibrant culture, delicious street food, stunning beaches, and ancient temples. Whether you're…"
 pubDate: "2024-09-13T16:13:00Z"
 updatedDate: "2024-09-13T16:13:20.415Z"

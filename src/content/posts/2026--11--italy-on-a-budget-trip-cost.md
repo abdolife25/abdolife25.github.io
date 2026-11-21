@@ -1,5 +1,6 @@
 ---
 title: "Italy Trip Cost 2027: 7 Days for Only $535 (Flights Excluded)"
+seoTitle: "Italy Trip Cost 2027: 7 Days for Only $535"
 description: "What a trip to Italy really costs: 7 days in Rome, Florence and Venice from about $535 (flights excluded), with daily budgets, train fares, ticket prices and the cheapest months."
 pubDate: "2026-11-17T18:00:00Z"
 updatedDate: "2026-11-17T18:00:00Z"

@@ -1,5 +1,6 @@
 ---
 title: "Spain Trip Cost 2027: 7 Days From About $430 (Flights Excluded)"
+seoTitle: "Spain Trip Cost 2027: 7 Days From $430"
 description: "What a Spain trip really costs: 7 days across Barcelona, Madrid and Seville from about $430 (flights excluded), with dorm and hotel prices, set lunches, train fares and sight tickets."
 pubDate: "2026-11-21T12:00:00Z"
 updatedDate: "2026-11-21T12:00:00Z"

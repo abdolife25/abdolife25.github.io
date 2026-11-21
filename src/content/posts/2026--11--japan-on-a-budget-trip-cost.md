@@ -1,5 +1,6 @@
 ---
 title: "Japan Trip Cost 2027: 7 Days for Only $460 (Flights Excluded)"
+seoTitle: "Japan Trip Cost 2027: 7 Days for Only $460"
 description: "What a Japan trip really costs: 7 days for as little as $460 (flights excluded), with daily budgets, hostel and food prices, bullet train fares and the new JR Pass prices."
 pubDate: "2026-11-17T12:00:00Z"
 updatedDate: "2026-11-17T12:00:00Z"
