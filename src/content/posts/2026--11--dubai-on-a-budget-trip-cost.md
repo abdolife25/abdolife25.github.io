@@ -51,14 +51,14 @@ A tight budget here means dorm beds and cafeteria food. If you want a private ro
 Start in Deira and Bur Dubai, the cheapest parts of the city. Walk through the Al Fahidi Historic District (free), cross Dubai Creek on an *abra* for 1 AED, and browse the Gold and Spice Souks. Eat dinner at a Karama or Satwa cafeteria.
 
 ![A traditional abra boat crossing Dubai Creek in front of old wind-tower houses](/images/dubai-creek-abra-old-town.jpg)
-*Photo: [walidphotoz](https://www.pexels.com/photo/33779636/) on [Pexels](https://www.pexels.com)*
+*Dubai Creek, Dubai, UAE · Photo: [walidphotoz](https://www.pexels.com/photo/33779636/) on [Pexels](https://www.pexels.com)*
 
 #### Days 3–4: Downtown and the big views
 
 The Burj Khalifa observation deck (At the Top) costs from about 169 AED off-peak (about $46) and 240+ AED (about $65+) for sunset slots, so book a daytime slot. Dubai Mall is free to enter, the Dubai Fountain show is free to watch from the promenade after 6 pm, and the Dubai Frame is about $14. The Museum of the Future is 169 AED (about $46).
 
 ![The Burj Khalifa rising above the Dubai skyline at sunset](/images/dubai-burj-khalifa-sunset.jpg)
-*Photo: [rasul70](https://www.pexels.com/photo/36260020/) on [Pexels](https://www.pexels.com)*
+*Burj Khalifa, Dubai, UAE · Photo: [rasul70](https://www.pexels.com/photo/36260020/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>Skip the ticket queues.</strong><span>Book Burj Khalifa, Dubai Frame and other attractions in advance.</span></div><a class="btn sun" href="/go/tiqets.html?s=dubai-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Browse Dubai tickets</a></div>
 
@@ -67,10 +67,10 @@ The Burj Khalifa observation deck (At the Top) costs from about 169 AED off-peak
 Public beaches such as Kite Beach and JBR are free, and the Marina and JBR promenades cost nothing to walk. A shared evening desert safari starts from about 150 AED (about $41), which is the biggest single treat on a tight budget.
 
 ![Dubai Marina towers reflected in the marina water](/images/dubai-marina-skyline.jpg)
-*Photo: [jdgromov](https://www.pexels.com/photo/28350363/) on [Pexels](https://www.pexels.com)*
+*Dubai Marina, Dubai, UAE · Photo: [jdgromov](https://www.pexels.com/photo/28350363/) on [Pexels](https://www.pexels.com)*
 
 ![Desert safari jeeps parked on a dune outside Dubai](/images/dubai-desert-safari-jeeps.jpg)
-*Photo: [Jenis Christopher](https://www.pexels.com/photo/12565188/) on [Pexels](https://www.pexels.com)*
+*Desert safari, Dubai, UAE · Photo: [Jenis Christopher](https://www.pexels.com/photo/12565188/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: Last-minute shopping and departure
 

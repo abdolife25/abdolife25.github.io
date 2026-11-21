@@ -14,7 +14,7 @@ heroImage: "/images/japan-mount-fuji-chureito-pagoda.jpg"
 *Prices checked 17 November 2026 against current travel-cost guides and official fare pages. All prices are in US dollars, converted at ¥159 = US$1; the yen moves daily, so expect small shifts.*
 
 ![Mount Fuji rising behind the red Chureito Pagoda, Japan](/images/japan-mount-fuji-chureito-pagoda.jpg)
-*Photo: [railgunbreaker](https://www.pexels.com/@railgunbreaker/) on [Pexels](https://www.pexels.com)*
+*Mount Fuji and Chureito Pagoda, Fujiyoshida, Japan · Photo: [railgunbreaker](https://www.pexels.com/@railgunbreaker/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>Cheapest beds in Japan are dorm beds.</strong><span>Compare hostels and low-cost private rooms, with reviews from other travelers.</span></div><a class="btn sun" href="/go/hostelworld.html?s=japan-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Compare Japan hostels</a></div>
 
@@ -58,21 +58,21 @@ The Tokyo–Kyoto bullet train is about $85 for an unreserved seat and $91 reser
 Asakusa and Senso-ji (free to walk around), Shibuya Crossing, the Imperial Palace East Garden (free), Akihabara, and the free observation deck of the Tokyo Metropolitan Government Building. Stay near Asakusa or Ueno for cheap beds and easy trains.
 
 ![Crowds crossing the Shibuya scramble intersection in Tokyo](/images/tokyo-shibuya-crossing.jpg)
-*Photo: [Stephan](https://www.pexels.com/photo/37590958/) on [Pexels](https://www.pexels.com)*
+*Shibuya Crossing, Tokyo, Japan · Photo: [Stephan](https://www.pexels.com/photo/37590958/) on [Pexels](https://www.pexels.com)*
 
 #### Days 4–5: Kyoto
 
 Fushimi Inari (free), Kiyomizu-dera, Gion in the evening, and Arashiyama's bamboo grove. Paid temple entries are typically around $3 each.
 
 ![The orange torii gate path at Fushimi Inari Shrine, Kyoto](/images/kyoto-fushimi-inari-torii-gates.jpg)
-*Photo: [Arnaud](https://www.pexels.com/photo/40884563/) on [Pexels](https://www.pexels.com)*
+*Fushimi Inari Shrine, Kyoto, Japan · Photo: [Arnaud](https://www.pexels.com/photo/40884563/) on [Pexels](https://www.pexels.com)*
 
 #### Days 6–7: Osaka and Nara
 
 Dotonbori street food, Osaka Castle, and a day trip to Nara's deer park and Todai-ji (about 45 minutes by train).
 
 ![Dotonbori canal in Osaka lit up at night](/images/osaka-dotonbori-canal-night.jpg)
-*Photo: [shtefutsa](https://www.pexels.com/photo/38944349/) on [Pexels](https://www.pexels.com)*
+*Dotonbori, Osaka, Japan · Photo: [shtefutsa](https://www.pexels.com/photo/38944349/) on [Pexels](https://www.pexels.com)*
 
 ## Do you need the JR Pass?
 
