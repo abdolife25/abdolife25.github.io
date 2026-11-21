@@ -28,6 +28,9 @@ The *menú del día* is the budget trick: three courses, a drink and bread for a
 
 Dorm prices vary by city. One guide lists Madrid dorms at €20–30, Barcelona €25–35, Seville €18–28 and Granada €15–25, while another puts a dorm bed at about $13–16, so treat these as planning ranges, not quotes. Mid-range hotels are listed at about €120–200 in Madrid, €150–250 in Barcelona and €70–120 in Seville per room per night, which is why Seville and Granada are the cheap bases.
 
+![A courtyard of the Alhambra in Granada seen through a carved arch, with a long reflecting pool](/images/spain-granada-alhambra-courtyard.jpg)
+*Photo: [Javier Gallegos](https://www.pexels.com/photo/12313586/) on [Pexels](https://www.pexels.com)*
+
 ## What 7 days costs in Spain
 
 Seven days and six nights on a Barcelona, Madrid and Seville route using high-speed trains: two nights in each city.
@@ -56,6 +59,12 @@ Fly into Barcelona. The T-Casual card gives 10 rides on metro and buses for abou
 ![The soaring tree-like ceiling vaults inside the Sagrada Família](/images/spain-barcelona-sagrada-familia-interior.jpg)
 *Photo: [Fran](https://www.pexels.com/photo/34028322/) on [Pexels](https://www.pexels.com)*
 
+![A Gothic stone bridge spanning Carrer del Bisbe in Barcelona's Gothic Quarter](/images/spain-barcelona-gothic-quarter-bridge.jpg)
+*Photo: [AXP Photography](https://www.pexels.com/photo/27397585/) on [Pexels](https://www.pexels.com)*
+
+![The spire of Barcelona Cathedral at the end of a Gothic Quarter street](/images/spain-barcelona-cathedral-spire.jpg)
+*Photo: [Diana Nguyen](https://www.pexels.com/photo/32542546/) on [Pexels](https://www.pexels.com)*
+
 #### Days 3–4: Madrid
 
 Take the high-speed train to Madrid (about 2.5 to 3.5 hours). Booked ahead, one traveler paid just €19 ($21) on Ouigo, while AVE and same-day fares cost more, so compare Renfe, Ouigo, Iryo and Avlo. In Madrid a 10-trip metro card is about €12.20 ($13.40). The Prado costs €15 ($16.50) and is free in the last two hours daily (Monday to Saturday 6–8 pm, Sunday 5–7 pm), and the Reina Sofía is free after 7 pm on Monday and Wednesday to Saturday. Plan your evenings around those free slots, and eat a set lunch near the museums.
@@ -63,9 +72,18 @@ Take the high-speed train to Madrid (about 2.5 to 3.5 hours). Booked ahead, one 
 ![The red facade and equestrian statue in Madrid's Plaza Mayor](/images/spain-madrid-plaza-mayor.jpg)
 *Photo: [jibarofoto](https://www.pexels.com/photo/14366474/) on [Pexels](https://www.pexels.com)*
 
+![The columned facade of the Museo del Prado in Madrid](/images/spain-madrid-prado-museum.jpg)
+*Photo: [Cristian Loayza](https://www.pexels.com/photo/34897633/) on [Pexels](https://www.pexels.com)*
+
 #### Days 5–6: Seville
 
 Take the Madrid–Seville high-speed train (about 2 hours 30 minutes). Booked in advance it starts from about €28 ($31), while buying on the day can cost about €75 ($83), the biggest saving on this route. Seville is the cheapest of the three cities, with dorms around €18–28 ($20–31) and mid-range hotels about €70–120 ($77–132) a night. Spend the days walking the old quarter and eating tapas, and check the Alcázar's opening and free-entry hours on its official page before you go, because they change.
+
+![A Renfe high-speed train at Sevilla Santa Justa station](/images/spain-seville-renfe-train.jpg)
+*Photo: [Explora Andalucía](https://www.pexels.com/photo/38978623/) on [Pexels](https://www.pexels.com)*
+
+![A courtyard with a long reflecting pool at the Royal Alcázar in Seville](/images/spain-seville-alcazar-courtyard.jpg)
+*Photo: [Pixels Elements](https://www.pexels.com/photo/16627222/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: home from Seville
 
