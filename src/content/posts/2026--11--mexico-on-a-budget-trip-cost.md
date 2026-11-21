@@ -86,7 +86,7 @@ August, September and October are the cheapest months for beds, with dorm prices
 
 ## Planning Mexico from your country
 
-For most visitors the flight is the biggest single cost, so check fares from your own airport and compare more than one airline. Entry rules depend on your passport, so check the official Mexican immigration page before you book. Use bank ATMs rather than airport exchange kiosks, which can sit 8–15% below the mid-market rate. Our [trip budget calculator](/tools/trip-budget-calculator.html) helps you add up the rest, and you can browse more [Mexico guides](/tags/mexico.html).
+For most visitors the flight is the biggest single cost, so check fares from your own airport and compare more than one airline. Entry rules depend on your passport, so check the official Mexican immigration page before you book. Use bank ATMs rather than airport exchange kiosks, which can sit 8–15% below the mid-market rate. Our [trip budget calculator](/tools/trip-budget-calculator.html) helps you add up the rest, and you can browse more [Mexico guides](/tags/mexico.html) or all [Americas guides](/tags/americas.html).
 
 ## Frequently asked questions
 
