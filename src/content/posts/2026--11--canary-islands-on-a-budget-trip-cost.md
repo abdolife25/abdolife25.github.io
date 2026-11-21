@@ -64,6 +64,9 @@ Teide is the island's big day out. The cable car costs €43 ($47) return for a 
 
 Spend a day on the north coast, where the natural ocean pools are free and guachinches serve cheap local lunches, and a day in the south around Los Cristianos, which the airport bus reaches cheaply. If you want a big paid day, Siam Park is €44 ($48) for adults and €32 ($35) for children aged 3–11, and Loro Parque is €42 ($46) for adults and €30 ($33) for children up to eleven. Both are optional, and most budget travelers pick one or neither.
 
+![Seawater pools and the rocky shoreline at Puerto de la Cruz on Tenerife's north coast](/images/canary-puerto-de-la-cruz-sea-pools.jpg)
+*Photo: [Atlantic Ambience](https://www.pexels.com/photo/19785903/) on [Pexels](https://www.pexels.com)*
+
 #### Days 6–7: free hikes and home
 
 Use the last days for free hikes and coastal walks, or take a ferry to La Gomera if you want a second island. Fly home from either airport.
