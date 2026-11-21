@@ -27,7 +27,7 @@ heroImage: "/images/mexico-city-bellas-artes.jpg"
 Food is the best value. Street tacos in Mexico City cost about 15–20 pesos ($0.80–1.10) each and market meals about 80–120 pesos ($4.30–6.50). A *comida corrida* (a set lunch) is about $5–15, and in Oaxaca five tacos cost about $5, a tamal under $2.50 and a torta about $3. A mezcal pour at a bar is about $8 and a craft beer about $5. The Mexico City metro is 5 pesos ($0.27) a ride, one of the cheapest in the world.
 
 ![Street tacos with green salsa served on paper in Mexico City](/images/mexico-city-street-tacos.jpg)
-*Photo: [Eden FC](https://www.pexels.com/photo/35225165/) on [Pexels](https://www.pexels.com)*
+*Street tacos, Mexico City, Mexico · Photo: [Eden FC](https://www.pexels.com/photo/35225165/) on [Pexels](https://www.pexels.com)*
 
 Dorm prices vary. One guide lists Mexico City and Oaxaca dorms at about $10 a night and Cancún and Tulum from about $9, while another puts a dorm bed in central Oaxaca at about $26, and Oaxaca prices jump sharply around Day of the Dead, so treat these as planning ranges. A mid-range hotel room is about $56–63 a night in Mexico City and up to about $141 for a boutique hotel in Oaxaca.
 
@@ -54,7 +54,7 @@ The low end assumes $10 dorm beds, street food and market lunches, and a bus rat
 Fly into Mexico City. In the centre you can walk or ride the metro for about 5 pesos. Spend two days on street food, markets and museums, and one day at Teotihuacán, where foreign visitors pay 210 pesos ($11.40) at the gate. Eat at market stalls and ask for the *comida corrida* at lunch.
 
 ![The Pyramid of the Sun at Teotihuacán seen from a hot air balloon at sunrise](/images/mexico-teotihuacan-pyramid.jpg)
-*Photo: [Julian Stimbaum](https://www.pexels.com/photo/15642781/) on [Pexels](https://www.pexels.com)*
+*Pyramid of the Sun, Teotihuacán, Mexico · Photo: [Julian Stimbaum](https://www.pexels.com/photo/15642781/) on [Pexels](https://www.pexels.com)*
 
 #### Day 4: bus to Oaxaca
 
@@ -65,7 +65,7 @@ Take the first-class ADO bus (about 6 hours). One 2026 guide puts the fare as lo
 Oaxaca's food is the draw: tlayudas, tamales, tacos and mezcal at prices well below the capital's restaurants. Monte Albán costs 94 pesos ($5.10) to enter, plus a round-trip shuttle of about $7. A full-day tour that adds Hierve el Agua and a mezcal stop is about $72, plus about $12–18 for entry fees and food, so go on your own if you want to save. Book early if you visit around Day of the Dead, when beds are scarce and expensive.
 
 ![The gilded baroque ceiling of the Santo Domingo church in Oaxaca](/images/mexico-oaxaca-santo-domingo.jpg)
-*Photo: [Jhovani Morales](https://www.pexels.com/photo/12319997/) on [Pexels](https://www.pexels.com)*
+*Santo Domingo church, Oaxaca, Mexico · Photo: [Jhovani Morales](https://www.pexels.com/photo/12319997/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: home from Oaxaca
 
@@ -78,7 +78,7 @@ Fly home from Oaxaca (usually through Mexico City) or take the bus back. A colec
 Cancún, Tulum and Playa del Carmen cost more than Mexico City and Oaxaca, and they add fees. Quintana Roo's Visitax is about 300 pesos ($16) for visitors to Cancún, Tulum and Playa del Carmen, and the Cancún hotel environmental tax is about 76 pesos ($4) per room per night. Entry to the ruins costs more too: Tulum is 210 pesos ($11.40) since the January 2026 increase, Uxmal 586 pesos ($31.70) and Chichén Itzá 676 pesos ($36.60) for foreign visitors. Mexico's federal visitor fee is about 983 pesos ($53) and is usually included in your airfare, so check your ticket. Plan on the mid-range column for the Riviera Maya, even with dorm beds.
 
 ![Aerial view of the Cancún hotel zone and turquoise Caribbean water](/images/mexico-cancun-hotel-zone.jpg)
-*Photo: [Liliana Dawson](https://www.pexels.com/photo/12333806/) on [Pexels](https://www.pexels.com)*
+*Hotel zone, Cancún, Mexico · Photo: [Liliana Dawson](https://www.pexels.com/photo/12333806/) on [Pexels](https://www.pexels.com)*
 
 ## Cheapest time to go
 
@@ -104,4 +104,4 @@ For most visitors the flight is the biggest single cost, so check fares from you
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
 
-*Header photo: [Zaylard](https://www.pexels.com/photo/19908868/) on [Pexels](https://www.pexels.com)*
+*Palacio de Bellas Artes, Mexico City, Mexico · Header photo: [Zaylard](https://www.pexels.com/photo/19908868/) on [Pexels](https://www.pexels.com)*

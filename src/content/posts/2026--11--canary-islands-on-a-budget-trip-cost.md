@@ -27,7 +27,7 @@ heroImage: "/images/canary-teide-above-clouds.jpg"
 Food is where the islands are kind to your budget. A coffee is about €1.50–2 ($1.65–2.20), a *ración* of cheese with *mojo* sauce from about €5 ($5.50), a cheap sit-down meal about €15 ($17), and the local *guachinches* (rustic home-style restaurants in the north) serve meals for about €8–15 ($9–17). Farmers' markets such as the Mercado de Nuestra Señora de África in Santa Cruz are good for cheap picnic supplies.
 
 ![A bowl of small boiled potatoes with red mojo sauce, a classic Canarian dish](/images/canary-papas-arrugadas-mojo.jpg)
-*Photo: [Federico P](https://www.pexels.com/photo/32629175/) on [Pexels](https://www.pexels.com)*
+*Papas arrugadas with mojo, Canary Islands, Spain · Photo: [Federico P](https://www.pexels.com/photo/32629175/) on [Pexels](https://www.pexels.com)*
 
 Beds are priced by area. Dorm beds are about €22–28 ($24–31) in Santa Cruz and La Laguna and from about €20 ($22) in a surf hostel, and a hotel room for two starts from about €90 ($99) a night. A mid-range hotel room averages about $94–123 a night in one guide, so sharing halves it. Resort areas in the south cost more than the north and the capital.
 
@@ -58,14 +58,14 @@ From Tenerife South Airport a TITSA bus to Santa Cruz costs about €9.35 ($10.3
 Teide is the island's big day out. The cable car costs €43 ($47) return for a non-resident adult (€24 or $26 one way), and it does not include the permit for the final climb to the crater at 3,718 m, which is free through the National Park's website and has to be booked well ahead. Many budget travelers hike the free trails instead and skip the cable car, or take it one way. Check the cable car's seasonal opening hours before you go.
 
 ![Mount Teide rising above red volcanic soil and shrubs in Teide National Park](/images/canary-teide-national-park.jpg)
-*Photo: [Tanita Lupa](https://www.pexels.com/photo/38158913/) on [Pexels](https://www.pexels.com)*
+*Teide National Park, Tenerife, Spain · Photo: [Tanita Lupa](https://www.pexels.com/photo/38158913/) on [Pexels](https://www.pexels.com)*
 
 #### Days 4–5: the north coast and south beaches
 
 Spend a day on the north coast, where the natural ocean pools are free and guachinches serve cheap local lunches, and a day in the south around Los Cristianos, which the airport bus reaches cheaply. If you want a big paid day, Siam Park is €44 ($48) for adults and €32 ($35) for children aged 3–11, and Loro Parque is €42 ($46) for adults and €30 ($33) for children up to eleven. Both are optional, and most budget travelers pick one or neither.
 
 ![Seawater pools and the rocky shoreline at Puerto de la Cruz on Tenerife's north coast](/images/canary-puerto-de-la-cruz-sea-pools.jpg)
-*Photo: [Atlantic Ambience](https://www.pexels.com/photo/19785903/) on [Pexels](https://www.pexels.com)*
+*Puerto de la Cruz, Tenerife, Spain · Photo: [Atlantic Ambience](https://www.pexels.com/photo/19785903/) on [Pexels](https://www.pexels.com)*
 
 #### Days 6–7: free hikes and home
 
@@ -97,4 +97,4 @@ For most visitors the flight is the biggest single cost, so check fares from you
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
 
-*Header photo: [hert](https://www.pexels.com/photo/3224156/) on [Pexels](https://www.pexels.com)*
+*Mount Teide, Tenerife, Spain · Header photo: [hert](https://www.pexels.com/photo/3224156/) on [Pexels](https://www.pexels.com)*
