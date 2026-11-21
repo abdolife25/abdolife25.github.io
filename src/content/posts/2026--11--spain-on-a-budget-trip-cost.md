@@ -5,7 +5,7 @@ pubDate: "2026-11-21T12:00:00Z"
 updatedDate: "2026-11-21T12:00:00Z"
 labels: ["Budget Travel", "Spain", "Europe"]
 path: "/spain-trip-cost.html"
-heroImage: "/images/sagrada-familia-top-spain-tourist-attractions-1030x713.webp"
+heroImage: "/images/spain-seville-plaza-de-espana.jpg"
 ---
 
 **Spain costs roughly $60–100 a day on a tight budget and $140–230 a day at mid-range, flights not included.** It is cheapest in Seville and Granada and outside July and August, and most expensive in Barcelona and on the islands in summer. The budget tricks are the same everywhere: sleep in a dorm, eat the *menú del día* (set lunch), book high-speed trains early and pay for only the two or three sights you really want.
@@ -50,9 +50,18 @@ The low end assumes dorm beds, trains booked well ahead and the set lunch as you
 
 Fly into Barcelona. The T-Casual card gives 10 rides on metro and buses for about €12.55 ($13.80), which covers two days easily. The big sight is the Sagrada Família: €26 ($29) for the basilica with the audioguide app, or €36 ($40) with the tower, which you climb by lift and leave by a narrow spiral staircase of about 300 steps. It sells out two to four weeks ahead in peak season, so book on the official site. Park Güell's paid Monumental Zone costs €18 ($20) for timed entry, but the wooded parts and the Turó de les Tres Creus viewpoint are free with no booking. Casa Batlló starts from about €29 ($32) online and La Pedrera from €25 ($28), so most budget travelers pick one or skip both and walk the Gothic Quarter and the beach for free.
 
+![The mosaic spire of a Gaudí gatehouse at Park Güell with the Barcelona skyline behind](/images/spain-barcelona-park-guell.jpg)
+*Photo: [Svitlana Shakalova](https://www.pexels.com/photo/34957023/) on [Pexels](https://www.pexels.com)*
+
+![The soaring tree-like ceiling vaults inside the Sagrada Família](/images/spain-barcelona-sagrada-familia-interior.jpg)
+*Photo: [Fran](https://www.pexels.com/photo/34028322/) on [Pexels](https://www.pexels.com)*
+
 #### Days 3–4: Madrid
 
 Take the high-speed train to Madrid (about 2.5 to 3.5 hours). Booked ahead, one traveler paid just €19 ($21) on Ouigo, while AVE and same-day fares cost more, so compare Renfe, Ouigo, Iryo and Avlo. In Madrid a 10-trip metro card is about €12.20 ($13.40). The Prado costs €15 ($16.50) and is free in the last two hours daily (Monday to Saturday 6–8 pm, Sunday 5–7 pm), and the Reina Sofía is free after 7 pm on Monday and Wednesday to Saturday. Plan your evenings around those free slots, and eat a set lunch near the museums.
+
+![The red facade and equestrian statue in Madrid's Plaza Mayor](/images/spain-madrid-plaza-mayor.jpg)
+*Photo: [jibarofoto](https://www.pexels.com/photo/14366474/) on [Pexels](https://www.pexels.com)*
 
 #### Days 5–6: Seville
 
@@ -87,3 +96,5 @@ For most visitors the flight is the biggest single cost, so check fares from you
 ## Book it
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
+
+*Header photo: [Quentin Martinez](https://www.pexels.com/photo/32647482/) on [Pexels](https://www.pexels.com)*

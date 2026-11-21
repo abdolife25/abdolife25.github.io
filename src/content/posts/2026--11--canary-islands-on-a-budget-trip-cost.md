@@ -5,7 +5,7 @@ pubDate: "2026-11-21T12:00:00Z"
 updatedDate: "2026-11-21T12:00:00Z"
 labels: ["Budget Travel", "Spain", "Canary Islands", "Europe"]
 path: "/canary-islands-trip-cost.html"
-heroImage: "/images/tenerife-17.webp"
+heroImage: "/images/canary-teide-above-clouds.jpg"
 ---
 
 **The Canary Islands cost roughly $55–80 a day on a tight budget and $120–175 a day at mid-range, flights not included, based on Tenerife, the biggest and most visited island.** Tenerife is cheapest in May, June, September and October and most expensive around Carnaval in February. The savings come from dorm beds, a bus pass instead of a rental car, local *guachinche* meals and the free sights: beaches, natural ocean pools and the Teide hiking trails.
@@ -25,6 +25,9 @@ heroImage: "/images/tenerife-17.webp"
 | **Per day** | **about $55–80** | **about $120–175** |
 
 Food is where the islands are kind to your budget. A coffee is about €1.50–2 ($1.65–2.20), a *ración* of cheese with *mojo* sauce from about €5 ($5.50), a cheap sit-down meal about €15 ($17), and the local *guachinches* (rustic home-style restaurants in the north) serve meals for about €8–15 ($9–17). Farmers' markets such as the Mercado de Nuestra Señora de África in Santa Cruz are good for cheap picnic supplies.
+
+![A bowl of small boiled potatoes with red mojo sauce, a classic Canarian dish](/images/canary-papas-arrugadas-mojo.jpg)
+*Photo: [Federico P](https://www.pexels.com/photo/32629175/) on [Pexels](https://www.pexels.com)*
 
 Beds are priced by area. Dorm beds are about €22–28 ($24–31) in Santa Cruz and La Laguna and from about €20 ($22) in a surf hostel, and a hotel room for two starts from about €90 ($99) a night. A mid-range hotel room averages about $94–123 a night in one guide, so sharing halves it. Resort areas in the south cost more than the north and the capital.
 
@@ -53,6 +56,9 @@ From Tenerife South Airport a TITSA bus to Santa Cruz costs about €9.35 ($10.3
 #### Day 3: Mount Teide
 
 Teide is the island's big day out. The cable car costs €43 ($47) return for a non-resident adult (€24 or $26 one way), and it does not include the permit for the final climb to the crater at 3,718 m, which is free through the National Park's website and has to be booked well ahead. Many budget travelers hike the free trails instead and skip the cable car, or take it one way. Check the cable car's seasonal opening hours before you go.
+
+![Mount Teide rising above red volcanic soil and shrubs in Teide National Park](/images/canary-teide-national-park.jpg)
+*Photo: [Tanita Lupa](https://www.pexels.com/photo/38158913/) on [Pexels](https://www.pexels.com)*
 
 #### Days 4–5: the north coast and south beaches
 
@@ -87,3 +93,5 @@ For most visitors the flight is the biggest single cost, so check fares from you
 ## Book it
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
+
+*Header photo: [hert](https://www.pexels.com/photo/3224156/) on [Pexels](https://www.pexels.com)*
