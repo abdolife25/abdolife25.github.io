@@ -1,5 +1,6 @@
 ---
 title: "Explore Constanța, Romania: A Beach Lover’s Budget-Friendly Paradise"
+seoTitle: "Constanța, Romania: A Budget-Friendly Beach Paradise"
 description: "Constanța, Romania’s oldest city, sits on the shores of the Black Sea and is a vibrant mix of history, culture, and stunning coastal landscapes. Known for…"
 pubDate: "2024-12-06T20:32:00Z"
 updatedDate: "2024-12-06T21:45:23.896Z"

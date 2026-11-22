@@ -1,5 +1,6 @@
 ---
 title: "Plan Your Vietnam Trip: A 7-Day Itinerary to Explore Top Tourist Spots"
+seoTitle: "Plan Your Vietnam Trip: 7-Day Itinerary"
 description: "Are you ready to embark on a journey through a land of ancient wonders, breathtaking landscapes, and vibrant culture? Vietnam, a Southeast Asian gem…"
 pubDate: "2024-10-27T20:13:00Z"
 updatedDate: "2024-10-27T20:13:26.800Z"

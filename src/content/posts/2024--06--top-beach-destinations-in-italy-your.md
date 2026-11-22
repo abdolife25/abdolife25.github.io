@@ -1,5 +1,6 @@
 ---
 title: "Top Beach Destinations in Italy: Your Ultimate Sun, Sand, Sea Guide"
+seoTitle: "Top Beach Destinations in Italy: Your Ultimate Guide"
 description: "Italy is a country of unparalleled beauty, rich history, and diverse landscapes. Its beaches are no exception, offering pristine waters, golden sands, and…"
 pubDate: "2024-06-06T13:08:00Z"
 updatedDate: "2024-06-14T07:03:14.993Z"

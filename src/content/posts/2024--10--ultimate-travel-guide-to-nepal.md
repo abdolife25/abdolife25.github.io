@@ -1,5 +1,6 @@
 ---
 title: "7-Day Nepal Budget Travel for $1,000: The Ultimate Guide to Attractions, Trekking, and Unforgettable Experiences!"
+seoTitle: "7-Day Nepal Budget Travel for $1,000"
 description: "Nepal, a land of breathtaking landscapes, rich cultural heritage, and towering peaks, is a dream destination for travelers and adventurers alike. From the…"
 pubDate: "2024-10-18T19:20:00Z"
 updatedDate: "2024-10-18T19:24:02.799Z"

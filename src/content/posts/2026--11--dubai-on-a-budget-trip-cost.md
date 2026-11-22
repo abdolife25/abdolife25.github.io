@@ -1,5 +1,6 @@
 ---
 title: "Dubai Trip Cost 2027: 7 Days for Only $335 (Flights Excluded)"
+seoTitle: "Dubai Trip Cost 2027: 7 Days for Only $335"
 description: "What a Dubai trip really costs: 7 days from about $335 (flights excluded), with hostel and hotel prices, food, metro fares, Burj Khalifa tickets and the cheapest months."
 pubDate: "2026-11-17T20:00:00Z"
 updatedDate: "2026-11-17T20:00:00Z"

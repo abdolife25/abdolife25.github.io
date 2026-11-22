@@ -1,5 +1,6 @@
 ---
 title: "Your Ultimate Travel Guide to Vietnam: Best Time to Visit, Attractions, and Budget-Friendly Tips"
+seoTitle: "Vietnam Travel Guide: Best Time and Budget Tips"
 description: "Vietnam is a captivating country, offering a diverse range of attractions from bustling cities to tranquil beaches. Whether you’re a budget traveler or…"
 pubDate: "2024-09-05T18:02:00Z"
 updatedDate: "2024-09-05T18:08:12.277Z"

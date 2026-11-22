@@ -1,5 +1,6 @@
 ---
 title: "Croatia Trip Cost 2027: 7 Days for Only $425 (Flights Excluded)"
+seoTitle: "Croatia Trip Cost 2027: 7 Days for Only $425"
 description: "What a Croatia trip really costs: 7 days from about $425 (flights excluded), with hostel and hotel prices, food, buses, Dubrovnik walls and Plitvice tickets."
 pubDate: "2026-11-18T12:00:00Z"
 updatedDate: "2026-11-18T12:00:00Z"

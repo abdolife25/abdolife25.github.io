@@ -1,5 +1,6 @@
 ---
 title: "Plan a Budget-Friendly Norway Getaway: Best Time, Cheap Flights, Hotels & Holiday Tips!"
+seoTitle: "Budget-Friendly Norway Getaway: Best Time, Flights, Hotels"
 description: "Norway, a land of stunning fjords, northern lights, and majestic mountains, can be an affordable destination if planned well. In this guide, we’ll provide…"
 pubDate: "2024-05-17T10:36:00Z"
 updatedDate: "2024-10-23T15:37:54.543Z"

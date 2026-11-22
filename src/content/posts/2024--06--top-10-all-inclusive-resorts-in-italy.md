@@ -1,5 +1,6 @@
 ---
 title: "Top 10 All-Inclusive Resorts in Italy: The Ultimate Luxury Guide"
+seoTitle: "Top 10 All-Inclusive Resorts in Italy: Luxury Guide"
 description: "Italy, a land of unparalleled beauty, rich history, and mouth watering cuisine, offers a plethora of experiences for every traveler. Among the most…"
 pubDate: "2024-06-10T13:34:00Z"
 updatedDate: "2024-06-14T06:56:04.823Z"

@@ -1,5 +1,6 @@
 ---
 title: "Portugal Trip Cost 2027: 7 Days for Only $390 (Flights Excluded)"
+seoTitle: "Portugal Trip Cost 2027: 7 Days for Only $390"
 description: "What a Portugal trip really costs: 7 days from about $390 (flights excluded), with hostel and hotel prices, food, trains, Sintra and Algarve costs."
 pubDate: "2026-11-18T12:00:00Z"
 updatedDate: "2026-11-18T12:00:00Z"

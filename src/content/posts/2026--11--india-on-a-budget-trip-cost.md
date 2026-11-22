@@ -1,5 +1,6 @@
 ---
 title: "India Trip Cost 2027: 7 Days for Only $185 (Flights Excluded)"
+seoTitle: "India Trip Cost 2027: 7 Days for Only $185"
 description: "What an India trip really costs: 7 days from about $185 (flights excluded), with Delhi, Agra and Jaipur prices, Taj Mahal tickets, trains, food and visa."
 pubDate: "2026-11-19T12:00:00Z"
 updatedDate: "2026-11-19T12:00:00Z"

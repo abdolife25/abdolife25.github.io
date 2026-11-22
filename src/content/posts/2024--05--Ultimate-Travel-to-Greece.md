@@ -1,5 +1,6 @@
 ---
 title: "Ultimate Travel Guide: 7 Budget-Friendly Tips for a Week in Greece"
+seoTitle: "A Week in Greece: 7 Budget-Friendly Tips"
 description: "Greece, a country steeped in history and natural beauty, beckons travelers with its stunning landscapes, crystal clear waters, and rich cultural heritage.…"
 pubDate: "2024-05-28T13:03:00Z"
 updatedDate: "2024-10-22T09:25:58.770Z"

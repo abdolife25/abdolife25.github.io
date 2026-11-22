@@ -1,5 +1,6 @@
 ---
 title: "Your Ultimate Travel Guide to Cambodia: Best Time to Visit, Attractions, and Budget-Friendly Tips"
+seoTitle: "Cambodia Travel Guide: Best Time and Budget Tips"
 description: "Cambodia is an enchanting destination that offers travelers a rich cultural history, stunning natural landscapes, and vibrant city life, all at an…"
 pubDate: "2024-09-20T16:35:00Z"
 updatedDate: "2024-09-20T16:35:10.314Z"

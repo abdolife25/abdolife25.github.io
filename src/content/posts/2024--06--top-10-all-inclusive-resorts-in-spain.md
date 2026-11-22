@@ -1,5 +1,6 @@
 ---
 title: "Top 10 All-Inclusive Resorts in Spain for Your Perfect Getaway"
+seoTitle: "Top 10 All-Inclusive Resorts in Spain"
 description: "Spain, with its diverse landscapes, rich cultural heritage, and vibrant cities, is a dream destination for travelers from around the globe. Whether you're…"
 pubDate: "2024-06-26T10:43:00Z"
 updatedDate: "2024-06-26T11:06:41.597Z"

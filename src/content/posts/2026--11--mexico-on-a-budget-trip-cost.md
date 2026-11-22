@@ -1,5 +1,6 @@
 ---
 title: "Mexico Trip Cost 2027: 7 Days From About $300 (Flights Excluded)"
+seoTitle: "Mexico Trip Cost 2027: 7 Days From $300"
 description: "What a Mexico trip really costs: 7 days in Mexico City and Oaxaca from about $300 (flights excluded), with hostel prices, street food, bus fares, ruins tickets and Cancún fees."
 pubDate: "2026-11-21T12:00:00Z"
 updatedDate: "2026-11-21T12:00:00Z"

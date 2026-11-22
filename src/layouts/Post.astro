@@ -46,7 +46,7 @@ const shares = [
   { name: 'WhatsApp', url: `https://wa.me/?text=${shareText}%20${shareUrl}` },
 ];
 ---
-<Base title={d.title} description={d.description} path={d.path} image={d.heroImage} type={isPost ? 'article' : 'website'}>
+<Base title={d.title} seoTitle={d.seoTitle} description={d.description} path={d.path} image={d.heroImage} type={isPost ? 'article' : 'website'}>
   {ld.map((j) => <script type="application/ld+json" slot="head" set:html={JSON.stringify(j)}></script>)}
   {isPost && <div class="progress" data-progress></div>}
   <div class="wrap post-head">

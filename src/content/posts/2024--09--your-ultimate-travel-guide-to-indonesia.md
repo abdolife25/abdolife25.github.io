@@ -1,5 +1,6 @@
 ---
 title: "Your Ultimate Travel Guide to Indonesia: Top Attractions, Budget Hotels, and Sightseeing"
+seoTitle: "Indonesia Travel Guide: Attractions and Budget Hotels"
 description: "Indonesia, the world's largest archipelago, offers an unforgettable travel experience with its exotic mix of rich culture, breathtaking landscapes, and…"
 pubDate: "2024-09-27T18:23:00Z"
 updatedDate: "2024-09-27T18:50:01.343Z"
