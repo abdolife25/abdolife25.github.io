@@ -68,9 +68,15 @@ Spend a day on the north coast, where the natural ocean pools are free and guach
 ![Seawater pools and the rocky shoreline at Puerto de la Cruz on Tenerife's north coast](/images/canary-puerto-de-la-cruz-sea-pools.jpg)
 *Puerto de la Cruz, Tenerife, Spain · Photo: [Atlantic Ambience](https://www.pexels.com/photo/19785903/) on [Pexels](https://www.pexels.com)*
 
+![The white bell tower of the Church of Santa Ana above Garachico's old harbour on Tenerife's north coast](/images/canary-garachico-santa-ana-tower.jpg)
+*Church of Santa Ana, Garachico, Tenerife, Spain · Photo: [Jorge Acre](https://www.pexels.com/photo/13349877/) on [Pexels](https://www.pexels.com)*
+
 #### Days 6–7: free hikes and home
 
 Use the last days for free hikes and coastal walks, or take a ferry to La Gomera if you want a second island. Fly home from either airport.
+
+![White and colourful houses above black lava rock on Tenerife's coast](/images/canary-tenerife-coastal-village.jpg)
+*Coastal village, Tenerife, Spain · Photo: [freestockpro](https://www.pexels.com/photo/28436094/) on [Pexels](https://www.pexels.com)*
 
 <div class="inline-cta"><div><strong>The flight is your biggest cost. Check it first.</strong><span>Search fares for your dates and compare before you pay.</span></div><a class="btn sun" href="/go/ovago.html?s=canary-islands-inline" target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">Check Canary Islands flights</a></div>
 
