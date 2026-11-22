@@ -54,6 +54,9 @@ The low end assumes $10 dorm beds, street food and market lunches, and a bus rat
 
 Fly into Mexico City. In the centre you can walk or ride the metro for about 5 pesos. Spend two days on street food, markets and museums, and one day at Teotihuacán, where foreign visitors pay 210 pesos ($11.40) at the gate. Eat at market stalls and ask for the *comida corrida* at lunch.
 
+![The twin towers of the Metropolitan Cathedral at the end of a street in Mexico City's historic centre](/images/mexico-city-metropolitan-cathedral.jpg)
+*Metropolitan Cathedral, Mexico City, Mexico · Photo: [Jimmy Elizarraras](https://www.pexels.com/photo/20848560/) on [Pexels](https://www.pexels.com)*
+
 ![The Pyramid of the Sun at Teotihuacán seen from a hot air balloon at sunrise](/images/mexico-teotihuacan-pyramid.jpg)
 *Pyramid of the Sun, Teotihuacán, Mexico · Photo: [Julian Stimbaum](https://www.pexels.com/photo/15642781/) on [Pexels](https://www.pexels.com)*
 
@@ -64,6 +67,9 @@ Take the first-class ADO bus (about 6 hours). One 2026 guide puts the fare as lo
 #### Days 4–6: Oaxaca
 
 Oaxaca's food is the draw: tlayudas, tamales, tacos and mezcal at prices well below the capital's restaurants. Monte Albán costs 94 pesos ($5.10) to enter, plus a round-trip shuttle of about $7. A full-day tour that adds Hierve el Agua and a mezcal stop is about $72, plus about $12–18 for entry fees and food, so go on your own if you want to save. Book early if you visit around Day of the Dead, when beds are scarce and expensive.
+
+![Stepped stone platforms and a green plaza at the Monte Albán ruins near Oaxaca](/images/mexico-oaxaca-monte-alban.jpg)
+*Monte Albán, Oaxaca, Mexico · Photo: [Jorge Acre](https://www.pexels.com/photo/17061892/) on [Pexels](https://www.pexels.com)*
 
 ![The gilded baroque ceiling of the Santo Domingo church in Oaxaca](/images/mexico-oaxaca-santo-domingo.jpg)
 *Santo Domingo church, Oaxaca, Mexico · Photo: [Jhovani Morales](https://www.pexels.com/photo/12319997/) on [Pexels](https://www.pexels.com)*
@@ -80,6 +86,9 @@ Cancún, Tulum and Playa del Carmen cost more than Mexico City and Oaxaca, and t
 
 ![Aerial view of the Cancún hotel zone and turquoise Caribbean water](/images/mexico-cancun-hotel-zone.jpg)
 *Hotel zone, Cancún, Mexico · Photo: [Liliana Dawson](https://www.pexels.com/photo/12333806/) on [Pexels](https://www.pexels.com)*
+
+![El Castillo pyramid at Chichén Itzá against a blue sky](/images/mexico-chichen-itza-el-castillo.jpg)
+*El Castillo, Chichén Itzá, Yucatán, Mexico · Photo: [Ollie Craig](https://www.pexels.com/photo/28121859/) on [Pexels](https://www.pexels.com)*
 
 ## Cheapest time to go
 
