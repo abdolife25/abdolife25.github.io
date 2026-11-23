@@ -264,3 +264,8 @@ dialog.search .searchfield{border:0;border-bottom:1px solid var(--line);border-r
   .prose th,.prose td{padding:10px 10px}
   .prose tbody td:first-child{white-space:normal;width:auto}
 }
+
+.hotel-search{margin:28px 0;padding:18px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.hotel-search h2{margin:0 0 6px;font-size:1.25rem}
+.hotel-search p{margin:0 0 12px;color:var(--mute);font-size:.9rem}
+.hotel-search-box{min-height:240px}

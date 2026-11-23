@@ -1,0 +1,27 @@
+---
+// Trip.com hotel search widget (Travelpayouts). The script loads only when the box scrolls into view,
+// so it never slows down the first paint or counts against page speed.
+const src = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038';
+---
+<section class="hotel-search" aria-labelledby="hotel-search-title">
+  <h2 id="hotel-search-title">Search hotels and stays</h2>
+  <p>Check prices for your dates on Trip.com. Affiliate link: we may earn a commission at no extra cost to you.</p>
+  <div class="hotel-search-box" data-hotel-search data-src={src}></div>
+</section>
+<script is:inline>
+  (function () {
+    var box = document.querySelector('[data-hotel-search]');
+    if (!box) return;
+    var loaded = false;
+    function load() {
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script');
+      s.async = true; s.charset = 'utf-8'; s.src = box.getAttribute('data-src');
+      box.appendChild(s);
+    }
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { io.disconnect(); load(); } }, { rootMargin: '400px' });
+      io.observe(box);
+    } else { load(); }
+  })();
+</script>

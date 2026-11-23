@@ -2,6 +2,7 @@
 import Base from './Base.astro';
 import GuideCard from '../components/GuideCard.astro';
 import AffiliateBox from '../components/AffiliateBox.astro';
+import HotelSearch from '../components/HotelSearch.astro';
 import { getCollection } from 'astro:content';
 import { offersFor, goHref } from '../lib/affiliates';
 import { SITE, slugify, placeOf, regionOf, readMins, cardData } from '../lib/site';
@@ -78,6 +79,7 @@ const shares = [
         </details>
       )}
       <Content />
+      {isPost && <HotelSearch />}
       {isPost && <AffiliateBox place={place} region={region} tag={tag} />}
       {isPost && (
         <div class="share">
