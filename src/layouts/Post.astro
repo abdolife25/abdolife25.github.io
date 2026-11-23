@@ -79,7 +79,7 @@ const shares = [
         </details>
       )}
       <Content />
-      {isPost && <HotelSearch />}
+      {isPost && d.path.endsWith('-trip-cost.html') && <HotelSearch />}
       {isPost && <AffiliateBox place={place} region={region} tag={tag} />}
       {isPost && (
         <div class="share">
