@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { SITE } from '../../lib/site';
 import { goHref } from '../../lib/affiliates';
+import HotelSearch from '../../components/HotelSearch.astro';
 const aff = [
   { id: 'hostelworld', label: 'Compare hostels' }, { id: 'ovago', label: 'Check flights' }, { id: 'yesim', label: 'Get an eSIM' },
   { id: 'getrentacar', label: 'Compare car rental' }, { id: 'travelex', label: 'Compare insurance' },
@@ -63,5 +64,8 @@ const daily = [
         <p class="note">Estimates only. Prices change, so check current rates before you book.</p>
       </aside>
     </div>
+  </div>
+  <div class="wrap">
+    <HotelSearch intro="Not sure what to enter under Lodging per night? Check real prices for your dates on Trip.com, then type the nightly price above." />
   </div>
 </Base>

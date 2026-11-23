@@ -1,11 +1,12 @@
 ---
 // Trip.com hotel search widget (Travelpayouts). The script loads only when the box scrolls into view,
 // so it never slows down the first paint or counts against page speed.
+const { intro = 'Check prices for your dates on Trip.com.' } = Astro.props;
 const src = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038';
 ---
 <section class="hotel-search" aria-labelledby="hotel-search-title">
   <h2 id="hotel-search-title">Search hotels and stays</h2>
-  <p>Check prices for your dates on Trip.com. Affiliate link: we may earn a commission at no extra cost to you.</p>
+  <p>{intro} Affiliate link: we may earn a commission at no extra cost to you.</p>
   <div class="hotel-search-box" data-hotel-search data-src={src}></div>
 </section>
 <script is:inline>
