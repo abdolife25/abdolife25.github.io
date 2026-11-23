@@ -144,7 +144,7 @@ Portugal is a European gem with stunning coastlines, historic cities, and a laid
 - **Pro Tip**: A few words in Portuguese will go a long way. Try saying “Olá” and “Obrigado” for a warm welcome.
 - **Weekly Budget**: $700–$1,120
 
-**8. [Greece](/2024/05/Ultimate-Travel-to-Greece.html)**
+**8. [Greece](/greece-trip-cost.html)**
 
 ![Top 10 Cheapest Destinations: Affordable, Unforgettable, and Worth It!](https://blogger.googleusercontent.com/img/a/AVvXsEgfA3FK9ZMDR_NM7VaN-9kwdOlbo98zkEPDpNiRHrkEVNdUHAgm7oBpiYjvftHLG9LOJvEL4gs1aJqeD72MLevQ_ROd11c8nud6SpMsv2PauuJHNlMLg6z7ATz8v-jzoGDplJoJa7EEBoScPdguakpGpuG6PPLRY6MR_IpO_Fv2jdlVlTzNPc2oD_D4KM4V=w591-h343)
 
@@ -163,7 +163,7 @@ Greece is all about ancient history, stunning islands, and delicious food. And g
 - **Pro Tip**: Dine where the locals do, and you’ll find amazing food at a fraction of the cost.
 - **Weekly Budget**: $840–$1,260
 
-For a deeper dive into all things Greece, check out our [Ultimate Greece Travel Guide](/2024/05/Ultimate-Travel-to-Greece.html). It’s packed with tips, must-see places, and everything you need to know for your Greek adventure!
+For a deeper dive into all things Greece, check out our [Greece trip cost guide](/greece-trip-cost.html). It’s packed with tips, must-see places, and everything you need to know for your Greek adventure!
 
 **9. [Romania](/2024/10/budget-travel-guide-to-romania-explore.html)**
 
