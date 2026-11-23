@@ -79,7 +79,6 @@ const shares = [
         </details>
       )}
       <Content />
-      {isPost && d.path.endsWith('-trip-cost.html') && <HotelSearch />}
       {isPost && <AffiliateBox place={place} region={region} tag={tag} />}
       {isPost && (
         <div class="share">
@@ -125,6 +124,7 @@ const shares = [
       </aside>
     )}
   </div>
+  {isPost && d.path.endsWith('-trip-cost.html') && <div class="wrap"><HotelSearch /></div>}
   {related.length > 0 && (
     <section class="block"><div class="wrap">
       <div class="block-head"><h2>Keep planning</h2></div>
