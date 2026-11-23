@@ -6,6 +6,7 @@ pubDate: "2026-11-23T12:00:00Z"
 updatedDate: "2026-11-23T12:00:00Z"
 labels: ["Budget Travel", "Greece", "Europe"]
 path: "/greece-trip-cost.html"
+heroImage: "/images/greece-athens-parthenon-sunset.jpg"
 ---
 
 **Greece costs roughly $70–115 a day on a tight budget and $135–185 a day at mid-range, flights not included, based on three nights in Athens and three on one Cyclades island.** It is cheapest in Athens and on the mainland and in April, May, September and October, and most expensive on Mykonos and Santorini in July and August. The budget tricks are dorm beds, gyros and set lunches, slow ferries booked ahead and a short list of paid sights.
@@ -25,6 +26,9 @@ path: "/greece-trip-cost.html"
 | **Per day** | **about $70–115** | **about $135–185** |
 
 Food is kind to a budget. A gyro or souvlaki pita is about €3.50 ($3.85), a lunch special about €10–12 ($11–13), a Greek main about €8–12 ($9–13) and a seafood dinner about €15–20 ($17–22). A sit-down meal with a starter, a main and a glass of wine runs about €20 ($22) in Athens and about €35 ($38) on islands such as Santorini.
+
+![A gyro wrap with fries and tomato held up in a whitewashed Greek alley](/images/greece-gyro-wrap-alley.jpg)
+*Gyro wrap in a whitewashed alley, Greece · Photo: [Vincent Rivaud](https://www.pexels.com/photo/32727455/) on [Pexels](https://www.pexels.com)*
 
 Dorms are the big difference between the mainland and the islands. One guide puts a dorm bed at about €20 ($22) in Athens and about €40 ($44) on most islands, while another gives €15–25 on the mainland. Mid-range hotel rooms run about €75–100 ($83–110) in Athens and €100–120 ($110–132) on the islands, which is why the sums above split a double between two people.
 
@@ -52,9 +56,21 @@ The low end assumes Athens dorms at €15–25 and island dorms at €25–50 a 
 
 From Athens airport the metro is about €9 ($10) one way. A 90-minute ticket on all city transport is €1.20 ($1.30), a 24-hour pass is €4.10 ($4.50) and a three-day tourist ticket is €20 ($22) and includes one round trip to the airport, which is the best value if you arrive and leave by metro. The Acropolis costs €30 ($33), up from €20 since 1 April 2025. Most other historic sites are about €15 ($17) and most museums about €10 ($11), so pick a few rather than a pass. Walking the old streets, the free viewpoints and the street food are the cheap parts of Athens.
 
+![Monastiraki Square in Athens with the Acropolis rising behind it](/images/greece-athens-monastiraki-square.jpg)
+*Monastiraki Square, Athens, Greece · Photo: [Jeff Stapleton](https://www.pexels.com/photo/5792807/) on [Pexels](https://www.pexels.com)*
+
+![The Parthenon on the Acropolis rock under a clear blue sky](/images/greece-athens-parthenon-blue-sky.jpg)
+*The Parthenon, Acropolis, Athens, Greece · Photo: [Diego F. Parra](https://www.pexels.com/photo/15238869/) on [Pexels](https://www.pexels.com)*
+
 #### Days 4–6: one island
 
 Take a ferry from Piraeus. The cheapest Piraeus to Mykonos sailings listed start at about €43 ($47), with the highest fares near €90 ($99), and slow boats take about 4.5 hours against about 2.5 hours for a high-speed one. Another guide puts a longer Athens to Milos crossing at about €70 ($77), and general ferry fares at about €25–70 ($28–77). Overnight boats can save up to half. On Mykonos, local buses cost about €1.60–2.50 ($1.75–2.75) a ride and an ATV about €30–60 ($33–66) a day, and across Greece a car is about €20–30 ($22–33) a day booked ahead.
+
+![A blue and white Golden Star ferry arriving at a pier on the island of Paros](/images/greece-paros-ferry.jpg)
+*Port of Paros, Cyclades, Greece · Photo: [Oliver LOK](https://www.pexels.com/photo/13650588/) on [Pexels](https://www.pexels.com)*
+
+![Blue church domes and a pink bell tower above the sea in Oia on Santorini](/images/greece-oia-santorini-blue-domes.jpg)
+*Oia, Santorini, Greece · Photo: [Muxin](https://www.pexels.com/photo/37908299/) on [Pexels](https://www.pexels.com)*
 
 #### Day 7: home
 
@@ -85,3 +101,5 @@ For most visitors the flight is the biggest single cost, so check fares from you
 ## Book it
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
+
+*The Parthenon, Athens, Greece · Header photo: [Federico Abis](https://www.pexels.com/photo/17919908/) on [Pexels](https://www.pexels.com)*
