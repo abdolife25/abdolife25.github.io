@@ -12,11 +12,13 @@ User-agent: Perplexity-User
 User-agent: Google-Extended
 User-agent: Applebot-Extended
 Disallow: /search
+Allow: /search/label/
 Disallow: /go/
 Allow: /
 
 User-agent: *
 Disallow: /search
+Allow: /search/label/
 Disallow: /go/
 Allow: /
 
