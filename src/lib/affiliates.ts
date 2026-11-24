@@ -17,15 +17,21 @@ export const PARTNERS: Record<string, Partner> = {
 
 export const goHref = (id: string, tag: string) => `/go/${id}.html?s=${encodeURIComponent(tag)}`;
 
-// Which offers fit which destination. Highest minimum commission leads: Hostelworld, then Yesim.
+// One partner per job, never two businesses doing the same thing, and at most MAX_PARTNERS different partners per guide.
+export const MAX_PARTNERS = 3;
+
+// Candidates in priority order (best commission first), one per category:
+// stay (Hostelworld), eSIM (Yesim 18%), then ONE situational pick: car, then tickets, then flights, then insurance.
 export function offersFor(place: string, region: string): Partner[] {
   const ids = ['hostelworld', 'yesim'];
-  if (['Italy', 'Portugal', 'Croatia', 'Mexico'].includes(place)) ids.push('getrentacar');
+  if (['Italy', 'Portugal', 'Croatia', 'Mexico', 'Greece', 'Spain'].includes(place)) ids.push('getrentacar');
   if (['Italy', 'Dubai', 'UK'].includes(place)) ids.push('bigbus');
-  if (region === 'Europe') ids.push('tiqets');
-  if (['Caribbean', 'Mexico', 'Spain'].includes(place)) ids.push('bahia');
-  ids.push('ovago');
-  if (region === 'Asia' || region === 'Middle East & Africa') ids.push('qatar');
+  else if (region === 'Europe') ids.push('tiqets');
+  if (['Caribbean', 'Mexico'].includes(place)) ids.push('bahia');
+  ids.push(region === 'Asia' || region === 'Middle East & Africa' ? 'qatar' : 'ovago');
   ids.push('travelex');
-  return ids.slice(0, 7).map((i) => PARTNERS[i]);
+  return ids.map((i) => PARTNERS[i]);
 }
+
+// Partner ids already linked inside a post's text.
+export const usedInText = (body: string): string[] => [...new Set([...body.matchAll(/\/go\/([a-z]+)\.html/g)].map((m) => m[1]))];
