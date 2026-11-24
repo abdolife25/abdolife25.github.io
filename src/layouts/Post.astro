@@ -4,7 +4,7 @@ import GuideCard from '../components/GuideCard.astro';
 import AffiliateBox from '../components/AffiliateBox.astro';
 import HotelSearch from '../components/HotelSearch.astro';
 import { getCollection } from 'astro:content';
-import { usedInText } from '../lib/affiliates';
+import { offersFor, usedInText, goHref, freeOf } from '../lib/affiliates';
 import { SITE, slugify, placeOf, regionOf, readMins, cardData } from '../lib/site';
 interface Props { entry: any; kind: 'post' | 'page'; rendered: any }
 const { entry, kind, rendered } = Astro.props;
@@ -22,6 +22,9 @@ if (kind === 'post') {
   related = [...same, ...near, ...all.filter((p) => !same.includes(p) && !near.includes(p))].slice(0, 3).map(cardData);
 }
 const isPost = kind === 'post';
+// Sidebar: ONE featured partner, the top-priority one not already linked in the text. The end box skips it, so nothing repeats.
+const usedLinks = usedInText(String(entry.body || ''));
+const featured = isPost ? freeOf(offersFor(place, region), usedLinks)[0] : undefined;
 // Structured data for search and AI answers. Built from the post itself, nothing is typed twice.
 const plain = (t: string) => t.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*_`]/g, '').replace(/\s+/g, ' ').trim();
 const body = String(entry.body || '');
@@ -79,7 +82,7 @@ const shares = [
         </details>
       )}
       <Content />
-      {isPost && <AffiliateBox place={place} region={region} tag={tag} used={usedInText(body)} />}
+      {isPost && <AffiliateBox place={place} region={region} tag={tag} used={usedLinks} skip={featured ? [featured.id] : []} />}
       {isPost && (
         <div class="share">
           <strong>Share this guide</strong>
@@ -105,6 +108,14 @@ const shares = [
             <strong>On this page</strong>
             <ol>{toc.map((h: any) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
           </nav>
+        )}
+        {featured && (
+          <div class="rail-book">
+            <h3>{featured.headline}</h3>
+            <p>{featured.blurb}</p>
+            <a class="btn sun" href={goHref(featured.id, tag + '-side')} target="_blank" rel="sponsored noopener" data-astro-reload data-astro-prefetch="false">{featured.cta}</a>
+            <p>Affiliate link. <a href="/p/affiliate-disclosure.html">How this works</a>.</p>
+          </div>
         )}
         <div class="plan">
           <h3>Price {place ? `your ${place} trip` : 'this trip'}</h3>

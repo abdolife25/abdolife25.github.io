@@ -35,3 +35,10 @@ export function offersFor(place: string, region: string): Partner[] {
 
 // Partner ids already linked inside a post's text.
 export const usedInText = (body: string): string[] => [...new Set([...body.matchAll(/\/go\/([a-z]+)\.html/g)].map((m) => m[1]))];
+
+// Same job = same category. A page never shows two partners from one category.
+export const CATEGORY: Record<string, string> = { hostelworld: 'stay', bahia: 'stay-splurge', yesim: 'esim', ovago: 'flight', qatar: 'flight', travelex: 'insurance', compensair: 'claim', bigbus: 'tickets', tiqets: 'tickets', getrentacar: 'car' };
+export const freeOf = (offers: Partner[], used: string[]): Partner[] => {
+  const cats = new Set(used.map((i) => CATEGORY[i] ?? i));
+  return offers.filter((o) => !used.includes(o.id) && !cats.has(CATEGORY[o.id] ?? o.id));
+};
