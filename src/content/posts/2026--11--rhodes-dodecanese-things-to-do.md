@@ -6,6 +6,7 @@ pubDate: "2026-11-23T12:00:00Z"
 updatedDate: "2026-11-23T12:00:00Z"
 labels: ["Budget Travel", "Greece", "Europe"]
 path: "/things-to-do-in-rhodes-dodecanese.html"
+heroImage: "/images/rhodes-lindos-st-pauls-bay.jpg"
 ---
 
 **The best things to do in Rhodes are cheap: the medieval Old Town, the Street of the Knights, the moat walk and the Monte Smith sunset are all free, and the two paid headliners, the Palace of the Grand Master and the Acropolis of Lindos, cost about $9 and $13.** A day in Rhodes Town can cost as little as $14 and a Lindos day about $31–42. This guide ranks what is worth paying for, with prices in US dollars. It focuses on Rhodes, the main island of the Dodecanese.
@@ -31,9 +32,18 @@ path: "/things-to-do-in-rhodes-dodecanese.html"
 
 **3. The Palace of the Grand Master.** The knights' fortress is the main paid sight in Rhodes Town. The Rhodes tourism board listed it at €8 ($8.80) in 2024, open daily 08:00 to 20:00 in summer with last entry 20 minutes before closing. E-tickets are sold on hhticket.gr.
 
+![A medieval stone courtyard with pointed arches and marble statues in Rhodes Old Town](/images/rhodes-palace-courtyard.jpg)
+*Medieval courtyard, Old Town, Rhodes, Greece · Photo: [Esra Nurdoğan](https://www.pexels.com/photo/40559942/) on [Pexels](https://www.pexels.com)*
+
 **4. The Acropolis of Lindos.** Lindos is the island's famous village, with a whitewashed old town below an ancient acropolis. The ticket is €12 ($13) in summer and about €6 ($6.60) from November to March, and the bus from Rhodes Town is about €5.50 ($6) each way, taking about 90 minutes. The village streets and the beach below are free, so the paid part is the climb to the top.
 
+![The Lindos acropolis fortress above the whitewashed houses of Lindos village](/images/rhodes-lindos-acropolis-village.jpg)
+*Lindos acropolis above the village, Rhodes, Greece · Photo: [Pedro Vinicius Garrett](https://www.pexels.com/photo/37167151/) on [Pexels](https://www.pexels.com)*
+
 **5. Mandraki harbour and Elli beach.** The harbour with its deer statues and medieval windmills is free, and Elli beach is a short walk from the walls. The beach is free, though sunbeds cost extra.
+
+![Bronze deer statues on stone columns at the entrance to Mandraki harbour](/images/rhodes-mandraki-deer-columns.jpg)
+*Deer columns at Mandraki Harbour, Rhodes, Greece · Photo: [Irina Nesterenko](https://www.pexels.com/photo/18898494/) on [Pexels](https://www.pexels.com)*
 
 **6. The Archaeological Museum.** €6 ($6.60) in 2024. State museums and sites are free on the first Sunday of the month from November to March, which is a good reason to visit in winter.
 
@@ -92,3 +102,5 @@ For most visitors the flight is the biggest single cost, so check fares from you
 ## Book it
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
+
+*St Paul's Bay, Lindos, Rhodes, Greece · Header photo: [Heinz Klier](https://www.pexels.com/photo/26650993/) on [Pexels](https://www.pexels.com)*
