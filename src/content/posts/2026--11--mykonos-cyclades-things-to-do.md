@@ -6,6 +6,7 @@ pubDate: "2026-11-23T12:00:00Z"
 updatedDate: "2026-11-23T12:00:00Z"
 labels: ["Budget Travel", "Greece", "Europe"]
 path: "/things-to-do-in-mykonos-cyclades.html"
+heroImage: "/images/mykonos-little-venice-sunset.jpg"
 ---
 
 **The best things to do in Mykonos cost very little: wandering Mykonos Town and Little Venice, the windmills at sunset and the beaches are free, and the one big paid day is Delos, which is about $22 for the site plus about $24–28 for the boat.** The money traps are beach sunbeds, a drink with a view and everything in July and August. This guide ranks what is worth paying for, with prices in US dollars.
@@ -25,9 +26,18 @@ path: "/things-to-do-in-mykonos-cyclades.html"
 | 5 | Archaeological Museum of Mykonos | €5 ($5.50) | 1 hour |
 | 6 | Ano Mera village and Panagia Tourliani monastery | Free (donation) | 1–2 hours |
 
+![Whitewashed Mykonos Town seen from above, with the sea behind](/images/mykonos-town-from-above.jpg)
+*Mykonos Town from above, Mykonos, Greece · Photo: [AXP Photography](https://www.pexels.com/photo/16563681/) on [Pexels](https://www.pexels.com)*
+
 **1. Mykonos Town and Little Venice.** The maze of white streets in Chora costs nothing, and neither does walking the Little Venice waterfront or looking at the Panagia Paraportiani church from outside, which is best in late afternoon light. Sitting down at a bar in Little Venice costs money, so walk it, then have a drink elsewhere.
 
+![A narrow whitewashed alley with blue doors and balconies in Mykonos Town](/images/mykonos-town-street.jpg)
+*A narrow alley in Mykonos Town, Mykonos, Greece · Photo: [AXP Photography](https://www.pexels.com/photo/18774923/) on [Pexels](https://www.pexels.com)*
+
 **2. The windmills at Kato Mili.** Watching the sun go down from the hill is free and is the island's signature view. You cannot go inside.
+
+![The windmills of Mykonos on the ridge above the water, seen from the sea](/images/mykonos-windmills-from-sea.jpg)
+*The windmills of Kato Mili, Mykonos, Greece · Photo: [Viktoria Salas](https://www.pexels.com/photo/12177514/) on [Pexels](https://www.pexels.com)*
 
 **3. Delos.** The ancient island is the one big paid sight. The site and its museum cost €20 ($22) full price and €10 ($11) reduced on the official Cyclades Ephorate page. Boats leave Mykonos daily for about €22–25 ($24–28) round trip, and a half-day guided tour with the boat and skip-the-line entry is about €65 ($72). The site closes in winter (December to March), and in November the hours are 08:00 to 16:00. Entry is free for all visitors on the last weekend of September and on 18 April, 18 May and 28 October, so those dates are worth planning around, though boats and crowds still apply.
 
@@ -90,3 +100,5 @@ For most visitors the flight is the biggest single cost, so check fares from you
 ## Book it
 
 Compare hostels and budget hotels, grab an eSIM before you land and check flights below. These are affiliate links: if you book through them we earn a small commission at no extra cost to you, and they don't change the prices or what we recommend.
+
+*Little Venice at sunset, Mykonos, Greece · Header photo: [Nirjhar Basak](https://www.pexels.com/photo/30162466/) on [Pexels](https://www.pexels.com)*
