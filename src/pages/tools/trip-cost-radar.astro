@@ -1,0 +1,229 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { parseDest } from '../../lib/radar';
+import { PARTNERS, offersFor, goHref, CATEGORY } from '../../lib/affiliates';
+
+const all = await getCollection('posts');
+const dests = all.filter((p) => /-trip-cost\.html$/.test(p.data.path)).map((p) => parseDest(p, all)).filter(Boolean);
+
+// One partner per job. Same order as everywhere else on the site (best commission first).
+const slim = (id: string | undefined, tag: string) => {
+  if (!id) return null; const p = PARTNERS[id];
+  return { name: p.name, headline: p.headline, blurb: p.blurb, cta: p.cta, href: goHref(id, tag) };
+};
+const data = dests.map((d) => {
+  const offers = offersFor(d.labelPlace, d.region);
+  const by = (cat: string) => offers.find((o) => CATEGORY[o.id] === cat)?.id;
+  return {
+    ...d,
+    kit: {
+      flight: slim(by('flight'), 'radar-flight'),
+      hostel: slim('hostelworld', 'radar-stay'),
+      tickets: slim(by('tickets') ?? 'klook', 'radar-tickets'),
+      car: slim(by('car'), 'radar-car'),
+      esim: slim('yesim', 'radar-esim'),
+      insurance: slim('travelex', 'radar-insurance'),
+    },
+  };
+}).sort((a, b) => a.total.tight[0] - b.total.tight[0]);
+const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038';
+---
+<Base title="Trip cost radar: find the cheapest place to go" description="Rank worldwide destinations by what a week really costs, then see flights, stays, tours, food, transport, data and insurance for the one you pick. Every figure comes from our checked cost guides.">
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools.html">Trip tools</a></nav>
+    <h1>Trip cost radar</h1>
+    <p>Where is a week cheapest? Set your style, nights and group, and the list re-ranks. Pick a place to get its full trip kit: costs, tips and the best deals, without leaving this page.</p>
+  </div>
+
+  <div class="wrap rd" data-radar>
+    <form class="rd-controls" onsubmit="return false" aria-label="Trip settings">
+      <div class="seg" role="group" aria-label="Travel style">
+        <button type="button" data-style="tight" aria-pressed="true">Tight budget</button>
+        <button type="button" data-style="mid" aria-pressed="false">Mid-range</button>
+      </div>
+      <label>Nights<input id="rd-n" type="number" min="3" max="21" value="6" inputmode="numeric"></label>
+      <label>Travelers<input id="rd-t" type="number" min="1" max="8" value="2" inputmode="numeric"></label>
+      <label>Budget for the trip, USD <small>(optional, whole group, flights excluded)</small><input id="rd-b" type="number" min="0" step="50" placeholder="e.g. 1500" inputmode="numeric"></label>
+    </form>
+    <p class="rd-note">Costs are per person for the ground trip: beds, food, local transport and sights. Flights are separate, because they depend on where you start. Prices in USD.</p>
+
+    <div class="rd-grid">
+      <section aria-labelledby="rd-rank"><h2 id="rd-rank">Cheapest places, ranked</h2>
+        <ol class="rd-list" id="rd-list"></ol>
+      </section>
+      <section class="rd-kit" id="rd-kit" aria-live="polite" tabindex="-1"></section>
+    </div>
+    <p class="rd-foot">Figures are ranges from our own guides, checked against current price lists at the time of writing, and they will drift. Affiliate links: we may earn a commission at no extra cost to you. One partner per job, never two for the same thing.</p>
+  </div>
+
+  <script id="rd-data" type="application/json" set:html={JSON.stringify(data)} />
+  <script id="rd-src" type="application/json" set:html={JSON.stringify({ trip: tripSrc })} />
+  <script is:inline>
+  (function () {
+    var D = JSON.parse(document.getElementById('rd-data').textContent), SRC = JSON.parse(document.getElementById('rd-src').textContent);
+    var root = document.querySelector('[data-radar]'), list = document.getElementById('rd-list'), kit = document.getElementById('rd-kit');
+    var S = { style: 'tight', n: 6, t: 2, b: 0, sel: null, tab: 'overview', flight: 0 };
+    var CATS = [['stay', 'Beds'], ['food', 'Food'], ['move', 'Local transport'], ['intercity', 'Trains between cities'], ['sights', 'Sights and tours']];
+    var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
+    var rng = function (r) { return r[0] === r[1] ? money(r[0]) : money(r[0]) + '–' + money(r[1]); };
+    var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    // Guide tables cover 6 nights; scale per night, but train rides between cities do not scale.
+    function cost(d) {
+      var f = S.n / 6, lo = 0, hi = 0, parts = {};
+      CATS.forEach(function (c) {
+        var v = d.cats[c[0]]; if (!v) return; var r = v[S.style], k = c[0] === 'intercity' ? 1 : f;
+        parts[c[0]] = [r[0] * k, r[1] * k]; lo += r[0] * k; hi += r[1] * k;
+      });
+      // The guide's own total is the headline: carry its rounding difference so n=6 matches the guide exactly.
+      var s6 = [0, 0]; CATS.forEach(function (c) { var v = d.cats[c[0]]; if (v) { s6[0] += v[S.style][0]; s6[1] += v[S.style][1]; } });
+      lo += d.total[S.style][0] - s6[0]; hi += d.total[S.style][1] - s6[1];
+      return { lo: lo, hi: hi, parts: parts };
+    }
+    function fit(c) { if (!S.b) return ''; var tot = S.t; if (c.hi * tot <= S.b) return 'in'; if (c.lo * tot <= S.b) return 'maybe'; return 'out'; }
+    function renderList() {
+      var rows = D.map(function (d) { return { d: d, c: cost(d) }; }).sort(function (a, b) { return a.c.lo - b.c.lo; });
+      var max = Math.max.apply(null, rows.map(function (r) { return r.c.hi; }));
+      list.innerHTML = rows.map(function (r, i) {
+        var f = fit(r.c), badge = f === 'in' ? '<b class="ok">Fits your budget</b>' : f === 'maybe' ? '<b class="mb">Fits if you stay frugal</b>' : f === 'out' ? '<b class="no">Over budget</b>' : '';
+        var l = (r.c.lo / max * 100).toFixed(1), w = ((r.c.hi - r.c.lo) / max * 100).toFixed(1);
+        return '<li><button type="button" class="rd-row' + (S.sel === r.d.key ? ' on' : '') + (f === 'out' ? ' dim' : '') + '" data-k="' + r.d.key + '">' +
+          '<span class="rk">' + (i + 1) + '</span><span class="nm"><strong>' + esc(r.d.place) + '</strong><small>' + esc(r.d.region) + '</small></span>' +
+          '<span class="pr"><strong>' + money(r.c.lo * S.t) + '–' + money(r.c.hi * S.t) + '</strong><small>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights</small></span>' +
+          '<span class="bar" aria-hidden="true"><i style="left:' + l + '%;width:' + w + '%"></i></span>' + badge + '</button></li>';
+      }).join('');
+    }
+    var TABS = [['overview', 'Overview'], ['flights', 'Flights'], ['stays', 'Stays'], ['do', 'Things to do'], ['food', 'Food'], ['move', 'Getting around'], ['phone', 'Calls and data'], ['insure', 'Insurance'], ['read', 'Guides']];
+    function cta(p, note) {
+      if (!p) return '';
+      return '<div class="rd-cta"><div><strong>' + esc(p.headline) + '</strong><span>' + esc(p.blurb) + '</span></div><a class="btn sun" rel="sponsored nofollow noopener" target="_blank" href="' + p.href + '">' + esc(p.cta) + '</a></div>' + (note || '');
+    }
+    var tripLoaded = false;
+    function loadTrip() {
+      var box = document.getElementById('rd-trip'); if (!box || tripLoaded) return; tripLoaded = true;
+      var s = document.createElement('script'); s.async = true; s.charset = 'utf-8'; s.src = SRC.trip; box.appendChild(s);
+    }
+    function body(d, c) {
+      var per = function (k) { var r = c.parts[k]; return r ? '<strong>' + rng(r) + '</strong> per person' : ''; };
+      var guide = '<p class="rd-more"><a href="' + d.guide + '">Read the full ' + esc(d.place) + ' cost guide</a></p>';
+      switch (S.tab) {
+        case 'overview':
+          var max = c.hi; var rows = CATS.filter(function (x) { return c.parts[x[0]]; }).map(function (x) {
+            var r = c.parts[x[0]]; return '<li><span>' + x[1] + '</span><span class="bar"><i style="left:' + (r[0] / max * 100).toFixed(1) + '%;width:' + Math.max(1.5, (r[1] - r[0]) / max * 100).toFixed(1) + '%"></i></span><strong>' + rng([Math.round(r[0]), Math.round(r[1])]) + '</strong></li>';
+          }).join('');
+          var fl = S.flight > 0 ? '<p class="rd-sum2">With your flight at ' + money(S.flight) + ' each: <strong>' + money((c.lo + S.flight) * S.t) + '–' + money((c.hi + S.flight) * S.t) + '</strong> for the group.</p>' : '';
+          return '<div class="rd-total"><span>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights, ' + (S.style === 'tight' ? 'tight budget' : 'mid-range') + ', flights excluded</span><strong>' + money(c.lo * S.t) + '–' + money(c.hi * S.t) + '</strong><small>' + money(c.lo) + '–' + money(c.hi) + ' per person</small></div>' + fl +
+            '<ul class="rd-parts">' + rows + '</ul>' +
+            (d.tips.length ? '<div class="rd-tip"><strong>Cheapest time to go</strong><p>' + esc(d.tips.join(' ')) + '</p></div>' : '') +
+            '<p class="rd-more"><a href="/tools/trip-budget-calculator.html?dest=' + encodeURIComponent(d.place) + '">Add flights and extras in the budget calculator</a> · <button type="button" class="lnk" data-share>Copy a link to this trip</button></p>';
+        case 'flights':
+          return '<p>Flights depend on where you start, so we do not guess a price. Search real fares for your dates, then type what you find to see the full trip total.</p>' +
+            '<label class="rd-in">Your flight price, round trip per traveler, USD<input type="number" id="rd-f" min="0" step="10" inputmode="numeric" value="' + (S.flight || '') + '" placeholder="e.g. 650"></label>' +
+            (S.flight > 0 ? '<p class="rd-sum2">Whole trip for ' + S.t + ': <strong>' + money((c.lo + S.flight) * S.t) + '–' + money((c.hi + S.flight) * S.t) + '</strong></p>' : '') +
+            cta(d.kit.flight) + '<p class="rd-small">Also worth a look, no commission to us: <a href="https://www.google.com/travel/flights" rel="nofollow noopener" target="_blank">Google Flights</a> for a price calendar.</p>';
+        case 'stays':
+          var stayTxt = '<p>Beds for ' + S.n + ' nights: ' + per('stay') + '. The guide figures include tourist tax where it applies.</p>';
+          if (S.style === 'tight') return stayTxt + cta(d.kit.hostel) + '<p class="rd-small">Prefer a private room or hotel? Switch to mid-range above for a hotel search right here.</p>';
+          return stayTxt + '<div class="rd-trip"><p>Search hotels and apartments for your dates on Trip.com. We may earn a commission at no extra cost to you.</p><div id="rd-trip"></div></div>';
+        case 'do':
+          return '<p>Sights and tours for ' + S.n + ' nights: ' + per('sights') + '. Book the one or two you really want, and skip the rest.</p>' + cta(d.kit.tickets) + guide;
+        case 'food':
+          return '<p>Food for ' + S.n + ' nights: ' + per('food') + (S.style === 'tight' ? ', eating where locals eat.' : ', with some sit-down meals.') + ' Set lunches, markets and street food are the budget trick. The guide lists real prices and what to order.</p>' + guide;
+        case 'move':
+          var m = per('move') + (c.parts.intercity ? ', plus ' + per('intercity') + ' for trains between cities' : '');
+          return '<p>Getting around: ' + m + '. Book trains early where fares rise closer to the date.</p>' + (d.kit.car ? cta(d.kit.car) : '') + guide;
+        case 'phone':
+          return '<p>Install a data plan before you fly, so you land online and skip roaming charges and airport SIM queues. Calling is cheapest over data: WhatsApp and other apps need no extra plan.</p>' + cta(d.kit.esim);
+        case 'insure':
+          return '<p>Cover for medical costs, delays and lost bags costs little next to a trip that goes wrong. Check what your card or health plan already covers, then fill the gaps.</p>' + cta(d.kit.insurance);
+        case 'read':
+          return guide + (d.related.length ? '<ul class="rd-rel">' + d.related.map(function (r) { return '<li><a href="' + r.href + '">' + esc(r.title) + '</a></li>'; }).join('') + '</ul>' : '');
+      }
+    }
+    function renderKit() {
+      var d = D.filter(function (x) { return x.key === S.sel; })[0];
+      if (!d) { kit.innerHTML = '<div class="rd-empty"><h2>Pick a place</h2><p>Choose any destination in the list to open its trip kit: costs, deals and tips for flights, stays, things to do, food, transport, data and insurance.</p></div>'; return; }
+      var c = cost(d);
+      kit.innerHTML = '<header><h2>' + esc(d.place) + '</h2><span>' + esc(d.region) + '</span></header>' +
+        '<div class="rd-tabs" role="tablist">' + TABS.map(function (t) { return '<button type="button" role="tab" data-tab="' + t[0] + '" aria-selected="' + (S.tab === t[0]) + '">' + t[1] + '</button>'; }).join('') + '</div>' +
+        '<div class="rd-pane">' + body(d, c) + '</div>';
+      if (S.tab === 'stays' && S.style === 'mid') loadTrip();
+    }
+    function sync() { try { var q = new URLSearchParams({ s: S.style, n: S.n, t: S.t }); if (S.b) q.set('b', S.b); if (S.sel) q.set('d', S.sel); history.replaceState(null, '', '?' + q); } catch (e) {} }
+    function render() { renderList(); renderKit(); sync(); }
+    try { var q = new URLSearchParams(location.search); if (q.get('s') === 'mid') S.style = 'mid'; S.n = Math.min(21, Math.max(3, +q.get('n') || 6)); S.t = Math.min(8, Math.max(1, +q.get('t') || 2)); S.b = +q.get('b') || 0; if (D.some(function (x) { return x.key === q.get('d'); })) S.sel = q.get('d'); } catch (e) {}
+    document.getElementById('rd-n').value = S.n; document.getElementById('rd-t').value = S.t; if (S.b) document.getElementById('rd-b').value = S.b;
+    root.querySelectorAll('[data-style]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.style === S.style); });
+    root.addEventListener('click', function (e) {
+      var b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.style) { S.style = b.dataset.style; root.querySelectorAll('[data-style]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); render(); }
+      else if (b.dataset.k) { S.sel = b.dataset.k; S.tab = 'overview'; render(); if (window.matchMedia('(max-width: 900px)').matches) kit.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      else if (b.dataset.tab) { S.tab = b.dataset.tab; renderKit(); }
+      else if (b.hasAttribute('data-share')) { try { navigator.clipboard.writeText(location.href).then(function () { b.textContent = 'Link copied'; }, function () { b.textContent = location.href; }); } catch (x) { b.textContent = location.href; } }
+    });
+    root.addEventListener('input', function (e) {
+      var id = e.target.id;
+      if (id === 'rd-n') S.n = Math.min(21, Math.max(3, +e.target.value || 6));
+      else if (id === 'rd-t') S.t = Math.min(8, Math.max(1, +e.target.value || 1));
+      else if (id === 'rd-b') S.b = Math.max(0, +e.target.value || 0);
+      else if (id === 'rd-f') { S.flight = Math.max(0, +e.target.value || 0); var p = kit.querySelector('.rd-pane'); var d = D.filter(function (x) { return x.key === S.sel; })[0]; var cur = e.target.selectionStart; renderKit(); var f = document.getElementById('rd-f'); if (f) { f.focus(); try { f.setSelectionRange(cur, cur); } catch (x) {} } return; }
+      else return;
+      render();
+    });
+    render();
+  })();
+  </script>
+
+  <style is:global>
+    .rd{padding-bottom:48px}
+    .rd-controls{display:grid;grid-template-columns:auto repeat(2,minmax(90px,130px)) minmax(200px,1fr);gap:14px;align-items:end;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+    .rd-controls label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.9rem}
+    .rd-controls label small{font-weight:400;color:var(--mute)}
+    .rd input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box;min-width:0}
+    .seg{display:flex;border:2px solid var(--accent);border-radius:10px;overflow:hidden}
+    .seg button{font:inherit;font-weight:650;padding:10px 14px;border:0;background:none;color:var(--accent);cursor:pointer}
+    .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+    .rd-note{color:var(--mute);font-size:.9rem;margin:10px 2px 18px}
+    .rd-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;align-items:start}
+    .rd-grid h2{font-size:1.25rem;margin:0 0 10px}
+    .rd-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+    .rd-row{width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;display:grid;grid-template-columns:28px 1fr auto;grid-template-areas:"rk nm pr" "bar bar bar" "bd bd bd";gap:6px 10px;align-items:center}
+    .rd-row:hover{border-color:var(--accent)}
+    .rd-row.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+    .rd-row.dim{opacity:.55}
+    .rd-row .rk{grid-area:rk;font-family:var(--display);font-weight:700;color:var(--mute);font-size:1.1rem}
+    .rd-row .nm{grid-area:nm;display:flex;flex-direction:column}
+    .rd-row .nm small,.rd-row .pr small{color:var(--mute);font-size:.78rem}
+    .rd-row .pr{grid-area:pr;text-align:right;display:flex;flex-direction:column}
+    .bar{grid-area:bar;position:relative;height:8px;background:var(--mist);border-radius:6px;display:block}
+    .bar i{position:absolute;top:0;bottom:0;background:var(--accent);border-radius:6px;min-width:4px}
+    .rd-row b{grid-area:bd;font-size:.78rem;font-weight:650}
+    .rd-row b.ok{color:var(--accent)} .rd-row b.mb{color:#9a6a00} .rd-row b.no{color:var(--coral)}
+    .rd-kit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;position:sticky;top:12px;min-width:0}
+    .rd-kit header{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+    .rd-kit header h2{margin:0;font-size:1.6rem}
+    .rd-kit header span{color:var(--mute)}
+    .rd-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px;scrollbar-width:thin}
+    .rd-tabs button{font:inherit;font-size:.88rem;font-weight:600;white-space:nowrap;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+    .rd-tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+    .rd-pane p{margin:0 0 12px}
+    .rd-total{display:flex;flex-direction:column;gap:2px;background:var(--mist);border-radius:14px;padding:14px;margin-bottom:12px}
+    .rd-total span{font-size:.82rem;color:var(--mute)} .rd-total strong{font-family:var(--display);font-size:2rem;line-height:1.1} .rd-total small{color:var(--mute)}
+    .rd-parts{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:8px}
+    .rd-parts li{display:grid;grid-template-columns:130px 1fr auto;gap:10px;align-items:center;font-size:.92rem}
+    .rd-parts .bar{grid-area:auto}
+    .rd-tip{background:var(--mist);border-left:4px solid var(--sun);border-radius:10px;padding:10px 14px;margin-bottom:12px}
+    .rd-tip p{margin:4px 0 0}
+    .rd-cta{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--mist);border-radius:14px;padding:14px;margin:6px 0 12px}
+    .rd-cta div{display:flex;flex-direction:column;gap:2px;flex:1 1 220px} .rd-cta span{color:var(--mute);font-size:.9rem}
+    .rd-in{display:flex;flex-direction:column;gap:6px;font-weight:600;margin-bottom:12px}
+    .rd-sum2{background:var(--mist);border-radius:10px;padding:10px 14px}
+    .rd-small,.rd-foot{color:var(--mute);font-size:.85rem}
+    .rd-more{font-size:.92rem}
+    .lnk{font:inherit;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0}
+    .rd-rel{margin:0;padding-left:18px} .rd-rel li{margin-bottom:6px}
+    .rd-trip{min-height:160px}
+    .rd-empty{color:var(--mute)} .rd-empty h2{color:var(--ink)}
+    @media (max-width:900px){.rd-grid{grid-template-columns:1fr}.rd-kit{position:static}.rd-controls{grid-template-columns:1fr 1fr}.seg{grid-column:1/-1}.rd-controls label:last-child{grid-column:1/-1}.rd-parts li{grid-template-columns:100px 1fr auto}}
+  </style>
+</Base>
