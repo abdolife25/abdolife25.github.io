@@ -12,6 +12,7 @@ export const PARTNERS: Record<string, Partner> = {
   bigbus: { id: 'bigbus', name: 'Big Bus Tours', url: 'https://www.dpbolvw.net/click-101157578-15734568', cj: true, headline: 'City sightseeing tours', blurb: 'Hop-on hop-off tours that cover the main sights in one ticket.', cta: 'See tours' },
   tiqets: { id: 'tiqets', name: 'Tiqets', url: 'https://tiqets.tp.st/kkQjcwBq', cj: false, headline: 'Attraction tickets', blurb: 'Book museums and landmarks in advance and keep tickets on your phone.', cta: 'Browse tickets' },
   bahia: { id: 'bahia', name: 'Bahia Principe', url: 'https://www.tkqlhce.com/click-101157578-15820674', cj: true, headline: 'Resort stays', blurb: 'Bahia Principe resorts in the Caribbean, Mexico and Spain.', cta: 'See resorts' },
+  klook: { id: 'klook', name: 'Klook', url: 'https://klook.tpx.lv/ligLqSzV', cj: false, headline: 'Tours and activities', blurb: 'Search tours, day trips and attraction tickets, with free cancellation on many.', cta: 'Browse activities' },
   getrentacar: { id: 'getrentacar', name: 'GetRentacar', url: 'https://getrentacar.tp.st/7yE2hIIn', cj: false, headline: 'Car rental', blurb: 'Compare rental cars for your dates and pick-up point.', cta: 'Compare cars' },
 };
 
@@ -37,7 +38,7 @@ export function offersFor(place: string, region: string): Partner[] {
 export const usedInText = (body: string): string[] => [...new Set([...body.matchAll(/\/go\/([a-z]+)\.html/g)].map((m) => m[1]))];
 
 // Same job = same category. A page never shows two partners from one category.
-export const CATEGORY: Record<string, string> = { hostelworld: 'stay', bahia: 'stay-splurge', yesim: 'esim', ovago: 'flight', qatar: 'flight', travelex: 'insurance', compensair: 'claim', bigbus: 'tickets', tiqets: 'tickets', getrentacar: 'car' };
+export const CATEGORY: Record<string, string> = { hostelworld: 'stay', bahia: 'stay-splurge', yesim: 'esim', ovago: 'flight', qatar: 'flight', travelex: 'insurance', compensair: 'claim', bigbus: 'tickets', tiqets: 'tickets', klook: 'tickets', getrentacar: 'car' };
 export const freeOf = (offers: Partner[], used: string[]): Partner[] => {
   const cats = new Set(used.map((i) => CATEGORY[i] ?? i));
   return offers.filter((o) => !used.includes(o.id) && !cats.has(CATEGORY[o.id] ?? o.id));
