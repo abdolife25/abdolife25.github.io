@@ -53,7 +53,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
 
     <div class="rd-grid">
       <section aria-labelledby="rd-rank"><div class="rd-radar"><h2>The radar</h2><p>Closer to the center means cheaper. The yellow dashed ring is your budget per person.</p>
-          <div class="rd-screen"><svg id="rd-svg" viewBox="0 0 400 400" role="group" aria-label="Radar chart of destinations by trip cost. Each dot is a destination; activate one to open its trip kit."></svg><span class="rd-hint" id="rd-hint">Tap a dot to open its trip kit</span></div></div>
+          <div class="rd-screen"><svg id="rd-svg" viewBox="-80 0 560 400" role="group" aria-label="Radar chart of destinations by trip cost. Each dot is a destination; activate one to open its trip kit."></svg><span class="rd-hint" id="rd-hint">Tap a dot to open its trip kit</span></div></div>
         <h2 id="rd-rank">Cheapest places, ranked</h2>
         <ol class="rd-list" id="rd-list"></ol>
       </section>
@@ -94,18 +94,19 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       var svg = document.getElementById('rd-svg'), C = 200, R = 168, n = D.length;
       var vals = rows.map(function (r) { return r.c.lo + r.c.fare; }), bpp = S.b ? S.b / S.t : 0;
       var max = Math.max.apply(null, vals.concat([bpp])) * 1.12, rad = function (v) { return 26 + (v / max) * (R - 26); };
-      var step = [50, 100, 200, 250, 500, 1000, 2000, 5000].filter(function (x) { return Math.ceil(max / x) - 1 <= 4; })[0] || 5000;
+      var STEPS = [25, 50, 100, 150, 200, 250, 300, 400, 500, 600, 750, 1000, 1500, 2000, 3000, 5000], cnt = function (x) { return Math.ceil(max / x) - 1; };
+      var step = STEPS.filter(function (x) { return cnt(x) >= 3 && cnt(x) <= 4; })[0] || STEPS.filter(function (x) { return cnt(x) <= 4; })[0] || 5000;
       var h = '<defs><radialGradient id="rdg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#1c8d86" stop-opacity=".55"/><stop offset="1" stop-color="#0b2a36" stop-opacity="0"/></radialGradient><linearGradient id="rds" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5ccdc0" stop-opacity="0"/><stop offset="1" stop-color="#5ccdc0" stop-opacity=".45"/></linearGradient></defs>';
       h += '<circle cx="' + C + '" cy="' + C + '" r="' + (R + 8) + '" fill="url(#rdg)"/>';
-      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="#5ccdc0" stroke-opacity=".35" stroke-width="1.2"/><text x="' + (C + 5) + '" y="' + (C - rad(v) + 12) + '" font-size="10" font-weight="700" fill="#bff2ec" paint-order="stroke" stroke="#0b2a36" stroke-width="3">' + money(v) + '</text>';
+      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="#5ccdc0" stroke-opacity=".35" stroke-width="1.2"/><text x="' + C + '" y="' + (C - rad(v) - 4) + '" text-anchor="middle" font-size="10" font-weight="700" fill="#bff2ec" paint-order="stroke" stroke="#0b2a36" stroke-width="3">' + money(v) + '</text>';
       h += '<line x1="' + (C - R) + '" y1="' + C + '" x2="' + (C + R) + '" y2="' + C + '" stroke="#5ccdc0" stroke-opacity=".25"/><line x1="' + C + '" y1="' + (C - R) + '" x2="' + C + '" y2="' + (C + R) + '" stroke="#5ccdc0" stroke-opacity=".25"/>';
       h += '<g class="rd-sweep"><path d="M' + C + ' ' + C + ' L' + (C + R) + ' ' + C + ' A' + R + ' ' + R + ' 0 0 0 ' + (C + R * Math.cos(-.8)) + ' ' + (C + R * Math.sin(-.8)) + ' Z" fill="url(#rds)"/></g>';
       if (bpp) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(bpp) + '" fill="none" stroke="#ffc83d" stroke-width="2.5" stroke-dasharray="6 4"/>';
       h += '<circle cx="' + C + '" cy="' + C + '" r="5" fill="#ffc83d"/>';
       var order = rows.map(function (r) { return r.d.key; });
       rows.forEach(function (r) {
-        var i = (D.indexOf(r.d) * 4) % n, a = -Math.PI / 2 + (i + .5) / n * Math.PI * 2, v = r.c.lo + r.c.fare, rr = rad(v), x = C + rr * Math.cos(a), y = C + rr * Math.sin(a);
-        var f = fit(r.c), col = f === 'out' ? '#ff8a6a' : '#5ce6d4', sel = S.sel === r.d.key, top = order.indexOf(r.d.key) < 3, lx = x > C - 14 ? x + 13 : x - 13, anc = x > C - 14 ? 'start' : 'end';
+        var i = (D.indexOf(r.d) * 4) % n, nr = Math.ceil(n / 2), tc = .34, bc = .2, a = i < nr ? -Math.PI / 2 + tc + (i + .5) / nr * (Math.PI - tc - bc) : Math.PI / 2 + bc + (i - nr + .5) / (n - nr) * (Math.PI - tc - bc), v = r.c.lo + r.c.fare, rr = rad(v), x = C + rr * Math.cos(a), y = C + rr * Math.sin(a);
+        var f = fit(r.c), col = f === 'out' ? '#ff8a6a' : '#5ce6d4', sel = S.sel === r.d.key, top = order.indexOf(r.d.key) < 3, right = i < nr, lx = right ? x + 13 : x - 13, anc = right ? 'start' : 'end';
         h += '<g class="rd-dot' + (sel ? ' sel' : '') + '" tabindex="0" role="button" data-k="' + r.d.key + '" aria-label="' + esc(r.d.place) + ', from ' + money(v) + ' per person. Open trip kit">' +
           (top && !sel ? '<circle class="rd-pulse" cx="' + x + '" cy="' + y + '" r="9" fill="none" stroke="' + col + '" stroke-width="2"/>' : '') +
           '<circle class="rd-hit" cx="' + x + '" cy="' + y + '" r="20" fill="transparent"/>' +
@@ -114,6 +115,23 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
           '<title>' + esc(r.d.place) + ': from ' + money(v) + ' per person. Click for the trip kit</title></g>';
       });
       svg.innerHTML = h;
+      // Label pass: keep every country name clear of ring prices, other names and other dots.
+      var gs = [].slice.call(svg.querySelectorAll('.rd-dot')), dots = gs.map(function (g) { var c = g.querySelector('.rd-d'); return { g: g, x: +c.getAttribute('cx'), y: +c.getAttribute('cy') }; });
+      var fixed = [].slice.call(svg.querySelectorAll(':scope > text')).map(function (t) { return t.getBBox(); }), placed = [];
+      var hit = function (a, b, pad) { return a.x < b.x + b.width + pad && b.x < a.x + a.width + pad && a.y < b.y + b.height + pad && b.y < a.y + a.height + pad; };
+      dots.forEach(function (d) {
+        var t = d.g.querySelector('text'), right = t.getAttribute('text-anchor') === 'start', best = null;
+        var tries = [[right, 0], [!right, 0], [right, -15], [right, 15], [!right, -15], [!right, 15]];
+        for (var k = 0; k < tries.length && !best; k++) {
+          var rt = tries[k][0], dy = tries[k][1];
+          t.setAttribute('text-anchor', rt ? 'start' : 'end'); t.setAttribute('x', rt ? d.x + 13 : d.x - 13); t.setAttribute('y', d.y + 4.5 + dy);
+          var bb = t.getBBox(), bad = fixed.some(function (f) { return hit(bb, f, 2); }) || placed.some(function (f) { return hit(bb, f, 2); }) ||
+            dots.some(function (o) { return hit(bb, { x: o.x - 9, y: o.y - 9, width: 18, height: 18 }, 1) && o !== d; }) || bb.x < -78 || bb.x + bb.width > 478;
+          if (!bad) best = bb;
+        }
+        if (!best) { best = t.getBBox(); }
+        placed.push(best);
+      });
     }
     function renderList() {
       var useF = !!(S.o && FARES);
