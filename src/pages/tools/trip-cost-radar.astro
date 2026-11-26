@@ -28,7 +28,7 @@ const data = dests.map((d) => {
     },
   };
 }).sort((a, b) => a.total.tight[0] - b.total.tight[0]);
-const origins = Object.entries(cfg.origins);
+const origins = Object.entries(cfg.origins) as [string, string][];
 const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038';
 ---
 <Base title="Trip cost radar: find the cheapest place to go" description="Rank worldwide destinations by what a week really costs, then see flights, stays, tours, food, transport, data and insurance for the one you pick. Every figure comes from our checked cost guides.">
