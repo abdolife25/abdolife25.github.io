@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import { parseDest } from '../../lib/radar';
+import cfg from '../../../scripts/fares-config.json';
 import { PARTNERS, offersFor, goHref, CATEGORY } from '../../lib/affiliates';
 
 const all = await getCollection('posts');
@@ -27,6 +28,7 @@ const data = dests.map((d) => {
     },
   };
 }).sort((a, b) => a.total.tight[0] - b.total.tight[0]);
+const origins = Object.entries(cfg.origins);
 const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038';
 ---
 <Base title="Trip cost radar: find the cheapest place to go" description="Rank worldwide destinations by what a week really costs, then see flights, stays, tours, food, transport, data and insurance for the one you pick. Every figure comes from our checked cost guides.">
@@ -44,9 +46,10 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       </div>
       <label>Nights<input id="rd-n" type="number" min="3" max="21" value="6" inputmode="numeric"></label>
       <label>Travelers<input id="rd-t" type="number" min="1" max="8" value="2" inputmode="numeric"></label>
+      <label>Flying from<select id="rd-o"><option value="">Not sure yet</option>{origins.map(([c, n]) => <option value={c}>{n}</option>)}</select></label>
       <label>Budget for the trip, USD <small>(optional, whole group, flights excluded)</small><input id="rd-b" type="number" min="0" step="50" placeholder="e.g. 1500" inputmode="numeric"></label>
     </form>
-    <p class="rd-note">Costs are per person for the ground trip: beds, food, local transport and sights. Flights are separate, because they depend on where you start. Prices in USD.</p>
+    <p class="rd-note">Costs are per person for the ground trip: beds, food, local transport and sights. Pick where you fly from to add the cheapest recent flight fare; otherwise flights are left out. Prices in USD.</p>
 
     <div class="rd-grid">
       <section aria-labelledby="rd-rank"><h2 id="rd-rank">Cheapest places, ranked</h2>
@@ -63,7 +66,9 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
   (function () {
     var D = JSON.parse(document.getElementById('rd-data').textContent), SRC = JSON.parse(document.getElementById('rd-src').textContent);
     var root = document.querySelector('[data-radar]'), list = document.getElementById('rd-list'), kit = document.getElementById('rd-kit');
-    var S = { style: 'tight', n: 6, t: 2, b: 0, sel: null, tab: 'overview', flight: 0 };
+    var S = { style: 'tight', n: 6, t: 2, b: 0, sel: null, tab: 'overview', flight: 0, o: '' }, FARES = null;
+    fetch('/data/fares.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (j) { FARES = j; render(); }).catch(function () {});
+    function fareOf(d) { return S.o && FARES && FARES.fares[S.o] && FARES.fares[S.o][d.key] ? FARES.fares[S.o][d.key] : null; }
     var CATS = [['stay', 'Beds'], ['food', 'Food'], ['move', 'Local transport'], ['intercity', 'Trains between cities'], ['sights', 'Sights and tours']];
     var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
     var rng = function (r) { return r[0] === r[1] ? money(r[0]) : money(r[0]) + '–' + money(r[1]); };
@@ -78,18 +83,21 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       // The guide's own total is the headline: carry its rounding difference so n=6 matches the guide exactly.
       var s6 = [0, 0]; CATS.forEach(function (c) { var v = d.cats[c[0]]; if (v) { s6[0] += v[S.style][0]; s6[1] += v[S.style][1]; } });
       lo += d.total[S.style][0] - s6[0]; hi += d.total[S.style][1] - s6[1];
-      return { lo: lo, hi: hi, parts: parts };
+      var fr = fareOf(d), fare = fr ? fr.price : 0;
+      return { lo: lo, hi: hi, parts: parts, fare: fare, fr: fr };
     }
     function fit(c) { if (!S.b) return ''; var tot = S.t; if (c.hi * tot <= S.b) return 'in'; if (c.lo * tot <= S.b) return 'maybe'; return 'out'; }
+    function totals(c) { return [(c.lo + c.fare) * S.t, (c.hi + c.fare) * S.t]; }
     function renderList() {
-      var rows = D.map(function (d) { return { d: d, c: cost(d) }; }).sort(function (a, b) { return a.c.lo - b.c.lo; });
-      var max = Math.max.apply(null, rows.map(function (r) { return r.c.hi; }));
+      var useF = !!(S.o && FARES);
+      var rows = D.map(function (d) { return { d: d, c: cost(d) }; }).sort(function (a, b) { if (useF && !!a.c.fare !== !!b.c.fare) return a.c.fare ? -1 : 1; return (a.c.lo + a.c.fare) - (b.c.lo + b.c.fare); });
+      var max = Math.max.apply(null, rows.map(function (r) { return r.c.hi + r.c.fare; }));
       list.innerHTML = rows.map(function (r, i) {
         var f = fit(r.c), badge = f === 'in' ? '<b class="ok">Fits your budget</b>' : f === 'maybe' ? '<b class="mb">Fits if you stay frugal</b>' : f === 'out' ? '<b class="no">Over budget</b>' : '';
-        var l = (r.c.lo / max * 100).toFixed(1), w = ((r.c.hi - r.c.lo) / max * 100).toFixed(1);
+        var l = ((r.c.lo + r.c.fare) / max * 100).toFixed(1), w = ((r.c.hi - r.c.lo) / max * 100).toFixed(1), tt = totals(r.c), fl = r.c.fare ? ', flights from ' + esc(FARES.origins[S.o]) + ' included' : (S.o && FARES ? ', no fare found' : ', flights excluded');
         return '<li><button type="button" class="rd-row' + (S.sel === r.d.key ? ' on' : '') + (f === 'out' ? ' dim' : '') + '" data-k="' + r.d.key + '">' +
           '<span class="rk">' + (i + 1) + '</span><span class="nm"><strong>' + esc(r.d.place) + '</strong><small>' + esc(r.d.region) + '</small></span>' +
-          '<span class="pr"><strong>' + money(r.c.lo * S.t) + '–' + money(r.c.hi * S.t) + '</strong><small>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights</small></span>' +
+          '<span class="pr"><strong>' + money(tt[0]) + '–' + money(tt[1]) + '</strong><small>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights' + fl + '</small></span>' +
           '<span class="bar" aria-hidden="true"><i style="left:' + l + '%;width:' + w + '%"></i></span>' + badge + '</button></li>';
       }).join('');
     }
@@ -111,13 +119,14 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
           var max = c.hi; var rows = CATS.filter(function (x) { return c.parts[x[0]]; }).map(function (x) {
             var r = c.parts[x[0]]; return '<li><span>' + x[1] + '</span><span class="bar"><i style="left:' + (r[0] / max * 100).toFixed(1) + '%;width:' + Math.max(1.5, (r[1] - r[0]) / max * 100).toFixed(1) + '%"></i></span><strong>' + rng([Math.round(r[0]), Math.round(r[1])]) + '</strong></li>';
           }).join('');
-          var fl = S.flight > 0 ? '<p class="rd-sum2">With your flight at ' + money(S.flight) + ' each: <strong>' + money((c.lo + S.flight) * S.t) + '–' + money((c.hi + S.flight) * S.t) + '</strong> for the group.</p>' : '';
+          var fp = S.flight > 0 ? S.flight : c.fare; var fl = fp > 0 ? '<p class="rd-sum2">With flights at ' + money(fp) + ' each: <strong>' + money((c.lo + fp) * S.t) + '–' + money((c.hi + fp) * S.t) + '</strong> for the group.</p>' : '';
           return '<div class="rd-total"><span>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights, ' + (S.style === 'tight' ? 'tight budget' : 'mid-range') + ', flights excluded</span><strong>' + money(c.lo * S.t) + '–' + money(c.hi * S.t) + '</strong><small>' + money(c.lo) + '–' + money(c.hi) + ' per person</small></div>' + fl +
             '<ul class="rd-parts">' + rows + '</ul>' +
             (d.tips.length ? '<div class="rd-tip"><strong>Cheapest time to go</strong><p>' + esc(d.tips.join(' ')) + '</p></div>' : '') +
             '<p class="rd-more"><a href="/tools/trip-budget-calculator.html?dest=' + encodeURIComponent(d.place) + '">Add flights and extras in the budget calculator</a> · <button type="button" class="lnk" data-share>Copy a link to this trip</button></p>';
         case 'flights':
-          return '<p>Flights depend on where you start, so we do not guess a price. Search real fares for your dates, then type what you find to see the full trip total.</p>' +
+          var fr = c.fr; var cached = fr ? '<div class="rd-tip"><strong>Cheapest recent fare from ' + esc(FARES.origins[S.o]) + ': ' + money(fr.price) + ' round trip</strong><p>Seen in searches ' + (FARES.updated ? 'as of ' + FARES.updated : 'recently') + (fr.depart ? ', for travel around ' + fr.depart : '') + '. It is a cached fare, a guide to what is cheap and not a live quote, so check the price for your dates below.</p></div>' : (S.o && FARES ? '<p class="rd-small">No recent fare found from ' + esc(FARES.origins[S.o]) + ' for this route.</p>' : '<p class="rd-small">Choose where you fly from at the top to see the cheapest recent fare.</p>');
+          return cached + '<p>Search real fares for your dates, then type what you find to see the full trip total.</p>' +
             '<label class="rd-in">Your flight price, round trip per traveler, USD<input type="number" id="rd-f" min="0" step="10" inputmode="numeric" value="' + (S.flight || '') + '" placeholder="e.g. 650"></label>' +
             (S.flight > 0 ? '<p class="rd-sum2">Whole trip for ' + S.t + ': <strong>' + money((c.lo + S.flight) * S.t) + '–' + money((c.hi + S.flight) * S.t) + '</strong></p>' : '') +
             cta(d.kit.flight) + '<p class="rd-small">Also worth a look, no commission to us: <a href="https://www.google.com/travel/flights" rel="nofollow noopener" target="_blank">Google Flights</a> for a price calendar.</p>';
@@ -149,10 +158,10 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
         '<div class="rd-pane">' + body(d, c) + '</div>';
       if (S.tab === 'stays' && S.style === 'mid') loadTrip();
     }
-    function sync() { try { var q = new URLSearchParams({ s: S.style, n: S.n, t: S.t }); if (S.b) q.set('b', S.b); if (S.sel) q.set('d', S.sel); history.replaceState(null, '', '?' + q); } catch (e) {} }
+    function sync() { try { var q = new URLSearchParams({ s: S.style, n: S.n, t: S.t }); if (S.b) q.set('b', S.b); if (S.sel) q.set('d', S.sel); if (S.o) q.set('o', S.o); history.replaceState(null, '', '?' + q); } catch (e) {} }
     function render() { renderList(); renderKit(); sync(); }
-    try { var q = new URLSearchParams(location.search); if (q.get('s') === 'mid') S.style = 'mid'; S.n = Math.min(21, Math.max(3, +q.get('n') || 6)); S.t = Math.min(8, Math.max(1, +q.get('t') || 2)); S.b = +q.get('b') || 0; if (D.some(function (x) { return x.key === q.get('d'); })) S.sel = q.get('d'); } catch (e) {}
-    document.getElementById('rd-n').value = S.n; document.getElementById('rd-t').value = S.t; if (S.b) document.getElementById('rd-b').value = S.b;
+    try { var q = new URLSearchParams(location.search); if (q.get('s') === 'mid') S.style = 'mid'; S.n = Math.min(21, Math.max(3, +q.get('n') || 6)); S.t = Math.min(8, Math.max(1, +q.get('t') || 2)); S.b = +q.get('b') || 0; S.o = q.get('o') || ''; if (D.some(function (x) { return x.key === q.get('d'); })) S.sel = q.get('d'); } catch (e) {}
+    document.getElementById('rd-n').value = S.n; document.getElementById('rd-t').value = S.t; if (S.b) document.getElementById('rd-b').value = S.b; document.getElementById('rd-o').value = S.o; if (document.getElementById('rd-o').value !== S.o) S.o = '';
     root.querySelectorAll('[data-style]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.style === S.style); });
     root.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return;
@@ -165,6 +174,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       var id = e.target.id;
       if (id === 'rd-n') S.n = Math.min(21, Math.max(3, +e.target.value || 6));
       else if (id === 'rd-t') S.t = Math.min(8, Math.max(1, +e.target.value || 1));
+      else if (id === 'rd-o') S.o = e.target.value;
       else if (id === 'rd-b') S.b = Math.max(0, +e.target.value || 0);
       else if (id === 'rd-f') { S.flight = Math.max(0, +e.target.value || 0); var p = kit.querySelector('.rd-pane'); var d = D.filter(function (x) { return x.key === S.sel; })[0]; var cur = e.target.selectionStart; renderKit(); var f = document.getElementById('rd-f'); if (f) { f.focus(); try { f.setSelectionRange(cur, cur); } catch (x) {} } return; }
       else return;
@@ -176,10 +186,10 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
 
   <style is:global>
     .rd{padding-bottom:48px}
-    .rd-controls{display:grid;grid-template-columns:auto repeat(2,minmax(90px,130px)) minmax(200px,1fr);gap:14px;align-items:end;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+    .rd-controls{display:grid;grid-template-columns:auto repeat(2,minmax(90px,120px)) minmax(130px,1fr) minmax(180px,1.3fr);gap:14px;align-items:end;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
     .rd-controls label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.9rem}
     .rd-controls label small{font-weight:400;color:var(--mute)}
-    .rd input{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box;min-width:0}
+    .rd input,.rd select{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box;min-width:0}
     .seg{display:flex;border:2px solid var(--accent);border-radius:10px;overflow:hidden}
     .seg button{font:inherit;font-weight:650;padding:10px 14px;border:0;background:none;color:var(--accent);cursor:pointer}
     .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}

@@ -1,0 +1,28 @@
+name: Refresh cached flight fares
+on:
+  schedule:
+    - cron: '17 3 * * 1,4'   # Monday and Thursday, 03:17 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+jobs:
+  fares:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/fetch-fares.mjs
+        env:
+          TRAVELPAYOUTS_TOKEN: ${{ secrets.TRAVELPAYOUTS_TOKEN }}
+      - name: Commit and redeploy if fares changed
+        run: |
+          if git diff --quiet -- public/data/fares.json && [ -z "$(git ls-files --others --exclude-standard public/data)" ]; then echo "No change"; exit 0; fi
+          git config user.name "voyagelo-bot"; git config user.email "bot@voyagelo.com"
+          git add public/data/fares.json
+          git commit -m "Refresh cached fares"
+          git push
+          gh workflow run deploy.yml
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,4 @@
+{
+  "origins": { "NYC": "New York", "LAX": "Los Angeles", "LON": "London", "YTO": "Toronto", "CAI": "Cairo" },
+  "dests": { "india": "DEL", "mexico": "MEX", "dubai": "DXB", "canary-islands": "TFN", "portugal": "LIS", "croatia": "ZAG", "spain": "MAD", "japan": "TYO", "egypt": "CAI", "greece": "ATH", "italy": "ROM" }
+}
