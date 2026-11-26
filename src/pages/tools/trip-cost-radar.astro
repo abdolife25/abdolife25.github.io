@@ -94,7 +94,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       var svg = document.getElementById('rd-svg'), C = 200, R = 168, n = D.length;
       var vals = rows.map(function (r) { return r.c.lo + r.c.fare; }), bpp = S.b ? S.b / S.t : 0;
       var max = Math.max.apply(null, vals.concat([bpp])) * 1.12, rad = function (v) { return 26 + (v / max) * (R - 26); };
-      var step = max > 2500 ? 1000 : max > 1200 ? 500 : max > 500 ? 250 : 100, h = '';
+      var step = [50, 100, 200, 250, 500, 1000, 2000, 5000].filter(function (x) { return Math.ceil(max / x) - 1 <= 4; })[0] || 5000, h = '';
       for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="var(--line)"/><text x="' + (C + 4) + '" y="' + (C - rad(v) + 11) + '" font-size="9" fill="var(--mute)">' + money(v) + '</text>';
       h += '<line x1="' + (C - R) + '" y1="' + C + '" x2="' + (C + R) + '" y2="' + C + '" stroke="var(--line)" stroke-width=".6"/><line x1="' + C + '" y1="' + (C - R) + '" x2="' + C + '" y2="' + (C + R) + '" stroke="var(--line)" stroke-width=".6"/>';
       if (bpp) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(bpp) + '" fill="none" stroke="var(--sun)" stroke-width="2" stroke-dasharray="5 4"/>';
@@ -113,11 +113,11 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       renderRadar(rows);
       list.innerHTML = rows.map(function (r, i) {
         var f = fit(r.c), badge = f === 'in' ? '<b class="ok">Fits your budget</b>' : f === 'maybe' ? '<b class="mb">Fits if you stay frugal</b>' : f === 'out' ? '<b class="no">Over budget</b>' : '';
-        var l = ((r.c.lo + r.c.fare) / max * 100).toFixed(1), w = ((r.c.hi - r.c.lo) / max * 100).toFixed(1), tt = totals(r.c), fl = r.c.fare ? ', flights from ' + esc(FARES.origins[S.o]) + ' included' : (S.o && FARES ? ', no fare found' : ', flights excluded');
+        var w = ((r.c.lo + r.c.fare) / max * 100).toFixed(1), tt = totals(r.c), fl = r.c.fare ? ', flights from ' + esc(FARES.origins[S.o]) + ' included' : (S.o && FARES ? ', no fare found' : ', flights excluded');
         return '<li><button type="button" class="rd-row' + (S.sel === r.d.key ? ' on' : '') + (f === 'out' ? ' dim' : '') + '" data-k="' + r.d.key + '">' +
           '<span class="rk">' + (i + 1) + '</span><span class="nm"><strong>' + esc(r.d.place) + '</strong><small>' + esc(r.d.region) + '</small></span>' +
           '<span class="pr"><strong>' + money(tt[0]) + '–' + money(tt[1]) + '</strong><small>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights' + fl + '</small></span>' +
-          '<span class="bar" aria-hidden="true"><i style="left:' + l + '%;width:' + w + '%"></i></span>' + badge + '</button></li>';
+          '<span class="bar" aria-hidden="true"><i style="width:' + w + '%"></i></span>' + badge + '</button></li>';
       }).join('');
     }
     var TABS = [['overview', 'Overview'], ['flights', 'Flights'], ['stays', 'Stays'], ['do', 'Things to do'], ['food', 'Food'], ['move', 'Getting around'], ['phone', 'Calls and data'], ['insure', 'Insurance'], ['read', 'Guides']];
@@ -136,7 +136,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       switch (S.tab) {
         case 'overview':
           var max = c.hi; var rows = CATS.filter(function (x) { return c.parts[x[0]]; }).map(function (x) {
-            var r = c.parts[x[0]]; return '<li><span>' + x[1] + '</span><span class="bar"><i style="left:' + (r[0] / max * 100).toFixed(1) + '%;width:' + Math.max(1.5, (r[1] - r[0]) / max * 100).toFixed(1) + '%"></i></span><strong>' + rng([Math.round(r[0]), Math.round(r[1])]) + '</strong></li>';
+            var r = c.parts[x[0]]; return '<li><span>' + x[1] + '</span><span class="bar"><i style="width:' + Math.max(2, r[1] / max * 100).toFixed(1) + '%"></i></span><strong>' + rng([Math.round(r[0]), Math.round(r[1])]) + '</strong></li>';
           }).join('');
           var fp = S.flight > 0 ? S.flight : c.fare; var fl = fp > 0 ? '<p class="rd-sum2">With flights at ' + money(fp) + ' each: <strong>' + money((c.lo + fp) * S.t) + '–' + money((c.hi + fp) * S.t) + '</strong> for the group.</p>' : '';
           return '<div class="rd-total"><span>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights, ' + (S.style === 'tight' ? 'tight budget' : 'mid-range') + ', flights excluded</span><strong>' + money(c.lo * S.t) + '–' + money(c.hi * S.t) + '</strong><small>' + money(c.lo) + '–' + money(c.hi) + ' per person</small></div>' + fl +
@@ -230,7 +230,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     .rd-row .nm small,.rd-row .pr small{color:var(--mute);font-size:.78rem}
     .rd-row .pr{grid-area:pr;text-align:right;display:flex;flex-direction:column}
     .bar{grid-area:bar;position:relative;height:8px;background:var(--mist);border-radius:6px;display:block}
-    .bar i{position:absolute;top:0;bottom:0;background:var(--accent);border-radius:6px;min-width:4px}
+    .bar i{position:absolute;top:0;bottom:0;left:0;background:linear-gradient(90deg,var(--accent),var(--sun));border-radius:6px;min-width:4px}
     .rd-row b{grid-area:bd;font-size:.78rem;font-weight:650}
     .rd-row b.ok{color:var(--accent)} .rd-row b.mb{color:#9a6a00} .rd-row b.no{color:var(--coral)}
     .rd-kit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;position:sticky;top:12px;min-width:0}
