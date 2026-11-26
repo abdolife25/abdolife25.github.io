@@ -1,4 +1,46 @@
 {
-  "origins": { "NYC": "New York", "LAX": "Los Angeles", "LON": "London", "YTO": "Toronto", "CAI": "Cairo" },
-  "dests": { "india": "DEL", "mexico": "MEX", "dubai": "DXB", "canary-islands": "TFN", "portugal": "LIS", "croatia": "ZAG", "spain": "MAD", "japan": "TYO", "egypt": "CAI", "greece": "ATH", "italy": "ROM" }
+ "origins": {
+  "AMS": "Amsterdam, Netherlands",
+  "BJS": "Beijing, China",
+  "BOG": "Bogotá, Colombia",
+  "BUE": "Buenos Aires, Argentina",
+  "CAI": "Cairo, Egypt",
+  "DEL": "Delhi, India",
+  "DXB": "Dubai, United Arab Emirates",
+  "FRA": "Frankfurt, Germany",
+  "IST": "Istanbul, Turkey",
+  "JKT": "Jakarta, Indonesia",
+  "LON": "London, United Kingdom",
+  "LAX": "Los Angeles, United States",
+  "MAD": "Madrid, Spain",
+  "MEX": "Mexico City, Mexico",
+  "NYC": "New York, United States",
+  "PAR": "Paris, France",
+  "RUH": "Riyadh, Saudi Arabia",
+  "ROM": "Rome, Italy",
+  "SEL": "Seoul, South Korea",
+  "SIN": "Singapore",
+  "STO": "Stockholm, Sweden",
+  "SYD": "Sydney, Australia",
+  "SAO": "São Paulo, Brazil",
+  "TPE": "Taipei, Taiwan",
+  "TLV": "Tel Aviv, Israel",
+  "TYO": "Tokyo, Japan",
+  "YTO": "Toronto, Canada",
+  "WAW": "Warsaw, Poland",
+  "ZRH": "Zurich, Switzerland"
+ },
+ "dests": {
+  "india": "DEL",
+  "mexico": "MEX",
+  "dubai": "DXB",
+  "canary-islands": "TFN",
+  "portugal": "LIS",
+  "croatia": "ZAG",
+  "spain": "MAD",
+  "japan": "TYO",
+  "egypt": "CAI",
+  "greece": "ATH",
+  "italy": "ROM"
+ }
 }
