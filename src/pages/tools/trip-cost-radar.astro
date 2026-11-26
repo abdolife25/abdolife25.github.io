@@ -52,7 +52,9 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     <p class="rd-note">Costs are per person for the ground trip: beds, food, local transport and sights. Pick where you fly from to add the cheapest recent flight fare; otherwise flights are left out. Prices in USD.</p>
 
     <div class="rd-grid">
-      <section aria-labelledby="rd-rank"><h2 id="rd-rank">Cheapest places, ranked</h2>
+      <section aria-labelledby="rd-rank"><div class="rd-radar"><h2>The radar</h2><p>The closer to the center, the cheaper. The dashed ring is your budget per person.</p>
+          <svg id="rd-svg" viewBox="0 0 400 400" role="img" aria-label="Radar chart of destinations by trip cost"></svg></div>
+        <h2 id="rd-rank">Cheapest places, ranked</h2>
         <ol class="rd-list" id="rd-list"></ol>
       </section>
       <section class="rd-kit" id="rd-kit" aria-live="polite" tabindex="-1"></section>
@@ -88,10 +90,27 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     }
     function fit(c) { if (!S.b) return ''; var tot = S.t; if (c.hi * tot <= S.b) return 'in'; if (c.lo * tot <= S.b) return 'maybe'; return 'out'; }
     function totals(c) { return [(c.lo + c.fare) * S.t, (c.hi + c.fare) * S.t]; }
+    function renderRadar(rows) {
+      var svg = document.getElementById('rd-svg'), C = 200, R = 168, n = D.length;
+      var vals = rows.map(function (r) { return r.c.lo + r.c.fare; }), bpp = S.b ? S.b / S.t : 0;
+      var max = Math.max.apply(null, vals.concat([bpp])) * 1.12, rad = function (v) { return 26 + (v / max) * (R - 26); };
+      var step = max > 2500 ? 1000 : max > 1200 ? 500 : max > 500 ? 250 : 100, h = '';
+      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="var(--line)"/><text x="' + (C + 4) + '" y="' + (C - rad(v) + 11) + '" font-size="9" fill="var(--mute)">' + money(v) + '</text>';
+      h += '<line x1="' + (C - R) + '" y1="' + C + '" x2="' + (C + R) + '" y2="' + C + '" stroke="var(--line)" stroke-width=".6"/><line x1="' + C + '" y1="' + (C - R) + '" x2="' + C + '" y2="' + (C + R) + '" stroke="var(--line)" stroke-width=".6"/>';
+      if (bpp) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(bpp) + '" fill="none" stroke="var(--sun)" stroke-width="2" stroke-dasharray="5 4"/>';
+      h += '<circle cx="' + C + '" cy="' + C + '" r="4" fill="var(--accent)"/>';
+      rows.forEach(function (r) {
+        var i = (D.indexOf(r.d) * 4) % n, a = -Math.PI / 2 + i / n * Math.PI * 2, v = r.c.lo + r.c.fare, rr = rad(v), x = C + rr * Math.cos(a), y = C + rr * Math.sin(a);
+        var f = fit(r.c), col = f === 'out' ? 'var(--coral)' : 'var(--accent)', sel = S.sel === r.d.key, lx = x > C ? x + 11 : x - 11, anc = x > C ? 'start' : 'end';
+        h += '<g class="rd-dot" tabindex="0" role="button" data-k="' + r.d.key + '" aria-label="' + esc(r.d.place) + ', from ' + money(v) + ' per person"><circle cx="' + x + '" cy="' + y + '" r="' + (sel ? 10 : 7) + '" fill="' + col + '" stroke="' + (sel ? 'var(--sun)' : 'var(--card)') + '" stroke-width="' + (sel ? 3 : 2) + '"/><text x="' + lx + '" y="' + (y + 4) + '" font-size="10.5" font-weight="600" text-anchor="' + anc + '" fill="var(--ink)">' + esc(r.d.place) + '</text></g>';
+      });
+      svg.innerHTML = h;
+    }
     function renderList() {
       var useF = !!(S.o && FARES);
       var rows = D.map(function (d) { return { d: d, c: cost(d) }; }).sort(function (a, b) { if (useF && !!a.c.fare !== !!b.c.fare) return a.c.fare ? -1 : 1; return (a.c.lo + a.c.fare) - (b.c.lo + b.c.fare); });
       var max = Math.max.apply(null, rows.map(function (r) { return r.c.hi + r.c.fare; }));
+      renderRadar(rows);
       list.innerHTML = rows.map(function (r, i) {
         var f = fit(r.c), badge = f === 'in' ? '<b class="ok">Fits your budget</b>' : f === 'maybe' ? '<b class="mb">Fits if you stay frugal</b>' : f === 'out' ? '<b class="no">Over budget</b>' : '';
         var l = ((r.c.lo + r.c.fare) / max * 100).toFixed(1), w = ((r.c.hi - r.c.lo) / max * 100).toFixed(1), tt = totals(r.c), fl = r.c.fare ? ', flights from ' + esc(FARES.origins[S.o]) + ' included' : (S.o && FARES ? ', no fare found' : ', flights excluded');
@@ -164,7 +183,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     document.getElementById('rd-n').value = S.n; document.getElementById('rd-t').value = S.t; if (S.b) document.getElementById('rd-b').value = S.b; document.getElementById('rd-o').value = S.o; if (document.getElementById('rd-o').value !== S.o) S.o = '';
     root.querySelectorAll('[data-style]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.style === S.style); });
     root.addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b) return;
+      var b = e.target.closest('button, .rd-dot'); if (!b) return;
       if (b.dataset.style) { S.style = b.dataset.style; root.querySelectorAll('[data-style]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); render(); }
       else if (b.dataset.k) { S.sel = b.dataset.k; S.tab = 'overview'; render(); if (window.matchMedia('(max-width: 900px)').matches) kit.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       else if (b.dataset.tab) { S.tab = b.dataset.tab; renderKit(); }
@@ -180,6 +199,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       else return;
       render();
     });
+    root.addEventListener('keydown', function (e) { var g = e.target.closest && e.target.closest('.rd-dot'); if (g && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); g.dispatchEvent(new MouseEvent('click', { bubbles: true })); } });
     render();
   })();
   </script>
@@ -196,6 +216,10 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     .rd-note{color:var(--mute);font-size:.9rem;margin:10px 2px 18px}
     .rd-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;align-items:start}
     .rd-grid h2{font-size:1.25rem;margin:0 0 10px}
+    .rd-radar{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:18px}
+    .rd-radar h2{font-size:1.05rem;margin:4px 8px 0} .rd-radar p{margin:0 8px 6px;color:var(--mute);font-size:.84rem}
+    .rd-radar svg{display:block;width:100%;height:auto;max-height:460px}
+    .rd-dot{cursor:pointer} .rd-dot:focus{outline:none} .rd-dot:focus circle,.rd-dot:hover circle{stroke:var(--sun);stroke-width:3}
     .rd-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
     .rd-row{width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;display:grid;grid-template-columns:28px 1fr auto;grid-template-areas:"rk nm pr" "bar bar bar" "bd bd bd";gap:6px 10px;align-items:center}
     .rd-row:hover{border-color:var(--accent)}
