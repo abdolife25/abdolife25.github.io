@@ -32,11 +32,11 @@ const origins = Object.entries(cfg.origins) as [string, string][];
 const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&layout=S10391&powered_by=true&campaign_id=121&promo_id=4038';
 ---
 <Base title="Trip cost radar: find the cheapest place to go" description="Rank worldwide destinations by what a week really costs, then see flights, stays, tours, food, transport, data and insurance for the one you pick. Every figure comes from our checked cost guides.">
-  <div class="wrap page-head">
+  <div class="wrap"><div class="rd-hero">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/tools.html">Trip tools</a></nav>
     <h1>Trip cost radar</h1>
-    <p>Where is a week cheapest? Set your style, nights and group, and the list re-ranks. Pick a place to get its full trip kit: costs, tips and the best deals, without leaving this page.</p>
-  </div>
+    <p>Where is a week cheapest? Set your style, nights and group, then tap a dot on the radar or a row in the list to open that trip's full kit: costs, tips and the best deals, without leaving this page.</p>
+  </div></div>
 
   <div class="wrap rd" data-radar>
     <form class="rd-controls" onsubmit="return false" aria-label="Trip settings">
@@ -52,8 +52,8 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     <p class="rd-note">Costs are per person for the ground trip: beds, food, local transport and sights. Pick where you fly from to add the cheapest recent flight fare; otherwise flights are left out. Prices in USD.</p>
 
     <div class="rd-grid">
-      <section aria-labelledby="rd-rank"><div class="rd-radar"><h2>The radar</h2><p>The closer to the center, the cheaper. The dashed ring is your budget per person.</p>
-          <svg id="rd-svg" viewBox="0 0 400 400" role="img" aria-label="Radar chart of destinations by trip cost"></svg></div>
+      <section aria-labelledby="rd-rank"><div class="rd-radar"><h2>The radar</h2><p>Closer to the center means cheaper. The yellow dashed ring is your budget per person.</p>
+          <div class="rd-screen"><svg id="rd-svg" viewBox="0 0 400 400" role="group" aria-label="Radar chart of destinations by trip cost. Each dot is a destination; activate one to open its trip kit."></svg><span class="rd-hint" id="rd-hint">Tap a dot to open its trip kit</span></div></div>
         <h2 id="rd-rank">Cheapest places, ranked</h2>
         <ol class="rd-list" id="rd-list"></ol>
       </section>
@@ -94,15 +94,24 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       var svg = document.getElementById('rd-svg'), C = 200, R = 168, n = D.length;
       var vals = rows.map(function (r) { return r.c.lo + r.c.fare; }), bpp = S.b ? S.b / S.t : 0;
       var max = Math.max.apply(null, vals.concat([bpp])) * 1.12, rad = function (v) { return 26 + (v / max) * (R - 26); };
-      var step = [50, 100, 200, 250, 500, 1000, 2000, 5000].filter(function (x) { return Math.ceil(max / x) - 1 <= 4; })[0] || 5000, h = '';
-      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="var(--line)"/><text x="' + (C + 4) + '" y="' + (C - rad(v) + 11) + '" font-size="9" fill="var(--mute)">' + money(v) + '</text>';
-      h += '<line x1="' + (C - R) + '" y1="' + C + '" x2="' + (C + R) + '" y2="' + C + '" stroke="var(--line)" stroke-width=".6"/><line x1="' + C + '" y1="' + (C - R) + '" x2="' + C + '" y2="' + (C + R) + '" stroke="var(--line)" stroke-width=".6"/>';
-      if (bpp) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(bpp) + '" fill="none" stroke="var(--sun)" stroke-width="2" stroke-dasharray="5 4"/>';
-      h += '<circle cx="' + C + '" cy="' + C + '" r="4" fill="var(--accent)"/>';
+      var step = [50, 100, 200, 250, 500, 1000, 2000, 5000].filter(function (x) { return Math.ceil(max / x) - 1 <= 4; })[0] || 5000;
+      var h = '<defs><radialGradient id="rdg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#1c8d86" stop-opacity=".55"/><stop offset="1" stop-color="#0b2a36" stop-opacity="0"/></radialGradient><linearGradient id="rds" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5ccdc0" stop-opacity="0"/><stop offset="1" stop-color="#5ccdc0" stop-opacity=".45"/></linearGradient></defs>';
+      h += '<circle cx="' + C + '" cy="' + C + '" r="' + (R + 8) + '" fill="url(#rdg)"/>';
+      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="#5ccdc0" stroke-opacity=".35" stroke-width="1.2"/><text x="' + (C + 5) + '" y="' + (C - rad(v) + 12) + '" font-size="10" font-weight="600" fill="#a9e6df">' + money(v) + '</text>';
+      h += '<line x1="' + (C - R) + '" y1="' + C + '" x2="' + (C + R) + '" y2="' + C + '" stroke="#5ccdc0" stroke-opacity=".25"/><line x1="' + C + '" y1="' + (C - R) + '" x2="' + C + '" y2="' + (C + R) + '" stroke="#5ccdc0" stroke-opacity=".25"/>';
+      h += '<g class="rd-sweep"><path d="M' + C + ' ' + C + ' L' + (C + R) + ' ' + C + ' A' + R + ' ' + R + ' 0 0 0 ' + (C + R * Math.cos(-.8)) + ' ' + (C + R * Math.sin(-.8)) + ' Z" fill="url(#rds)"/></g>';
+      if (bpp) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(bpp) + '" fill="none" stroke="#ffc83d" stroke-width="2.5" stroke-dasharray="6 4"/>';
+      h += '<circle cx="' + C + '" cy="' + C + '" r="5" fill="#ffc83d"/>';
+      var order = rows.map(function (r) { return r.d.key; });
       rows.forEach(function (r) {
         var i = (D.indexOf(r.d) * 4) % n, a = -Math.PI / 2 + i / n * Math.PI * 2, v = r.c.lo + r.c.fare, rr = rad(v), x = C + rr * Math.cos(a), y = C + rr * Math.sin(a);
-        var f = fit(r.c), col = f === 'out' ? 'var(--coral)' : 'var(--accent)', sel = S.sel === r.d.key, lx = x > C ? x + 11 : x - 11, anc = x > C ? 'start' : 'end';
-        h += '<g class="rd-dot" tabindex="0" role="button" data-k="' + r.d.key + '" aria-label="' + esc(r.d.place) + ', from ' + money(v) + ' per person"><circle cx="' + x + '" cy="' + y + '" r="' + (sel ? 10 : 7) + '" fill="' + col + '" stroke="' + (sel ? 'var(--sun)' : 'var(--card)') + '" stroke-width="' + (sel ? 3 : 2) + '"/><text x="' + lx + '" y="' + (y + 4) + '" font-size="10.5" font-weight="600" text-anchor="' + anc + '" fill="var(--ink)">' + esc(r.d.place) + '</text></g>';
+        var f = fit(r.c), col = f === 'out' ? '#ff8a6a' : '#5ce6d4', sel = S.sel === r.d.key, top = order.indexOf(r.d.key) < 3, lx = x > C ? x + 13 : x - 13, anc = x > C ? 'start' : 'end';
+        h += '<g class="rd-dot' + (sel ? ' sel' : '') + '" tabindex="0" role="button" data-k="' + r.d.key + '" aria-label="' + esc(r.d.place) + ', from ' + money(v) + ' per person. Open trip kit">' +
+          (top && !sel ? '<circle class="rd-pulse" cx="' + x + '" cy="' + y + '" r="9" fill="none" stroke="' + col + '" stroke-width="2"/>' : '') +
+          '<circle class="rd-hit" cx="' + x + '" cy="' + y + '" r="20" fill="transparent"/>' +
+          '<circle class="rd-d" cx="' + x + '" cy="' + y + '" r="' + (sel ? 11 : 8) + '" fill="' + (sel ? '#ffc83d' : col) + '" stroke="' + (sel ? '#fff' : '#0b2a36') + '" stroke-width="' + (sel ? 3 : 2.5) + '"/>' +
+          '<text x="' + lx + '" y="' + (y + 4.5) + '" font-size="12" font-weight="700" text-anchor="' + anc + '" fill="#fff" paint-order="stroke" stroke="#0b2a36" stroke-width="3" stroke-linejoin="round">' + esc(r.d.place) + '</text>' +
+          '<title>' + esc(r.d.place) + ': from ' + money(v) + ' per person. Click for the trip kit</title></g>';
       });
       svg.innerHTML = h;
     }
@@ -180,12 +189,13 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     function sync() { try { var q = new URLSearchParams({ s: S.style, n: S.n, t: S.t }); if (S.b) q.set('b', S.b); if (S.sel) q.set('d', S.sel); if (S.o) q.set('o', S.o); history.replaceState(null, '', '?' + q); } catch (e) {} }
     function render() { renderList(); renderKit(); sync(); }
     try { var q = new URLSearchParams(location.search); if (q.get('s') === 'mid') S.style = 'mid'; S.n = Math.min(21, Math.max(3, +q.get('n') || 6)); S.t = Math.min(8, Math.max(1, +q.get('t') || 2)); S.b = +q.get('b') || 0; S.o = q.get('o') || ''; if (D.some(function (x) { return x.key === q.get('d'); })) S.sel = q.get('d'); } catch (e) {}
+    if (!S.sel) { var first = D.slice().sort(function (a, b) { return a.total.tight[0] - b.total.tight[0]; })[0]; S.sel = first.key; }
     document.getElementById('rd-n').value = S.n; document.getElementById('rd-t').value = S.t; if (S.b) document.getElementById('rd-b').value = S.b; document.getElementById('rd-o').value = S.o; if (document.getElementById('rd-o').value !== S.o) S.o = '';
     root.querySelectorAll('[data-style]').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.style === S.style); });
     root.addEventListener('click', function (e) {
       var b = e.target.closest('button, .rd-dot'); if (!b) return;
       if (b.dataset.style) { S.style = b.dataset.style; root.querySelectorAll('[data-style]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); render(); }
-      else if (b.dataset.k) { S.sel = b.dataset.k; S.tab = 'overview'; render(); if (window.matchMedia('(max-width: 900px)').matches) kit.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      else if (b.dataset.k) { S.sel = b.dataset.k; S.picked = true; var hh = document.getElementById('rd-hint'); if (hh) hh.hidden = true; S.tab = 'overview'; render(); if (window.matchMedia('(max-width: 900px)').matches) kit.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
       else if (b.dataset.tab) { S.tab = b.dataset.tab; renderKit(); }
       else if (b.hasAttribute('data-share')) { try { navigator.clipboard.writeText(location.href).then(function () { b.textContent = 'Link copied'; }, function () { b.textContent = location.href; }); } catch (x) { b.textContent = location.href; } }
     });
@@ -205,7 +215,30 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
   </script>
 
   <style is:global>
+    .rd-hero{background:linear-gradient(135deg,#0a6f6a 0%,#0d4b5a 55%,#10233f 100%);color:#fff;border-radius:22px;padding:26px 28px 28px;margin:14px 0 18px;position:relative;overflow:hidden}
+    .rd-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,200,61,.35),rgba(255,200,61,0) 70%)}
+    .rd-hero h1{color:#fff;margin:10px 0 8px} .rd-hero p{color:#dcefed;max-width:60ch;margin:0;font-size:1.05rem}
+    .rd-hero .crumbs,.rd-hero .crumbs a,.rd-hero .crumbs span{color:#bfe3df}
     .rd{padding-bottom:48px}
+    .rd-screen{position:relative;border-radius:14px;background:radial-gradient(circle at 50% 45%,#12505a 0%,#0b2a36 62%,#081b24 100%);box-shadow:0 0 0 1px rgba(92,205,192,.35),0 10px 30px rgba(8,27,36,.35);overflow:hidden}
+    .rd-hint{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);background:#ffc83d;color:#10233f;font-weight:700;font-size:.82rem;padding:6px 14px;border-radius:999px;box-shadow:0 4px 14px rgba(0,0,0,.35);animation:rdbob 1.8s ease-in-out infinite;pointer-events:none;white-space:nowrap}
+    @keyframes rdbob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-4px)}}
+    .rd-sweep{transform-origin:200px 200px;transform-box:view-box;animation:rdspin 7s linear infinite}
+    @keyframes rdspin{to{transform:rotate(360deg)}}
+    .rd-pulse{transform-box:fill-box;transform-origin:center;animation:rdpulse 1.8s ease-out infinite}
+    @keyframes rdpulse{0%{transform:scale(1);opacity:.9}100%{transform:scale(2.6);opacity:0}}
+    .rd-dot .rd-d{transition:transform .15s;transform-box:fill-box;transform-origin:center}
+    .rd-dot:hover .rd-d,.rd-dot:focus .rd-d{transform:scale(1.35)}
+    .rd-dot:focus{outline:none} .rd-dot:focus .rd-d{stroke:#ffc83d}
+    @media (prefers-reduced-motion:reduce){.rd-sweep,.rd-pulse,.rd-hint{animation:none}}
+    .rd-controls{box-shadow:0 8px 24px rgba(16,35,63,.10);border:1px solid var(--accent)}
+    .rd-controls label{color:var(--ink)}
+    .seg button[aria-pressed="true"]{background:linear-gradient(135deg,var(--accent),#0d8a83);color:var(--accent-ink);box-shadow:0 2px 8px rgba(10,111,106,.35)}
+    .rd-row{transition:transform .12s,box-shadow .12s,border-color .12s}
+    .rd-row:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(10,111,106,.18);border-color:var(--accent)}
+    .rd-kit{border:1px solid var(--accent);box-shadow:0 10px 30px rgba(10,111,106,.14)}
+    .rd-radar{background:transparent;border:0;padding:0}
+    .rd-radar h2,.rd-radar p{margin-left:2px}
     .rd-controls{display:grid;grid-template-columns:auto repeat(2,minmax(90px,120px)) minmax(130px,1fr) minmax(180px,1.3fr);gap:14px;align-items:end;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
     .rd-controls label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.9rem}
     .rd-controls label small{font-weight:400;color:var(--mute)}
