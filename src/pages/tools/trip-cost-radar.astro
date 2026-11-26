@@ -97,15 +97,15 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       var step = [50, 100, 200, 250, 500, 1000, 2000, 5000].filter(function (x) { return Math.ceil(max / x) - 1 <= 4; })[0] || 5000;
       var h = '<defs><radialGradient id="rdg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#1c8d86" stop-opacity=".55"/><stop offset="1" stop-color="#0b2a36" stop-opacity="0"/></radialGradient><linearGradient id="rds" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5ccdc0" stop-opacity="0"/><stop offset="1" stop-color="#5ccdc0" stop-opacity=".45"/></linearGradient></defs>';
       h += '<circle cx="' + C + '" cy="' + C + '" r="' + (R + 8) + '" fill="url(#rdg)"/>';
-      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="#5ccdc0" stroke-opacity=".35" stroke-width="1.2"/><text x="' + (C + 5) + '" y="' + (C - rad(v) + 12) + '" font-size="10" font-weight="600" fill="#a9e6df">' + money(v) + '</text>';
+      for (var v = step; v < max; v += step) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(v) + '" fill="none" stroke="#5ccdc0" stroke-opacity=".35" stroke-width="1.2"/><text x="' + (C + 5) + '" y="' + (C - rad(v) + 12) + '" font-size="10" font-weight="700" fill="#bff2ec" paint-order="stroke" stroke="#0b2a36" stroke-width="3">' + money(v) + '</text>';
       h += '<line x1="' + (C - R) + '" y1="' + C + '" x2="' + (C + R) + '" y2="' + C + '" stroke="#5ccdc0" stroke-opacity=".25"/><line x1="' + C + '" y1="' + (C - R) + '" x2="' + C + '" y2="' + (C + R) + '" stroke="#5ccdc0" stroke-opacity=".25"/>';
       h += '<g class="rd-sweep"><path d="M' + C + ' ' + C + ' L' + (C + R) + ' ' + C + ' A' + R + ' ' + R + ' 0 0 0 ' + (C + R * Math.cos(-.8)) + ' ' + (C + R * Math.sin(-.8)) + ' Z" fill="url(#rds)"/></g>';
       if (bpp) h += '<circle cx="' + C + '" cy="' + C + '" r="' + rad(bpp) + '" fill="none" stroke="#ffc83d" stroke-width="2.5" stroke-dasharray="6 4"/>';
       h += '<circle cx="' + C + '" cy="' + C + '" r="5" fill="#ffc83d"/>';
       var order = rows.map(function (r) { return r.d.key; });
       rows.forEach(function (r) {
-        var i = (D.indexOf(r.d) * 4) % n, a = -Math.PI / 2 + i / n * Math.PI * 2, v = r.c.lo + r.c.fare, rr = rad(v), x = C + rr * Math.cos(a), y = C + rr * Math.sin(a);
-        var f = fit(r.c), col = f === 'out' ? '#ff8a6a' : '#5ce6d4', sel = S.sel === r.d.key, top = order.indexOf(r.d.key) < 3, lx = x > C ? x + 13 : x - 13, anc = x > C ? 'start' : 'end';
+        var i = (D.indexOf(r.d) * 4) % n, a = -Math.PI / 2 + (i + .5) / n * Math.PI * 2, v = r.c.lo + r.c.fare, rr = rad(v), x = C + rr * Math.cos(a), y = C + rr * Math.sin(a);
+        var f = fit(r.c), col = f === 'out' ? '#ff8a6a' : '#5ce6d4', sel = S.sel === r.d.key, top = order.indexOf(r.d.key) < 3, lx = x > C - 14 ? x + 13 : x - 13, anc = x > C - 14 ? 'start' : 'end';
         h += '<g class="rd-dot' + (sel ? ' sel' : '') + '" tabindex="0" role="button" data-k="' + r.d.key + '" aria-label="' + esc(r.d.place) + ', from ' + money(v) + ' per person. Open trip kit">' +
           (top && !sel ? '<circle class="rd-pulse" cx="' + x + '" cy="' + y + '" r="9" fill="none" stroke="' + col + '" stroke-width="2"/>' : '') +
           '<circle class="rd-hit" cx="' + x + '" cy="' + y + '" r="20" fill="transparent"/>' +
@@ -121,10 +121,10 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
       var max = Math.max.apply(null, rows.map(function (r) { return r.c.hi + r.c.fare; }));
       renderRadar(rows);
       list.innerHTML = rows.map(function (r, i) {
-        var f = fit(r.c), badge = f === 'in' ? '<b class="ok">Fits your budget</b>' : f === 'maybe' ? '<b class="mb">Fits if you stay frugal</b>' : f === 'out' ? '<b class="no">Over budget</b>' : '';
+        var f = fit(r.c), badge = f === 'in' ? '<b class="ok">Fits your budget</b>' : f === 'maybe' ? '<b class="mb">Fits if you stay frugal</b>' : f === 'out' ? '<b class="no">Over budget</b>' : (i === 0 ? '<b class="ok">Cheapest right now</b>' : '');
         var w = ((r.c.lo + r.c.fare) / max * 100).toFixed(1), tt = totals(r.c), fl = r.c.fare ? ', flights from ' + esc(FARES.origins[S.o]) + ' included' : (S.o && FARES ? ', no fare found' : ', flights excluded');
         return '<li><button type="button" class="rd-row' + (S.sel === r.d.key ? ' on' : '') + (f === 'out' ? ' dim' : '') + '" data-k="' + r.d.key + '">' +
-          '<span class="rk">' + (i + 1) + '</span><span class="nm"><strong>' + esc(r.d.place) + '</strong><small>' + esc(r.d.region) + '</small></span>' +
+          '<span class="rk' + (i < 3 ? ' top' : '') + '">' + (i + 1) + '</span><span class="nm"><strong>' + esc(r.d.place) + '</strong><small>' + esc(r.d.region) + '</small></span>' +
           '<span class="pr"><strong>' + money(tt[0]) + '–' + money(tt[1]) + '</strong><small>' + S.t + ' traveler' + (S.t > 1 ? 's' : '') + ', ' + S.n + ' nights' + fl + '</small></span>' +
           '<span class="bar" aria-hidden="true"><i style="width:' + w + '%"></i></span>' + badge + '</button></li>';
       }).join('');
@@ -265,7 +265,16 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     .bar{grid-area:bar;position:relative;height:8px;background:var(--mist);border-radius:6px;display:block}
     .bar i{position:absolute;top:0;bottom:0;left:0;background:linear-gradient(90deg,var(--accent),var(--sun));border-radius:6px;min-width:4px}
     .rd-row b{grid-area:bd;font-size:.78rem;font-weight:650}
-    .rd-row b.ok{color:var(--accent)} .rd-row b.mb{color:#9a6a00} .rd-row b.no{color:var(--coral)}
+    .rd-row b{justify-self:start;padding:3px 10px;border-radius:999px;border:1px solid transparent}
+    .rd-row b.ok{background:rgba(10,111,106,.12);color:var(--accent);border-color:rgba(10,111,106,.35)}
+    .rd-row b.mb{background:rgba(255,200,61,.22);color:#7a5200;border-color:rgba(200,150,0,.4)}
+    .rd-row b.no{background:rgba(200,64,31,.10);color:var(--coral);border-color:rgba(200,64,31,.35)}
+    :root[data-theme="dark"] .rd-row b.mb{color:#ffd877}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rd-row b.mb{color:#ffd877}:root:not([data-theme="light"]) .rd-row b.ok{background:rgba(92,205,192,.14);border-color:rgba(92,205,192,.4)}}
+    :root[data-theme="dark"] .rd-row b.ok{background:rgba(92,205,192,.14);border-color:rgba(92,205,192,.4)}
+    .rd-row .rk{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--mist);font-size:.95rem}
+    .rd-row .rk.top{background:var(--sun);color:#10233f}
+    .rd-row .pr strong{color:var(--accent);font-size:1.05rem}
     .rd-kit{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;position:sticky;top:12px;min-width:0}
     .rd-kit header{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
     .rd-kit header h2{margin:0;font-size:1.6rem}
