@@ -51,16 +51,15 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     </form>
     <p class="rd-note">Costs are per person for the ground trip: beds, food, local transport and sights. Pick where you fly from to add the cheapest recent flight fare; otherwise flights are left out. Prices in USD.</p>
 
-    <div class="rd-radar"><h2>The radar</h2><p>Closer to the center means cheaper. The yellow dashed ring is your budget per person.</p>
-          <div class="rd-screen"><svg id="rd-svg" viewBox="-80 0 560 400" role="group" aria-label="Radar chart of destinations by trip cost. Each dot is a destination; activate one to open its trip kit."></svg><span class="rd-hint" id="rd-hint">Tap a dot to open its trip kit</span></div></div>
-
     <div class="rd-grid">
-      <section aria-labelledby="rd-rank">
-        <h2 id="rd-rank">Cheapest places, ranked</h2>
-        <ol class="rd-list" id="rd-list"></ol>
-      </section>
+      <div class="rd-radar"><h2>The radar</h2><p>Closer to the center means cheaper. The yellow dashed ring is your budget per person.</p>
+          <div class="rd-screen"><svg id="rd-svg" viewBox="-80 0 560 400" role="group" aria-label="Radar chart of destinations by trip cost. Each dot is a destination; activate one to open its trip kit."></svg><span class="rd-hint" id="rd-hint">Tap a dot to open its trip kit</span></div></div>
       <section class="rd-kit" id="rd-kit" aria-live="polite" tabindex="-1"></section>
     </div>
+    <section class="rd-ranked" aria-labelledby="rd-rank">
+      <h2 id="rd-rank">All places, cheapest first</h2>
+      <ol class="rd-list" id="rd-list"></ol>
+    </section>
     <p class="rd-foot">Figures are ranges from our own guides, checked against current price lists at the time of writing, and they will drift. Affiliate links: we may earn a commission at no extra cost to you. One partner per job, never two for the same thing.</p>
   </div>
 
@@ -94,7 +93,7 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     function totals(c) { return [(c.lo + c.fare) * S.t, (c.hi + c.fare) * S.t]; }
     function renderRadar(rows) {
       var svg = document.getElementById('rd-svg'), C = 200, R = 168, n = D.length;
-      var W = svg.parentNode.clientWidth || 600, narrow = W < 600, vb = narrow ? { x: -10, w: 420 } : { x: -80, w: 560 };
+      var W = svg.parentNode.clientWidth || 600, narrow = W < 520, vb = narrow ? { x: -10, w: 420 } : { x: -80, w: 560 };
       svg.setAttribute('viewBox', vb.x + ' 0 ' + vb.w + ' 400');
       var sc = W / vb.w, fs = narrow ? 10.5 / sc : Math.min(22, Math.max(12, 14 / sc)), rf = narrow ? 9.5 / sc : Math.min(20, Math.max(10.5, 12 / sc)), dr = narrow ? 6.5 / sc : Math.min(13, Math.max(8, 8.5 / sc));
       var vals = rows.map(function (r) { return r.c.lo + r.c.fare; }), bpp = S.b ? S.b / S.t : 0;
@@ -272,13 +271,15 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     .seg button{font:inherit;font-weight:650;padding:10px 14px;border:0;background:none;color:var(--accent);cursor:pointer}
     .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
     .rd-note{color:var(--mute);font-size:.9rem;margin:10px 2px 18px}
-    .rd-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:24px;align-items:start}
+    .rd-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:24px;align-items:start}
     .rd-grid h2{font-size:1.25rem;margin:0 0 10px}
     .rd-radar{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;margin-bottom:18px}
     .rd-radar h2{font-size:1.05rem;margin:4px 8px 0} .rd-radar p{margin:0 8px 6px;color:var(--mute);font-size:.84rem}
-    .rd-radar{margin:0 0 22px}
+    .rd-radar{margin:0;background:none;border:0;padding:0}
     .rd-radar svg{display:block;width:100%;height:auto}
-    .rd-screen{max-width:960px;margin:0 auto}
+    .rd-screen{max-width:none}
+    .rd-ranked{margin-top:28px} .rd-ranked h2{font-size:1.25rem;margin:0 0 12px}
+    .rd-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
     .rd-dot{cursor:pointer} .rd-dot:focus{outline:none} .rd-dot:focus circle,.rd-dot:hover circle{stroke:var(--sun);stroke-width:3}
     .rd-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
     .rd-row{width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;cursor:pointer;display:grid;grid-template-columns:28px 1fr auto;grid-template-areas:"rk nm pr" "bar bar bar" "bd bd bd";gap:6px 10px;align-items:center}
@@ -306,8 +307,8 @@ const tripSrc = 'https://tpembd.com/content?trs=361290&shmarker=582286&lang=www&
     .rd-kit header{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
     .rd-kit header h2{margin:0;font-size:1.6rem}
     .rd-kit header span{color:var(--mute)}
-    .rd-tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px;scrollbar-width:thin}
-    .rd-tabs button{font:inherit;font-size:.88rem;font-weight:600;white-space:nowrap;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+    .rd-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+    .rd-tabs button{font:inherit;font-size:.9rem;font-weight:650;text-align:center;line-height:1.2;min-height:44px;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
     .rd-tabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
     .rd-pane p{margin:0 0 12px}
     .rd-total{display:flex;flex-direction:column;gap:2px;background:var(--mist);border-radius:14px;padding:14px;margin-bottom:12px}
